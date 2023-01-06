@@ -1,0 +1,8 @@
+Username  = eebrowning
+
+Password = twinkle1
+
+Connection String = mongodb+srv://eebrowning:twinkle1@cluster0.sroq4dh.mongodb.net/test
+
+
+https://medium.com/swlh/how-to-create-your-first-mern-mongodb-express-js-react-js-and-node-js-stack-7e8b20463e66

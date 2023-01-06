@@ -1,0 +1,55 @@
+const express = require('express')
+const { check } = require('express-validator');
+
+const ProfileCtrl = require('../db/controllers/profile-ctrl')
+
+const router = express.Router()
+
+const validateProfile = [//pass as middleware with the correct fields
+    check('name')
+        .exists({ checkFalsy: true })
+        .isLength({ min: 4 })
+        .withMessage('Please provide a name(min 4 characters).'),
+    check('birthdate')
+        .exists({ checkFalsy: true })
+        .isISO8601().toDate()
+        .withMessage('Please provide a date of birth.'),
+    check('location')
+        .isLength({ min: 4 })
+        .withMessage('Enter a valid location, min 4 characters'),
+    check('team')
+        .exists({ checkFalsy: true })
+        .isLength({ min: 4 })
+        .withMessage('Enter a valid team name, min 4 characters'),
+    check('gender')
+        .exists({ checkFalsy: true })
+        .withMessage('Please select gender.'),
+    check('sports')
+        .exists({ checkFalsy: true })
+        .withMessage('Please select at least one sport.'),
+    check('about')
+        .isLength({ min: 10 })
+        .withMessage('About must be at least 10 characters long.'),
+    // check('interests')
+    // .exists({ checkFalsy: true })
+    // .isLength({ min: 10 })
+    // .withMessage('Interests must be at least 10 characters long.'),
+    check('avatar')
+        .isURL()
+        .withMessage('Please provide an image link(.png or .jpg)')
+        .custom(imageURL => {
+            if (imageURL.includes('.png') || imageURL.includes('.jpg')) {
+                return true;
+            }
+            throw new Error('Please only use a link to a .jpg or .png')
+        }),
+];
+
+
+
+router.post('/profile', validateProfile, ProfileCtrl.createProfile)
+router.put('/profile/:id', validateProfile, ProfileCtrl.updateProfile)
+router.get('/profile/:id', ProfileCtrl.getProfileById)
+router.get('/profiles', ProfileCtrl.getProfiles)
+
+module.exports = router
