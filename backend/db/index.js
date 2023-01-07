@@ -12,7 +12,7 @@ mongoose.connect(MONGO_URI, { useNewUrlParser: true })
     })
 
 
-// mongoose.connect('mongodb://127.0.0.1:27017/profiles', { useNewUrlParser: true })
+// mongoose.connect('mongodb://127.0.0.1:8000/profiles', { useNewUrlParser: true })
 //     .then(() => console.log("MongoDB Connected!"))
 //     .catch(e => {
 //         console.error('Connection error', e.message)

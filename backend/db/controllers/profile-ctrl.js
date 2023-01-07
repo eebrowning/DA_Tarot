@@ -87,18 +87,26 @@ getProfileById = async (req, res) => {
     }).catch(err => console.log(err))
 }
 
+
 getProfiles = async (req, res) => {
-    await Profile.find({}, (err, profiles) => {
-        if (err) {
-            return res.status(400).json({ success: false, error: err })
-        }
-        if (!profiles.length) {
-            return res
-                .status(404)
-                .json({ success: false, error: `Profile not found` })
-        }
-        return res.status(200).json({ success: true, data: profiles })
-    }).catch(err => console.log(err))
+    let profiles = await Profile.find({})
+    // console.log(profiles, 'res')
+
+    // return res.status(200).json({ success: true, data: profiles })
+    try {
+        res.status(200).json({
+            success: true,
+            data: {
+                profiles
+            }
+        })
+    } catch (err) {
+        res.status(500).json({
+            success: false,
+            message: err
+        })
+    }
+
 }
 
 module.exports = {

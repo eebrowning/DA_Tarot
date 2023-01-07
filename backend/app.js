@@ -3,7 +3,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 
 const db = require('./db');
-const profileRouter = require('./routes/profile-router');//mistakenly named everything "users", should all be "profiles"
+const profileRouter = require('./routes/profile-router');
 
 const app = express()
 const apiPort = 8000
@@ -14,11 +14,9 @@ app.use(bodyParser.json())
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
-app.get('/', (req, res) => {
-
-
-    res.send('Hello World!,Test')
-})
+// app.get('/', (req, res) => {
+//     res.send('Hello World!,Test')
+// })
 
 app.use('/api', profileRouter);
 

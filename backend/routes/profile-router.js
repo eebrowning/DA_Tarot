@@ -1,7 +1,8 @@
 const express = require('express')
 const { check } = require('express-validator');
 
-const ProfileCtrl = require('../db/controllers/profile-ctrl')
+const ProfileCtrl = require('../db/controllers/profile-ctrl');
+const { handleValidationErrors } = require('../utils/validation');
 
 const router = express.Router()
 
@@ -43,6 +44,7 @@ const validateProfile = [//pass as middleware with the correct fields
             }
             throw new Error('Please only use a link to a .jpg or .png')
         }),
+    handleValidationErrors
 ];
 
 
