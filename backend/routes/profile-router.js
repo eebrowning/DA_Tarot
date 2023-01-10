@@ -1,5 +1,7 @@
 const express = require('express')
 const { check } = require('express-validator');
+const asyncHandler = require('express-async-handler');
+// const Profile = require('../../models/profile')ß
 
 const ProfileCtrl = require('../db/controllers/profile-ctrl');
 const { handleValidationErrors } = require('../utils/validation');
@@ -53,5 +55,6 @@ router.post('/profile', validateProfile, ProfileCtrl.createProfile)
 router.put('/profile/:id', validateProfile, ProfileCtrl.updateProfile)
 router.get('/profile/:id', ProfileCtrl.getProfileById)
 router.get('/profiles', ProfileCtrl.getProfiles)
+router.delete('/profile/:id', ProfileCtrl.deleteProfileById)
 
 module.exports = router

@@ -1,0 +1,14 @@
+/* #sports-select {
+    height: 200px;
+    width: 200px;
+} */
+
+
+
+option:before {
+    content: "☐ "
+}
+
+option:checked:before {
+    content: "☑ "
+}

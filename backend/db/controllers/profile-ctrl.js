@@ -1,4 +1,6 @@
-const Profile = require('../../models/profile')
+const Profile = require('../../models/profile');
+const asyncHandler = require('express-async-handler');
+
 ///pad out requirements for user submission->back-end validation should be there.
 createProfile = (req, res) => {
     const body = req.body
@@ -73,18 +75,42 @@ updateProfile = async (req, res) => {
 
 
 getProfileById = async (req, res) => {
-    await Profile.findOne({ _id: req.params.id }, (err, profile) => {
-        if (err) {
-            return res.status(400).json({ success: false, error: err })
-        }
 
-        if (!profile) {
-            return res
-                .status(404)
-                .json({ success: false, error: `Profile not found` })
-        }
-        return res.status(200).json({ success: true, data: profile })
-    }).catch(err => console.log(err))
+    let profile = await Profile.findOne({ _id: req.params.id });
+
+    try {
+        res.status(200).json({
+            success: true,
+            data: profile
+        })
+    } catch (err) {
+        res.status(500).json({
+            success: false,
+            message: err
+        })
+    }
+
+}
+
+deleteProfileById = async (req, res) => {
+
+    let deleted = await Profile.findOneAndDelete({ _id: req.params.id })
+    //     , function (err) {
+    //     if (err) console.log(err);
+    //     console.log("Successful deletion");
+    // });
+    try {
+        res.status(200).json({
+            success: true,
+            data: deleted
+        })
+    } catch (err) {
+        res.status(500).json({
+            success: false,
+            message: err
+        })
+    }
+
 }
 
 
@@ -109,9 +135,11 @@ getProfiles = async (req, res) => {
 
 }
 
+
 module.exports = {
     createProfile,
     updateProfile,
     getProfiles,
     getProfileById,
+    deleteProfileById
 }

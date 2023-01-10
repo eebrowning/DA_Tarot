@@ -17,11 +17,13 @@ function SingleAthlete(profile) {
     let [about, setAbout] = useState(profile.about);
     let [interests, setInterests] = useState(profile.interests);
     let [avatar, setAvatar] = useState(profile.avatar);
+    let [id, setId] = useState(profile._id);
 
+    // let id = profile.id;
 
     // let data;
 
-    console.log(profile, 'in single')
+    console.log(id, 'in single')
 
     useEffect(() => {
         // async function fetchData() {
@@ -35,13 +37,27 @@ function SingleAthlete(profile) {
     }, [])
 
 
+    const handleDelete = async (e) => {
+        e.preventDefault();
+
+
+
+        try {
+            let response = await api.deleteProfileById(id)
+
+        } catch (err) {
+            // Handle error
+            console.log(err);
+
+        }
+
+    }
 
     return (
 
         <div className='profile' >
             <img src={avatar} />
             <div id='basic-info'>
-
                 <p>Name: {name}</p>
                 <p>Sports: {sports}</p>
                 <p>Gender: {gender}</p>
@@ -53,7 +69,7 @@ function SingleAthlete(profile) {
                 <p>About: {about}</p>
                 <p>Interests: {interests}</p>
             </div>
-
+            <button id={id} onClick={handleDelete} >Delete Athlete </button>
         </div>
 
     );

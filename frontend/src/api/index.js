@@ -10,6 +10,7 @@ export const insertProfile = payload => api.post(`/profile`, payload)
 export const getAllProfiles = () => api.get(`/profiles`)
 export const updateProfileById = (id, payload) => api.put(`/profile/${id}`, payload)
 export const getProfileById = id => api.get(`/profile/${id}`)
+export const deleteProfileById = id => api.delete(`profile/${id}`)
 
 
 const apis = {
@@ -17,5 +18,6 @@ const apis = {
     getAllProfiles,
     updateProfileById,
     getProfileById,
+    deleteProfileById
 }
 export default apis
