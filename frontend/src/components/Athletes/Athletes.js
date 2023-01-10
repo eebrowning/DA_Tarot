@@ -17,7 +17,8 @@ function Athletes() {
         async function fetchData() {
             let response = await api.getAllProfiles()
             data = response.data.data.profiles;
-            setProfiles(data);
+            console.log(data, profiles, 'data and profiles')
+            if (data != profiles) setProfiles(data);
             return response;
         }
         fetchData();
@@ -31,16 +32,8 @@ function Athletes() {
             <>All Profiles</>
             <>
                 {profiles?.map(profile => (
-                    <SingleAthlete profile={profile} />
-                    // <div className='profile' >
-                    //     <span>{Object.keys(profile).map(field => (
-                    //         <div>{field}</div>
-                    //     ))}</span>
-                    //     <span>{Object.values(profile).map(field => (
-                    //         <div>{field}</div>
-                    //     ))}</span>
+                    <SingleAthlete profile={profile} profiles={profiles} />
 
-                    // </div>
                 ))}
             </>
 

@@ -6,8 +6,10 @@ import "./athletes.css"
 
 
 
-function SingleAthlete(profile) {
+function SingleAthlete(profile, profiles) {
     profile = profile.profile;
+    console.log(profiles, 'in single')
+
     let [name, setName] = useState(profile.name);
     let [birthdate, setBirthdate] = useState(profile.birthdate);
     let [location, setLocation] = useState(profile.location);
@@ -23,7 +25,6 @@ function SingleAthlete(profile) {
 
     // let data;
 
-    console.log(id, 'in single')
 
     useEffect(() => {
         // async function fetchData() {
@@ -34,12 +35,11 @@ function SingleAthlete(profile) {
         // }
         // fetchData();
         // // console.log(data, 'data', profiles)
-    }, [])
+    }, [profiles])
 
 
     const handleDelete = async (e) => {
         e.preventDefault();
-
 
 
         try {
@@ -50,6 +50,7 @@ function SingleAthlete(profile) {
             console.log(err);
 
         }
+        console.log('profiles after delete', profiles)
 
     }
 
