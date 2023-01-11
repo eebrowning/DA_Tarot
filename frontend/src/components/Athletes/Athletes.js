@@ -1,29 +1,38 @@
 
 import axios from "axios";
-import { useEffect, useState } from "react"
 import api from "../../api";
+import { useEffect, useState } from "react"
 import "./athletes.css"
 import SingleAthlete from "./SingleAthlete";
+import { useDispatch, useSelector } from "react-redux";
+import { thunkGetAllAthletes } from "../../store/athletes";
+
 
 function Athletes() {
     let [profiles, setProfiles] = useState([]);
-    //since this is a single-crud, I'm just going to do dispatch-thunk behavior inside of this component to save time instead of setting up a store.
+    let dispatch = useDispatch();
+    const athletes = useSelector((state) => Object.values(state.athletesReducer));
     let data;
-
-    console.log(profiles, 'profiles')
-
-
     useEffect(() => {
-        async function fetchData() {
-            let response = await api.getAllProfiles()
-            data = response.data.data.profiles;
-            console.log(data, profiles, 'data and profiles')
-            if (data != profiles) setProfiles(data);
-            return response;
-        }
-        fetchData();
-        // console.log(data, 'data', profiles)
-    }, [])
+
+        dispatch(thunkGetAllAthletes());
+        // console.log("sent dispatch to thunkGetAllAthletes")
+        console.log(athletes, 'athletes in component')
+        // setProfiles(athletes)
+    }, [dispatch])
+
+
+    // useEffect(() => {
+    //     async function fetchData() {
+    //         let response = await api.getAllProfiles()
+    //         data = response.data.data.profiles;
+    //         console.log(data, profiles, 'data and profiles')
+    //         if (data != profiles) setProfiles(data);
+    //         return response;
+    //     }
+    //     fetchData();
+    //     // console.log(data, 'data', profiles)
+    // }, [])
 
 
 
@@ -31,8 +40,8 @@ function Athletes() {
         <div className="Athletes">
             <>All Profiles</>
             <>
-                {profiles?.map(profile => (
-                    <SingleAthlete profile={profile} profiles={profiles} />
+                {athletes?.map(profile => (
+                    <SingleAthlete key={profile._id} profile={profile} profiles={profiles} />
 
                 ))}
             </>

@@ -1,5 +1,7 @@
 // const { csrfFetch } = require('./csrf');
 
+import axios from "axios";
+import api from "../api";
 
 const CREATE_ATHLETE = 'create/createAthlete'//create
 const GET_ATHLETES = 'athletes/getAthletes'//read
@@ -42,18 +44,22 @@ const actionDeleteAthlete = (athleteId) => {
 }
 
 //THUNKS one per route
-
+//tested, good
 export const thunkGetAllAthletes = () => async dispatch => {
-    const res = await fetch('/api/athletes')
+    let res = await api.getAllProfiles()
 
-    console.log('THUNK, GET ALL ATHLETES: ')
+    // console.log('THUNK, GET ALL ATHLETES: ')
 
-    if (res.ok) {
-        const athletes = await res.json();
+    if (res.status = 200) {
+        let athletes = await res.data.data;
+        // athletes = JSON.stringify(athletes)
+        console.log(athletes, 'athletes in thunk')
         dispatch(actionGetAthletes(athletes))
         return athletes;
     }
 }
+
+//todo
 export const thunkGetAthlete = (athleteId) => async dispatch => {
     // console.log('athlete in thunkGetAthlete')
 
@@ -65,7 +71,7 @@ export const thunkGetAthlete = (athleteId) => async dispatch => {
         return athlete;
     }
 }
-
+//todo
 export const thunkCreateAthlete = (athlete) => async dispatch => {
     // console.log(athlete, 'in thunkCreateAthlete, step4?')
     const res = await fetch('/api/athletes', {
@@ -82,9 +88,9 @@ export const thunkCreateAthlete = (athlete) => async dispatch => {
         return athlete;
     }
 }
-
+//todo
 export const thunkUpdateAthlete = athlete => async dispatch => {
-    console.log(athlete, '\n\n\n', 'in thunkUpdateAthlete');
+    // console.log(athlete, '\n\n\n', 'in thunkUpdateAthlete');
 
     const res = await fetch(`/api/athletes/${athlete.id}`, {
         method: 'put',
@@ -98,15 +104,19 @@ export const thunkUpdateAthlete = athlete => async dispatch => {
     }
 }
 
-
+//todo
 export const thunkDeleteAthlete = (athleteId) => async dispatch => {
-    console.log(athleteId, 'in thunkDeleteAthlete')
-    const res = await fetch(`/api/athletes/${athleteId}`, {
-        method: 'delete',
-    })
-    if (res.ok) {
-        const newId = await res.json();
-        console.log('Thunk, delete Athlete: ',)
+    // console.log(athleteId, 'in thunkDeleteAthlete')
+    // const res = await fetch(`/api/athletes/${athleteId}`, {
+    //     method: 'delete',
+    // })
+    let res = await api.deleteProfileById(athleteId)
+    console.log(res.data, 'in thunkDeleteAthlete')
+    if (res.success = true) {
+        // const newId = await res.json();
+        const newId = await res.data.data._id;
+
+        console.log('Thunk, delete Athlete: ', newId, 'should be newID')
         dispatch(actionDeleteAthlete(newId))
         // return athlete;
     }
@@ -123,8 +133,9 @@ const athletesReducer = (state = iState, action) => {
             return newState;
         case GET_ATHLETES:
             newState = {};
-            action.athletes.forEach(athlete => {
-                newState[athlete.id] = athlete;
+            // console.log(action.athletes.profiles, 'in GET_')
+            action.athletes.profiles.forEach(athlete => {
+                newState[athlete._id] = athlete;
             })
             // console.log(action, "...GET_ATHLETES... in athletesReducer")
             return newState;
@@ -139,7 +150,7 @@ const athletesReducer = (state = iState, action) => {
             newState[action.athlete.id] = action.athlete;
             return newState;
         case DELETE_ATHLETE:
-            // console.log(action, 'action...DELETE_ATHLETE...')
+            console.log(action, 'action...DELETE_ATHLETE...')
             newState = { ...state }
             delete newState[action.athleteId]
             return newState;

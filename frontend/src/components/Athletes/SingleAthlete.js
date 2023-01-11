@@ -1,15 +1,17 @@
 
 import axios from "axios";
 import { useEffect, useState } from "react"
+import { useDispatch, useSelector } from "react-redux";
 import api from "../../api";
+import { thunkDeleteAthlete } from "../../store/athletes";
 import "./athletes.css"
 
 
 
-function SingleAthlete(profile, profiles) {
+function SingleAthlete(profile) {
     profile = profile.profile;
-    console.log(profiles, 'in single')
-
+    let dispatch = useDispatch();
+    const athletes = useSelector((state) => Object.values(state.athletesReducer));
     let [name, setName] = useState(profile.name);
     let [birthdate, setBirthdate] = useState(profile.birthdate);
     let [location, setLocation] = useState(profile.location);
@@ -35,22 +37,22 @@ function SingleAthlete(profile, profiles) {
         // }
         // fetchData();
         // // console.log(data, 'data', profiles)
-    }, [profiles])
+    }, [])
 
 
     const handleDelete = async (e) => {
         e.preventDefault();
+        console.log(e.target.id, 'should be ath id')
+        dispatch(thunkDeleteAthlete(e.target.id))
 
+        // try {
+        //     let response = await api.deleteProfileById(id)
 
-        try {
-            let response = await api.deleteProfileById(id)
+        // } catch (err) {
+        //     // Handle error
+        //     console.log(err);
 
-        } catch (err) {
-            // Handle error
-            console.log(err);
-
-        }
-        console.log('profiles after delete', profiles)
+        // }
 
     }
 

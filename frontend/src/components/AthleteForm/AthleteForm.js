@@ -79,7 +79,7 @@ const AthleteForm = () => {
 
                         {
                             sportsArr.map(sport => (
-                                <option>{sport}</option>
+                                <option key={sport}>{sport}</option>
                             ))
                         }
                     </select>
