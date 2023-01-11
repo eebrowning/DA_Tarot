@@ -73,17 +73,13 @@ export const thunkGetAthlete = (athleteId) => async dispatch => {
 }
 //todo
 export const thunkCreateAthlete = (athlete) => async dispatch => {
-    // console.log(athlete, 'in thunkCreateAthlete, step4?')
-    const res = await fetch('/api/athletes', {
-        method: 'post',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(athlete)
-    })
-    if (res.ok) {
-        const athlete = await res.json();
-        // console.log('Thunk, create Athlete: ', athlete)
+
+    const res = await api.insertProfile(athlete)
+
+    console.log(res.data.data, 'thunk create ath')
+    if (res.status = 201) {
+        const athlete = await res.data.data;
+        console.log('Thunk, create Athlete: ', athlete)
         dispatch(actionCreateAthlete(athlete))
         return athlete;
     }
@@ -92,33 +88,28 @@ export const thunkCreateAthlete = (athlete) => async dispatch => {
 export const thunkUpdateAthlete = athlete => async dispatch => {
     // console.log(athlete, '\n\n\n', 'in thunkUpdateAthlete');
 
-    const res = await fetch(`/api/athletes/${athlete.id}`, {
-        method: 'put',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(athlete)
-    })
-    if (res.ok) {
-        const updatedAthlete = await res.json();
-        dispatch(actionUpdateAthlete(updatedAthlete))
-        return updatedAthlete;
-    }
+    // const res = await fetch(`/api/athletes/${athlete.id}`, {
+    //     method: 'put',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify(athlete)
+    // })
+    // if (res.ok) {
+    //     const updatedAthlete = await res.json();
+    //     dispatch(actionUpdateAthlete(updatedAthlete))
+    //     return updatedAthlete;
+    // }
 }
 
-//todo
+//good
 export const thunkDeleteAthlete = (athleteId) => async dispatch => {
-    // console.log(athleteId, 'in thunkDeleteAthlete')
-    // const res = await fetch(`/api/athletes/${athleteId}`, {
-    //     method: 'delete',
-    // })
+
     let res = await api.deleteProfileById(athleteId)
     console.log(res.data, 'in thunkDeleteAthlete')
     if (res.success = true) {
-        // const newId = await res.json();
-        const newId = await res.data.data._id;
 
-        console.log('Thunk, delete Athlete: ', newId, 'should be newID')
+        const newId = await res.data.data._id;
+        // console.log('Thunk, delete Athlete: ', newId, 'should be newID')
         dispatch(actionDeleteAthlete(newId))
-        // return athlete;
     }
 }
 
@@ -128,6 +119,7 @@ const athletesReducer = (state = iState, action) => {
     let newState;
     switch (action.type) {
         case CREATE_ATHLETE:
+
             newState = { ...state, [action.athlete.id]: action.athlete };
             // console.log(action, "...CREATE_ATHLETE... in athletesReducer")
             return newState;

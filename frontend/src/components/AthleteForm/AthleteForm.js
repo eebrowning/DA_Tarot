@@ -3,18 +3,20 @@ import { useEffect, useState } from "react"
 import api from "../../api";
 import "./form.css"
 import Sports from "./Sports";
+import { useDispatch, useSelector } from "react-redux";
+import { thunkCreateAthlete } from "../../store/athletes";
 
 const AthleteForm = () => {
-
-    let [name, setName] = useState();
-    let [birthdate, setBirthdate] = useState();
-    let [location, setLocation] = useState();
-    let [team, setTeam] = useState();
-    let [gender, setGender] = useState();
-    let [sports, setSports] = useState();
-    let [about, setAbout] = useState();
-    let [interests, setInterests] = useState();
-    let [avatar, setAvatar] = useState();
+    const dispatch = useDispatch();
+    const [name, setName] = useState();
+    const [birthdate, setBirthdate] = useState();
+    const [location, setLocation] = useState();
+    const [team, setTeam] = useState();
+    const [gender, setGender] = useState();
+    const [sports, setSports] = useState();
+    const [about, setAbout] = useState();
+    const [interests, setInterests] = useState();
+    const [avatar, setAvatar] = useState();
     const [errors, setErrors] = useState([])
 
     let sportsArr = [
@@ -26,16 +28,18 @@ const AthleteForm = () => {
         e.preventDefault();
         const newAthlete = { name, birthdate, location, team, gender, sports, about, interests, avatar }
         setErrors([]);
+        console.log(newAthlete, 'handle create')
+        dispatch(thunkCreateAthlete(newAthlete))
 
-        try {
-            let response = await api.insertProfile(newAthlete)
+        // try {
+        //     let response = await api.insertProfile(newAthlete)
 
-        } catch (err) {
-            // Handle error
-            console.log(err);
-            setErrors([err])
+        // } catch (err) {
+        //     // Handle error
+        //     console.log(err);
+        //     setErrors([err])
 
-        }
+        // }
 
         console.log(errors)
     }

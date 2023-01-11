@@ -24,6 +24,7 @@ createProfile = (req, res) => {
             return res.status(201).json({
                 success: true,
                 id: profile._id,
+                data: profile,
                 message: 'Profile created!',
             })
         })
