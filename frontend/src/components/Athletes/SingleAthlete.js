@@ -23,36 +23,11 @@ function SingleAthlete(profile) {
     let [avatar, setAvatar] = useState(profile.avatar);
     let [id, setId] = useState(profile._id);
 
-    // let id = profile.id;
-
-    // let data;
-
-
-    useEffect(() => {
-        // async function fetchData() {
-        //     let response = await api.getAllProfiles()
-        //     data = response.data.data.profiles;
-        //     setProfiles(data);
-        //     return response;
-        // }
-        // fetchData();
-        // // console.log(data, 'data', profiles)
-    }, [])
-
 
     const handleDelete = async (e) => {
         e.preventDefault();
         console.log(e.target.id, 'should be ath id')
         dispatch(thunkDeleteAthlete(e.target.id))
-
-        // try {
-        //     let response = await api.deleteProfileById(id)
-
-        // } catch (err) {
-        //     // Handle error
-        //     console.log(err);
-
-        // }
 
     }
 

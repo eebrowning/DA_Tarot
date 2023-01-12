@@ -49,7 +49,7 @@ export const thunkGetAllAthletes = () => async dispatch => {
     let res = await api.getAllProfiles()
 
     // console.log('THUNK, GET ALL ATHLETES: ')
-
+    console.log(res, 'res test')
     if (res.status = 200) {
         let athletes = await res.data.data;
         // athletes = JSON.stringify(athletes)
@@ -63,26 +63,31 @@ export const thunkGetAllAthletes = () => async dispatch => {
 export const thunkGetAthlete = (athleteId) => async dispatch => {
     // console.log('athlete in thunkGetAthlete')
 
-    const res = await fetch(`/api/athletes/${athleteId}`)
-    // console.log(athleteId, `THUNK, GET ATHLETE(): `)
-    if (res.ok) {
-        const athlete = await res.json();
-        dispatch(actionGetAthlete(athlete))
-        return athlete;
-    }
+    // const res = await fetch(`/api/athletes/${athleteId}`)
+    // // console.log(athleteId, `THUNK, GET ATHLETE(): `)
+    // if (res.ok) {
+    //     const athlete = await res.json();
+    //     dispatch(actionGetAthlete(athlete))
+    //     return athlete;
+    // }
 }
-//todo
+//good
 export const thunkCreateAthlete = (athlete) => async dispatch => {
 
+
+    // try {
     const res = await api.insertProfile(athlete)
 
-    console.log(res.data.data, 'thunk create ath')
-    if (res.status = 201) {
+
+
+    console.log(res, 'thunk create ath')
+    if (res.status >= 200) {
         const athlete = await res.data.data;
         console.log('Thunk, create Athlete: ', athlete)
         dispatch(actionCreateAthlete(athlete))
         return athlete;
     }
+
 }
 //todo
 export const thunkUpdateAthlete = athlete => async dispatch => {
@@ -119,7 +124,6 @@ const athletesReducer = (state = iState, action) => {
     let newState;
     switch (action.type) {
         case CREATE_ATHLETE:
-
             newState = { ...state, [action.athlete.id]: action.athlete };
             // console.log(action, "...CREATE_ATHLETE... in athletesReducer")
             return newState;

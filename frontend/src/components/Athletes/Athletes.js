@@ -12,14 +12,12 @@ function Athletes() {
     let [profiles, setProfiles] = useState([]);
     let dispatch = useDispatch();
     const athletes = useSelector((state) => Object.values(state.athletesReducer));
-    let data;
     useEffect(() => {
 
         dispatch(thunkGetAllAthletes());
         // console.log("sent dispatch to thunkGetAllAthletes")
-        console.log(athletes, 'athletes in component')
-        // setProfiles(athletes)
-    }, [dispatch])
+
+    }, [dispatch, athletes.length])
 
 
     // useEffect(() => {

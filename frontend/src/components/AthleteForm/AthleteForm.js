@@ -4,7 +4,7 @@ import api from "../../api";
 import "./form.css"
 import Sports from "./Sports";
 import { useDispatch, useSelector } from "react-redux";
-import { thunkCreateAthlete } from "../../store/athletes";
+import { thunkCreateAthlete, thunkGetAllAthletes } from "../../store/athletes";
 
 const AthleteForm = () => {
     const dispatch = useDispatch();
@@ -24,32 +24,17 @@ const AthleteForm = () => {
     ]
 
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         const newAthlete = { name, birthdate, location, team, gender, sports, about, interests, avatar }
         setErrors([]);
         console.log(newAthlete, 'handle create')
         dispatch(thunkCreateAthlete(newAthlete))
-
-        // try {
-        //     let response = await api.insertProfile(newAthlete)
-
-        // } catch (err) {
-        //     // Handle error
-        //     console.log(err);
-        //     setErrors([err])
-
-        // }
-
-        console.log(errors)
+        // console.log(errors)
+        dispatch(thunkGetAllAthletes(newAthlete))
     }
 
 
-    //page1: name, sport, gender, dob
-
-    //page2: About= description, location, team
-
-    //page3 Summary= sample of profile info, edit option here
 
     return (
         <section id="place-form-box">
