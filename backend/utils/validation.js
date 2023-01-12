@@ -19,14 +19,22 @@ const handleValidationErrors = (req, _res, next) => {
 
         // console.log(msgs)
         // _res.errors = errors;
-        let err = new Error(msgs)
 
-        err.errors = errors;
-        err.status = 400;
-        err.title = 'Bad request.';
+        msgs.forEach(msg => {
+            let err = new Error(msg)
 
-        ///this seems to be on the right track, as i can see my errors in Axios errors' response.data
-        next(err);
+            err.status = 400;
+            err.title = 'Bad request.';
+
+            next(err);
+        })
+        // let err = new Error(msgs)
+
+        // err.errors = errors;
+        // err.status = 400;
+        // err.title = 'Bad request.';
+
+        // next(err);
 
     }
     next();

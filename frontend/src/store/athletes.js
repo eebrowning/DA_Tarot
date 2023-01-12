@@ -49,7 +49,7 @@ export const thunkGetAllAthletes = () => async dispatch => {
     let res = await api.getAllProfiles()
 
     // console.log('THUNK, GET ALL ATHLETES: ')
-    console.log(res, 'res test')
+    // console.log(res, 'res test')
     if (res.status = 200) {
         let athletes = await res.data.data;
         // athletes = JSON.stringify(athletes)
@@ -80,12 +80,16 @@ export const thunkCreateAthlete = (athlete) => async dispatch => {
 
 
 
-    console.log(res, 'thunk create ath')
-    if (res.status >= 200) {
+    // console.log(res, 'thunk create ath')
+    if (res.status >= 200 && res.status < 400) {
         const athlete = await res.data.data;
         console.log('Thunk, create Athlete: ', athlete)
         dispatch(actionCreateAthlete(athlete))
         return athlete;
+    }
+    else {
+        console.log(res, 'sstattasssf')
+        return res;
     }
 
 }
@@ -109,7 +113,7 @@ export const thunkUpdateAthlete = athlete => async dispatch => {
 export const thunkDeleteAthlete = (athleteId) => async dispatch => {
 
     let res = await api.deleteProfileById(athleteId)
-    console.log(res.data, 'in thunkDeleteAthlete')
+    // console.log(res.data, 'in thunkDeleteAthlete')
     if (res.success = true) {
 
         const newId = await res.data.data._id;

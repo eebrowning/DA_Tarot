@@ -6,6 +6,8 @@ import Sports from "./Sports";
 import { useDispatch, useSelector } from "react-redux";
 import { thunkCreateAthlete, thunkGetAllAthletes } from "../../store/athletes";
 
+
+//todo: sports picking up -select sport- as an option.
 const AthleteForm = () => {
     const dispatch = useDispatch();
     const [name, setName] = useState();
@@ -24,14 +26,16 @@ const AthleteForm = () => {
     ]
 
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const newAthlete = { name, birthdate, location, team, gender, sports, about, interests, avatar }
         setErrors([]);
         console.log(newAthlete, 'handle create')
-        dispatch(thunkCreateAthlete(newAthlete))
-        // console.log(errors)
-        dispatch(thunkGetAllAthletes(newAthlete))
+        let response = await dispatch(thunkCreateAthlete(newAthlete));
+        if (newAthlete.birthdate !== response.birthdate) {
+            setErrors(response)
+        }
+
     }
 
 
@@ -124,7 +128,9 @@ const AthleteForm = () => {
 
                 <div>
                     <ul>
-                        {errors.length > 0 && errors.map((error) => <li key={error.code}>{error.message}</li>)}
+                        {/* {errors.length > 0 && errors.map((error) => <li key={error.code}>{error.message}</li>)} */}
+                        {errors}
+
                     </ul>
                     <button>Submit Athlete</button>
                 </div>
