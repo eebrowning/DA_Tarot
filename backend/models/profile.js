@@ -10,6 +10,7 @@ const ProfileSchema = Schema({
     // },
     name: {
         type: String,
+        minLength: 4,
         required: true,
     },
     birthdate: {
@@ -18,10 +19,12 @@ const ProfileSchema = Schema({
     },
     location: {
         type: String,
+        minLength: 4,
         required: true,
     },
     team: {
         type: String,
+        minLength: 4,
         required: true,
     },
     gender: {
@@ -34,6 +37,7 @@ const ProfileSchema = Schema({
     },
     about: {
         type: String,
+        minLength: 10,
         required: true,
     },
     interests: {

@@ -18,6 +18,7 @@ const validateProfile = [//pass as middleware with the correct fields
         .isISO8601().toDate()
         .withMessage('Please provide a date of birth.'),
     check('location')
+        .exists({ checkFalsy: true })
         .isLength({ min: 4 })
         .withMessage('Enter a valid location, min 4 characters'),
     check('team')
@@ -31,12 +32,13 @@ const validateProfile = [//pass as middleware with the correct fields
         .exists({ checkFalsy: true })
         .withMessage('Please select at least one sport.'),
     check('about')
+        .exists({ checkFalsy: true })
         .isLength({ min: 10 })
         .withMessage('About must be at least 10 characters long.'),
     // check('interests')
-    // .exists({ checkFalsy: true })
-    // .isLength({ min: 10 })
-    // .withMessage('Interests must be at least 10 characters long.'),
+    //     .exists({ checkFalsy: true })
+    //     .isLength({ min: 10 })
+    //     .withMessage('Interests must be at least 10 characters long.'),
     check('avatar')
         .isURL()
         .withMessage('Please provide an image link(.png or .jpg)')
@@ -52,6 +54,7 @@ const validateProfile = [//pass as middleware with the correct fields
 
 
 router.post('/profile', validateProfile, ProfileCtrl.createProfile)
+
 router.put('/profile/:id', validateProfile, ProfileCtrl.updateProfile)
 router.get('/profile/:id', ProfileCtrl.getProfileById)
 router.get('/profiles', ProfileCtrl.getProfiles)

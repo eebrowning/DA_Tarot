@@ -1,14 +1,50 @@
-/* #sports-select {
-    height: 200px;
-    width: 200px;
-} */
+#athlete-form-box {
 
-
-
-option:before {
-    content: "☐ "
+    max-height: 100%;
 }
 
-option:checked:before {
-    content: "☑ "
+#athlete-form {
+    border: 1px solid red;
+    height: 85%;
+    width: 80%;
+    margin: auto;
+    margin-top: 3rem;
+
+}
+
+#athlete-form input {
+    width: 200px;
+}
+
+.part-1 {
+    border: 1px solid red;
+    display: flex;
+    flex-direction: row;
+    height: 6rem;
+}
+
+.part-2 {
+    border: 1px solid red;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 3rem;
+
+}
+
+.part-3 {
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+}
+
+.part-4 {
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+}
+
+#athlete-errors {
+    color: crimson;
+    list-style: none;
 }

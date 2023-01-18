@@ -79,7 +79,6 @@ export const thunkCreateAthlete = (athlete) => async dispatch => {
     const res = await api.insertProfile(athlete)
 
 
-
     // console.log(res, 'thunk create ath')
     if (res.status >= 200 && res.status < 400) {
         const athlete = await res.data.data;
@@ -88,8 +87,9 @@ export const thunkCreateAthlete = (athlete) => async dispatch => {
         return athlete;
     }
     else {
-        console.log(res, 'sstattasssf')
-        return res;
+        // console.log(res, 'sstattasssf')
+
+        return res.errors;
     }
 
 }
@@ -129,7 +129,7 @@ const athletesReducer = (state = iState, action) => {
     switch (action.type) {
         case CREATE_ATHLETE:
             newState = { ...state, [action.athlete.id]: action.athlete };
-            // console.log(action, "...CREATE_ATHLETE... in athletesReducer")
+            console.log(action, state, "...CREATE_ATHLETE... in athletesReducer")
             return newState;
         case GET_ATHLETES:
             newState = {};
@@ -155,6 +155,7 @@ const athletesReducer = (state = iState, action) => {
             delete newState[action.athleteId]
             return newState;
         default:
+            console.log('yer a default, harry')
             return state;
     }
 }
