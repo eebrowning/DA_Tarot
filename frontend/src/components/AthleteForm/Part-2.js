@@ -26,8 +26,8 @@ const Part2 = ({ receivePart2, step }) => {
             </select>
         </label>
         <label for="gender-select">Gender
-            <label id='gender-select-error' for="gender-select"></label>
-            <select onChange={e => setGender(e.target.value)} id='gender-select' >
+            <label id='gender-error' for="gender-select"></label>
+            <select onChange={e => setGender(e.target.value)} id='gender' >
                 <option>-Select Gender-</option>
 
                 <option>Male</option>

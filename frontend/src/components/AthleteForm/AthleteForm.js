@@ -13,15 +13,15 @@ import Part3 from "./Part-3";
 //todo: sports picking up -select sport- as an option.
 const AthleteForm = () => {
     const dispatch = useDispatch();
-    const [name, setName] = useState();
-    const [avatar, setAvatar] = useState();
-    const [gender, setGender] = useState();
-    const [sports, setSports] = useState();
+    const [name, setName] = useState("");
+    const [avatar, setAvatar] = useState("");
+    const [gender, setGender] = useState("");
+    const [sports, setSports] = useState("");
     const [birthdate, setBirthdate] = useState();
-    const [location, setLocation] = useState();
-    const [about, setAbout] = useState();
-    const [team, setTeam] = useState();
-    const [interests, setInterests] = useState();
+    const [location, setLocation] = useState("");
+    const [about, setAbout] = useState("");
+    const [team, setTeam] = useState("");
+    const [interests, setInterests] = useState("");
     const [errors, setErrors] = useState([]);
 
     const [step, setStep] = useState(1)
@@ -34,10 +34,19 @@ const AthleteForm = () => {
         const newAthlete = { name, birthdate, location, team, gender, sports, about, interests, avatar }
         setErrors([]);
         let response = await dispatch(thunkCreateAthlete(newAthlete));
-        // console.log(response, 'handle create');
-        if (newAthlete.birthdate !== response.birthdate) {
+        console.log(response, 'handle create');
+
+        if (newAthlete !== response) {
+            console.log(response, 'some fields right');
+
             setErrors(response)
         }
+        // if (response[0].param.length) {
+        //     console.log(response, 'response has errors');
+
+        //     // setErrors([response])
+        // }
+
     }
     ///start data receipt/
     const receivePart1 = async (data) => {
@@ -58,10 +67,12 @@ const AthleteForm = () => {
     ////////End Data receipt/
     const labelErrors = () => {
         if (errors.length) {
+
             errors.forEach(err => {
-                let label = document.getElementById(`${err.param}-error`)
-                label.innerText = `*`
-                label.style.color = 'red'
+                let label = document.getElementById(`${err.param}-error`);
+                console.log(label, 'blaaah')
+                label.innerText = `*`;
+                label.style.color = 'red';
             })
         }
     }
@@ -89,7 +100,7 @@ const AthleteForm = () => {
                 </div>
                 <div id='errors'>
                     <ul id='athlete-errors'>
-                        {errors.length > 0 && errors.map((error) => <li style={{ color: 'red' }} key={error.msg}>{error.msg}</li>)}
+                        {errors.length > 0 && errors.map((error) => <li style={{ color: 'red' }} key={error.param + error.msg}>{error.msg}</li>)}
                     </ul>
                 </div>
                 <div id='buttons'>

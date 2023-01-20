@@ -20,29 +20,16 @@ function Athletes() {
     }, [dispatch, athletes.length])
 
 
-    // useEffect(() => {
-    //     async function fetchData() {
-    //         let response = await api.getAllProfiles()
-    //         data = response.data.data.profiles;
-    //         console.log(data, profiles, 'data and profiles')
-    //         if (data != profiles) setProfiles(data);
-    //         return response;
-    //     }
-    //     fetchData();
-    //     // console.log(data, 'data', profiles)
-    // }, [])
-
-
 
     return (
-        <div className="Athletes">
-            <>All Profiles</>
-            <>
+        <div >
+            <h2>All Profiles</h2>
+            <div className="athletes">
                 {athletes?.map(profile => (
                     <SingleAthlete key={profile._id} profile={profile} profiles={profiles} />
 
                 ))}
-            </>
+            </div>
 
         </div >
     );
