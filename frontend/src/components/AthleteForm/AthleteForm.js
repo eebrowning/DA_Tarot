@@ -5,30 +5,30 @@ import "./form.css"
 import Sports from "./Sports";
 import { useDispatch, useSelector } from "react-redux";
 import { thunkCreateAthlete, thunkGetAllAthletes } from "../../store/athletes";
+import Part1 from "./Part-1";
+import Part2 from "./Part-2";
+import Part3 from "./Part-3";
 
 
 //todo: sports picking up -select sport- as an option.
 const AthleteForm = () => {
     const dispatch = useDispatch();
     const [name, setName] = useState();
-    const [birthdate, setBirthdate] = useState();
-    const [location, setLocation] = useState();
-    const [team, setTeam] = useState();
+    const [avatar, setAvatar] = useState();
     const [gender, setGender] = useState();
     const [sports, setSports] = useState();
+    const [birthdate, setBirthdate] = useState();
+    const [location, setLocation] = useState();
     const [about, setAbout] = useState();
+    const [team, setTeam] = useState();
     const [interests, setInterests] = useState();
-    const [avatar, setAvatar] = useState();
-    const [errors, setErrors] = useState([])
+    const [errors, setErrors] = useState([]);
 
-    let sportsArr = [
-        'Golf', 'Tennis', 'Cricket', 'Basketball', 'Baseball', 'American Football', 'Aquatics', 'Archery', 'Automobile Racing', 'Badminton', 'Beach Volleyball', 'Bobsleigh', 'Body Building', 'Boxing', 'Cross Country Running', 'Cross Country Skiing', 'Curling', 'Cycling', 'Darts', 'Decathlon', 'Down Hill Skiing', 'Equestrianism', 'eSports', 'Fencing', 'Field Hockey', 'Figure Skating', 'Gymnastics', 'Ice Hockey', 'Martial Arts', 'Mixed Martial Arts', 'Modern Pentathlon', 'Motorcycle Racing', 'Netball', 'Polo', 'Racquetball', 'Rowing', 'Rugby', 'Sailing', 'Softball', 'Shooting', 'Skateboarding', 'Skeet Shooting', 'Skeleton', 'Snow Boarding', 'Soccer (Football)', 'Squash', 'Surfing', 'Swimming', 'Track and Field'
-    ]
+    const [step, setStep] = useState(1)
 
     useEffect(() => {
         labelErrors();
     }, [errors])
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         const newAthlete = { name, birthdate, location, team, gender, sports, about, interests, avatar }
@@ -39,132 +39,63 @@ const AthleteForm = () => {
             setErrors(response)
         }
     }
-
+    ///start data receipt/
+    const receivePart1 = async (data) => {
+        await setName(data.name)
+        await setAvatar(data.avatar)
+    }
+    const receivePart2 = async (data) => {
+        await setSports(data.sports)
+        await setGender(data.gender)
+        await setBirthdate(data.birthdate)
+    }
+    const receivePart3 = async (data) => {
+        await setLocation(data.location)
+        await setAbout(data.about)
+        await setTeam(data.team)
+        await setInterests(data.interests)
+    }
+    ////////End Data receipt/
     const labelErrors = () => {
-        errors.forEach(err => {
-            let label = document.getElementById(`${err.param}-error`)
-            // label.innerText = `*${err.msg}`
-            label.innerText = `*`
-            label.style.color = 'red'
-        })
+        if (errors.length) {
+            errors.forEach(err => {
+                let label = document.getElementById(`${err.param}-error`)
+                label.innerText = `*`
+                label.style.color = 'red'
+            })
+        }
+    }
+
+    let prev = (e) => {
+        e.preventDefault();
+        setStep(step - 1)
+    }
+
+    let next = (e) => {
+        e.preventDefault();
+        setStep(step + 1)
     }
 
     return (
         <section id="athlete-form-box">
-            <form id="athlete-form" onSubmit={handleSubmit}>
+            <form id="athlete-form" >
 
-                <h2>Create a new Athlete:</h2>
-                < div className="part-1" >
-                    <label for="avatar">Avatar link</label>
-                    <label id='avatar-error' for="avatar"></label>
-                    <input
-                        name='avatar'
-                        placeholder='Image link in jpg / jpeg format'
-                        // value={imageURL}
-                        onChange={e => setAvatar(e.target.value)}
-                    />
+                <h2 id='form-head'>Create a new Athlete:</h2>
+                <div id='fields'>
 
-                    <label for="name">Athlete name</label>
-                    <label id='name-error' for="name"></label>
-                    <input
-                        required
-                        name="name"
-                        placeholder="Athlete name"
-                        type="string"
-                        // value={name}
-                        onChange={e => setName(e.target.value)}
-                    />
-
-
+                    <Part1 receivePart1={receivePart1} step={step} />
+                    <Part2 receivePart2={receivePart2} step={step} />
+                    <Part3 receivePart3={receivePart3} step={step} />
                 </div>
-                <div className="part-2">
-                    <label for="sports">Sport
-                        <label id='sports-error' for="sports"></label>
-                        <select name='sports' id='sports-select' onChange={e => setSports(e.target.value)}>
-                            <option>-Select Sport-</option>
-
-                            {
-                                sportsArr.map(sport => (
-                                    <option key={sport}>{sport}</option>
-                                ))
-                            }
-                        </select>
-                    </label>
-                    <label for="gender-select">Gender
-                        <label id='gender-select-error' for="gender-select"></label>
-                        <select onChange={e => setGender(e.target.value)} id='gender-select' >
-                            <option>-Select Gender-</option>
-
-                            <option>Male</option>
-                            <option>Female</option>
-                            <option>Other</option>
-
-                        </select>
-                    </label>
-                    <label for="birthdate">Birthdate
-                        <label id='birthdate-error' for="birthdate"></label>
-                        <input
-                            required
-                            name='birthdate'
-                            placeholder="Athlete's birthdate"
-                            type='date'
-                            // value={address}
-                            onChange={e => setBirthdate(e.target.value)}
-                        />
-                    </label>
-                </div>
-                < div className="part-3" >
-                    <label for="about">About Summary
-                        <label id='about-error' for="about"></label>
-                        <textarea
-                            name='about'
-                            placeholder='about'
-                            // value={imageURL}
-                            onChange={e => setAbout(e.target.value)}
-                        />
-                    </label>
-
-                    <label for="interests">Interests
-                        <label id='interests-error' for="interests"></label>
-                        <textarea
-                            name='interests'
-                            placeholder='interests'
-                            // value={imageURL}
-                            onChange={e => setInterests(e.target.value)}
-                        />
-                    </label>
-
-                    <label for="location">Location
-                        <label id='location-error' for="location"></label>
-                        <input
-                            required
-                            name="location"
-                            placeholder="Athlete location"
-                            type="string"
-                            // value={name}
-                            onChange={e => setLocation(e.target.value)}
-                        />
-                    </label>
-
-                    <label for="team">Team
-                        <label id='team-error' for="team"></label>
-                        <input
-                            required
-                            name='team'
-                            placeholder="Athlete's Team"
-                            // value={address}
-                            onChange={e => setTeam(e.target.value)}
-                        />
-                    </label>
-                </div>
-
-                <div>
+                <div id='errors'>
                     <ul id='athlete-errors'>
                         {errors.length > 0 && errors.map((error) => <li style={{ color: 'red' }} key={error.msg}>{error.msg}</li>)}
-                        {/* {console.log(errors)} */}
-                        {/* <div className="content" dangerouslySetInnerHTML={{ __html: errors }}></div> */}
                     </ul>
-                    <button>Submit Athlete</button>
+                </div>
+                <div id='buttons'>
+                    <button style={{ display: step > 1 ? "block" : "none" }} onClick={prev}>Previous</button>
+                    <button style={{ display: step < 3 ? "block" : "none" }} onClick={next}>Next</button>
+                    <button style={{ display: step === 3 ? "block" : "none" }} onClick={handleSubmit} >Submit Athlete</button>
                 </div>
             </form>
 

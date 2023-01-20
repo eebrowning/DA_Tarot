@@ -4,23 +4,51 @@
 }
 
 #athlete-form {
-    border: 1px solid red;
-    height: 85%;
+    border: 1px solid brown;
+    height: 85vh;
     width: 80%;
     margin: auto;
     margin-top: 3rem;
+    display: grid;
+    grid-template-rows: 4;
+    /* flex-direction: column;
+    justify-content: space-evenly; */
 
 }
 
+/*  grid start */
+#form-head {
+    grid-row: 1;
+    border: 1px solid purple;
+
+}
+
+#fields {
+    grid-row: 2;
+    border: 1px solid purple;
+
+}
+
+#errors {
+    grid-row: 3;
+
+}
+
+#buttons {
+    grid-row: 4;
+
+}
+
+/* grid end */
 #athlete-form input {
     width: 200px;
 }
 
-.part-1 {
+/* .part-1 {
     border: 1px solid red;
     display: flex;
     flex-direction: row;
-    height: 6rem;
+    height: 8rem;
 }
 
 .part-2 {
@@ -28,7 +56,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    height: 3rem;
+    height: 8rem;
 
 }
 
@@ -36,15 +64,26 @@
     border: 1px solid red;
     display: flex;
     flex-direction: column;
-}
+    height: 8rem;
 
+} */
+.part-1,
+.part-2,
+.part-3,
 .part-4 {
     border: 1px solid red;
     display: flex;
     flex-direction: column;
+    height: 8rem;
 }
 
 #athlete-errors {
     color: crimson;
     list-style: none;
+}
+
+#buttons {
+    display: flex;
+    margin: auto;
+    border: 1px solid chartreuse;
 }
