@@ -27,25 +27,21 @@ const AthleteForm = () => {
     const [step, setStep] = useState(1)
 
     useEffect(() => {
+
+        bootSubmit();
         labelErrors();
     }, [errors])
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         const newAthlete = { name, birthdate, location, team, gender, sports, about, interests, avatar }
         setErrors([]);
         let response = await dispatch(thunkCreateAthlete(newAthlete));
-        console.log(response, 'handle create');
 
         if (newAthlete !== response) {
-            console.log(response, 'some fields right');
 
             setErrors(response)
         }
-        // if (response[0].param.length) {
-        //     console.log(response, 'response has errors');
-
-        //     // setErrors([response])
-        // }
 
     }
     ///start data receipt/
@@ -66,13 +62,20 @@ const AthleteForm = () => {
     }
     ////////End Data receipt/
     const labelErrors = () => {
-        if (errors.length) {
+        console.log(document.querySelectorAll("label label"), 'error labels?')
 
+        if (errors.length) {
             errors.forEach(err => {
+                // console.log(err, 'error looking for info')
                 let label = document.getElementById(`${err.param}-error`);
-                console.log(label, 'blaaah')
-                label.innerText = `*`;
+                label.innerText = `* ${err.msg}`;
                 label.style.color = 'red';
+            })
+        }
+        if (!errors.length) {
+            let labels = document.querySelectorAll("label label")
+            labels.forEach(label => {
+                label.innerText = "";
             })
         }
     }
@@ -86,27 +89,47 @@ const AthleteForm = () => {
         e.preventDefault();
         setStep(step + 1)
     }
+    /////////////Bootstrap validation iffe
+    let bootSubmit = () => {
+        'use strict'
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll('.needs-validation')
+        // Loop over them and prevent submission
+        Array.from(forms).forEach(form => {
+            form.addEventListener('submit', event => {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+                form.classList.add('was-validated')
+            }, false)
+        })
+
+    }
+    ///////////end bootstrap validation
+
 
     return (
         <section id="athlete-form-box">
-            <form id="athlete-form" >
+
+            <form id="athlete-form" className="needs-validation" onSubmit={handleSubmit} noValidate>
 
                 <h2 id='form-head'>Create a new Athlete:</h2>
                 <div id='fields'>
-
                     <Part1 receivePart1={receivePart1} step={step} />
                     <Part2 receivePart2={receivePart2} step={step} />
                     <Part3 receivePart3={receivePart3} step={step} />
                 </div>
                 <div id='errors'>
                     <ul id='athlete-errors'>
-                        {errors.length > 0 && errors.map((error) => <li style={{ color: 'red' }} key={error.param + error.msg}>{error.msg}</li>)}
+                        {errors.length > 3 && (`There are ${errors.length} errors: review your submission.`)}
+                        {errors.length > 0 && errors.length < 4 && errors.map((error) => <li style={{ color: 'red' }} key={error.param + error.msg}>{error.msg}</li>)}
                     </ul>
                 </div>
                 <div id='buttons'>
                     <button style={{ display: step > 1 ? "block" : "none" }} onClick={prev}>Previous</button>
-                    <button style={{ display: step < 3 ? "block" : "none" }} onClick={next}>Next</button>
-                    <button style={{ display: step === 3 ? "block" : "none" }} onClick={handleSubmit} >Submit Athlete</button>
+                    <button className="btn btn-primary" style={{ display: step < 3 ? "block" : "none" }} onClick={next}>Next</button>
+                    <button className="btn btn-primary" type='submit' style={{ display: step === 3 ? "block" : "none" }} onClick={bootSubmit} >Submit Athlete</button>
                 </div>
             </form>
 

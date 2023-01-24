@@ -45,7 +45,7 @@ function SingleAthlete(profile) {
                 <p className="location">Location: {location}</p>
                 <p className="team">Team: {team}</p>
                 <>About:<p className="about"> {about}</p></>
-                <p className="interests">Interests: {interests}</p>
+                {/* <p className="interests">Interests: {interests}</p> */}
             </div>
             <button id={id} onClick={handleDelete} >Delete Athlete </button>
         </div>

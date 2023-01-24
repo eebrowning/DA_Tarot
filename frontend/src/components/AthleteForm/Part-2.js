@@ -13,11 +13,10 @@ const Part2 = ({ receivePart2, step }) => {
     }, [gender, sports, birthdate])
 
     return (<div style={{ display: step === 2 ? 'flex' : "none" }} className="part-2">
-        <label for="sports">Sport
+        <label for="sports" className="form-label">Sport
             <label id='sports-error' for="sports"></label>
-            <select name='sports' id='sports-select' onChange={e => setSports(e.target.value)}>
-                <option>-Select Sport-</option>
-
+            <select name='sports' id='sports-select' className="form-control" onChange={e => setSports(e.target.value)} required>
+                <option>{null}</option>
                 {
                     sportsArr.map(sport => (
                         <option key={sport}>{sport}</option>
@@ -25,24 +24,25 @@ const Part2 = ({ receivePart2, step }) => {
                 }
             </select>
         </label>
-        <label for="gender-select">Gender
+        <label for="gender-select" className="form-label">Gender
             <label id='gender-error' for="gender-select"></label>
-            <select onChange={e => setGender(e.target.value)} id='gender' >
-                <option>-Select Gender-</option>
-
+            <select onChange={e => setGender(e.target.value)} id='gender' className="form-control" required>
+                <option>{null}</option>
                 <option>Male</option>
                 <option>Female</option>
                 <option>Other</option>
 
             </select>
         </label>
-        <label for="birthdate">Birthdate
+        <label for="birthdate" className="form-label">Birthdate
             <label id='birthdate-error' for="birthdate"></label>
             <input
                 required
                 name='birthdate'
                 placeholder="Athlete's birthdate"
                 type='date'
+                className="form-control"
+
                 onChange={e => setBirthdate(e.target.value)}
             />
         </label>
