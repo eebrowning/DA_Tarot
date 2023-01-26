@@ -27,7 +27,6 @@ const AthleteForm = () => {
     const [step, setStep] = useState(1)
 
     useEffect(() => {
-
         bootSubmit();
         labelErrors();
     }, [errors])
@@ -39,7 +38,6 @@ const AthleteForm = () => {
         let response = await dispatch(thunkCreateAthlete(newAthlete));
 
         if (newAthlete !== response) {
-
             setErrors(response)
         }
 
@@ -62,7 +60,7 @@ const AthleteForm = () => {
     }
     ////////End Data receipt/
     const labelErrors = () => {
-        console.log(document.querySelectorAll("label label"), 'error labels?')
+        // console.log(document.querySelectorAll("label label"), 'error labels?')
 
         if (errors.length) {
             errors.forEach(err => {
@@ -87,7 +85,24 @@ const AthleteForm = () => {
 
     let next = (e) => {
         e.preventDefault();
-        setStep(step + 1)
+
+        let good = true;
+        const form = document.querySelectorAll('.needs-validation')[0]
+        const inputs = document.querySelectorAll(`.part-${step} .boot-data`)
+        console.log(inputs, 'inloop')
+
+        inputs.forEach((input) => {
+            console.log(input, 'inloop')
+            if (input.value === "" || input.value === null) {
+                good = false;
+            }
+        })
+        if (!good) {
+            form.classList.add('was-validated')
+        } else {
+            form.classList.remove('was-validated')
+            setStep(step + 1);
+        }
     }
     /////////////Bootstrap validation iffe
     let bootSubmit = () => {
@@ -98,6 +113,7 @@ const AthleteForm = () => {
         Array.from(forms).forEach(form => {
             form.addEventListener('submit', event => {
                 if (!form.checkValidity()) {
+                    console.log(form, 'form in bootsubmit')
                     event.preventDefault()
                     event.stopPropagation()
                 }
@@ -128,7 +144,7 @@ const AthleteForm = () => {
                 </div>
                 <div id='buttons'>
                     <button style={{ display: step > 1 ? "block" : "none" }} onClick={prev}>Previous</button>
-                    <button className="btn btn-primary" style={{ display: step < 3 ? "block" : "none" }} onClick={next}>Next</button>
+                    <button className="btn btn-primary" type="submit" style={{ display: step < 3 ? "block" : "none" }} onClick={next}>Next</button>
                     <button className="btn btn-primary" type='submit' style={{ display: step === 3 ? "block" : "none" }} onClick={bootSubmit} >Submit Athlete</button>
                 </div>
             </form>

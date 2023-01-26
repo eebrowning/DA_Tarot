@@ -10,14 +10,14 @@ const Part3 = ({ receivePart3, step }) => {
         receivePart3({ location, about, team, interests })
     }, [location, about, team, interests])
 
-    return (< div style={{ display: step === 3 ? 'flex' : "none" }} className="part-3" >
+    return (< div style={{ display: step === 3 ? 'flex' : "none" }} className="part-3 bootPart" >
         <div id="team-location">
             <label for="team">Team
                 <label id='team-error' for="team" className="form-label"></label>
                 <input
                     required
                     name='team'
-                    className="form-control"
+                    className="form-control boot-data"
                     minLength={4}
 
                     placeholder="Athlete's Team"
@@ -28,7 +28,7 @@ const Part3 = ({ receivePart3, step }) => {
                 <label id='location-error' for="location"></label>
                 <input
                     required
-                    className="form-control"
+                    className="form-control boot-data"
                     minLength={4}
                     name="location"
                     placeholder="Athlete location"
@@ -44,7 +44,7 @@ const Part3 = ({ receivePart3, step }) => {
             <label id='about-error' for="about"></label>
             <textarea
                 required
-                className="form-control"
+                className="form-control boot-data"
                 type='text'
                 minLength={10}
                 name='about'
