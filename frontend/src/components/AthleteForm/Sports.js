@@ -10,9 +10,9 @@ const Sports = ({ sports }) => {
         'Golf', 'Tennis', 'Cricket', 'Basketball', 'Baseball', 'American Football', 'Aquatics', 'Archery', 'Automobile Racing', 'Badminton', 'Beach Volleyball', 'Bobsleigh', 'Body Building', 'Boxing', 'Cross Country Running', 'Cross Country Skiing', 'Curling', 'Cycling', 'Darts', 'Decathlon', 'Down Hill Skiing', 'Equestrianism', 'eSports', 'Fencing', 'Field Hockey', 'Figure Skating', 'Gymnastics', 'Ice Hockey', 'Martial Arts', 'Mixed Martial Arts', 'Modern Pentathlon', 'Motorcycle Racing', 'Netball', 'Polo', 'Racquetball', 'Rowing', 'Rugby', 'Sailing', 'Softball', 'Shooting', 'Skateboarding', 'Skeet Shooting', 'Skeleton', 'Snow Boarding', 'Soccer (Football)', 'Squash', 'Surfing', 'Swimming', 'Track and Field'
     ]
 
-    useEffect(() => {
-        console.log(sportSelect)
-    }, [sportSelect])
+    // useEffect(() => {
+    // console.log(sportSelect)
+    // }, [sportSelect])
 
     const handleSports = (e) => {
         e.preventDefault();
@@ -25,7 +25,7 @@ const Sports = ({ sports }) => {
             setSportSelect(e.target.value)
 
         }
-        console.log(sportSelect)
+        // console.log(sportSelect)
     }
 
 

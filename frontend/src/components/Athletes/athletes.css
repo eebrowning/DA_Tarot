@@ -14,7 +14,22 @@
     padding: 10px;
 }
 
+.card-front {
+    position: relative;
+}
 
+.card-img {
+    object-fit: cover;
+    height: 35rem;
+    width: 28rem;
+}
+
+.card-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(200, 200, 200, .8);
+}
 
 .about,
 .interests {
@@ -27,10 +42,4 @@
 .about::-webkit-scrollbar,
 .interests::-webkit-scrollbar {
     display: none;
-}
-
-.profile img {
-    height: 100px;
-    width: 100px;
-
 }

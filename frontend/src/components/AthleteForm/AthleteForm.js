@@ -60,7 +60,6 @@ const AthleteForm = () => {
     }
     ////////End Data receipt/
     const labelErrors = () => {
-        // console.log(document.querySelectorAll("label label"), 'error labels?')
 
         if (errors.length) {
             errors.forEach(err => {
@@ -85,18 +84,20 @@ const AthleteForm = () => {
 
     let next = (e) => {
         e.preventDefault();
-
+        bootSubmit();
         let good = true;
-        const form = document.querySelectorAll('.needs-validation')[0]
-        const inputs = document.querySelectorAll(`.part-${step} .boot-data`)
-        console.log(inputs, 'inloop')
+        const form = document.querySelectorAll('.needs-validation')[0];
+        const inputVal = document.querySelectorAll(`.part-${step} .boot-data`)
 
-        inputs.forEach((input) => {
-            console.log(input, 'inloop')
-            if (input.value === "" || input.value === null) {
+        Array.from(inputVal).forEach(input => {
+            if (!input.checkValidity()) {
+                // console.log(input, 'bad input in next')
                 good = false;
+
             }
+            form.classList.add('was-validated')
         })
+
         if (!good) {
             form.classList.add('was-validated')
         } else {
@@ -104,7 +105,7 @@ const AthleteForm = () => {
             setStep(step + 1);
         }
     }
-    /////////////Bootstrap validation iffe
+    /////////////Bootstrap validation
     let bootSubmit = () => {
         'use strict'
         // Fetch all the forms we want to apply custom Bootstrap validation styles to
@@ -113,9 +114,9 @@ const AthleteForm = () => {
         Array.from(forms).forEach(form => {
             form.addEventListener('submit', event => {
                 if (!form.checkValidity()) {
-                    console.log(form, 'form in bootsubmit')
-                    event.preventDefault()
-                    event.stopPropagation()
+                    // console.log(form, 'form in bootsubmit')
+                    event.preventDefault();
+                    event.stopPropagation();
                 }
                 form.classList.add('was-validated')
             }, false)
@@ -136,8 +137,9 @@ const AthleteForm = () => {
                     <Part2 receivePart2={receivePart2} step={step} />
                     <Part3 receivePart3={receivePart3} step={step} />
                 </div>
-                <div id='errors'>
+                <div id='errors' style={{ display: errors.length ? 'flex' : 'none' }}>
                     <ul id='athlete-errors'>
+                        <p>Check form for the following errors:</p>
                         {errors.length > 3 && (`There are ${errors.length} errors: review your submission.`)}
                         {errors.length > 0 && errors.length < 4 && errors.map((error) => <li style={{ color: 'red' }} key={error.param + error.msg}>{error.msg}</li>)}
                     </ul>

@@ -53,7 +53,7 @@ export const thunkGetAllAthletes = () => async dispatch => {
     if (res.status = 200) {
         let athletes = await res.data.data;
         // athletes = JSON.stringify(athletes)
-        console.log(athletes, 'athletes in thunk')
+        // console.log(athletes, 'athletes in thunk')
         dispatch(actionGetAthletes(athletes))
         return athletes;
     }
@@ -82,7 +82,7 @@ export const thunkCreateAthlete = (athlete) => async dispatch => {
     // console.log(res, 'thunk create ath')
     if (res.status >= 200 && res.status < 400) {
         const athlete = await res.data.data;
-        console.log('Thunk, create Athlete: ', athlete)
+        // console.log('Thunk, create Athlete: ', athlete)
         dispatch(actionCreateAthlete(athlete))
         return athlete;
     }
@@ -129,7 +129,7 @@ const athletesReducer = (state = iState, action) => {
     switch (action.type) {
         case CREATE_ATHLETE:
             newState = { ...state, [action.athlete.id]: action.athlete };
-            console.log(action, state, "...CREATE_ATHLETE... in athletesReducer")
+            // console.log(action, state, "...CREATE_ATHLETE... in athletesReducer")
             return newState;
         case GET_ATHLETES:
             newState = {};
@@ -146,16 +146,16 @@ const athletesReducer = (state = iState, action) => {
             return newState;
         case UPDATE_ATHLETE:
             newState = { ...state }
-            console.log(action.athlete, "action...UPDATE_ATHLETE... in athletesReducer")
+            // console.log(action.athlete, "action...UPDATE_ATHLETE... in athletesReducer")
             newState[action.athlete.id] = action.athlete;
             return newState;
         case DELETE_ATHLETE:
-            console.log(action, 'action...DELETE_ATHLETE...')
+            // console.log(action, 'action...DELETE_ATHLETE...')
             newState = { ...state }
             delete newState[action.athleteId]
             return newState;
         default:
-            console.log('yer a default, harry')
+            // console.log('yer a default, harry')
             return state;
     }
 }

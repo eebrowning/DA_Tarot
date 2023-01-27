@@ -26,26 +26,32 @@ function SingleAthlete(profile) {
 
     const handleDelete = async (e) => {
         e.preventDefault();
-        console.log(e.target.id, 'should be ath id')
+        // console.log(e.target.id, 'should be ath id')
         dispatch(thunkDeleteAthlete(e.target.id))
 
     }
-
+    //if you want a card, have two sections of profile, and a flip animation to transition between the two.
+    //front: pic, name, sport, team
+    //back: name, team, location, about
     return (
 
-        <div className='profile' >
-            <img src={avatar} />
-            <div id='basic-info'>
-                <p className="name">Name: {name}</p>
-                <p className="sports">Sports: {sports}</p>
-                <p className="gender">Gender: {gender}</p>
-                <p className="birthdate">Birthdate: {birthdate}</p>
-            </div>
-            <div id='about'>
-                <p className="location">Location: {location}</p>
-                <p className="team">Team: {team}</p>
-                <>About:<p className="about"> {about}</p></>
-                {/* <p className="interests">Interests: {interests}</p> */}
+        <div className='profile'>
+            <div className="card-front">
+                <img className="card-img" src={avatar} />
+                <div className="card-info">
+                    <div id='basic-info'>
+                        <p className="name">Name: {name}</p>
+                        <p className="sports">Sports: {sports}</p>
+                        <p className="gender">Gender: {gender}</p>
+                        <p className="birthdate">Birthdate: {birthdate}</p>
+                    </div>
+                    <div id='about'>
+                        <p className="location">Location: {location}</p>
+                        <p className="team">Team: {team}</p>
+                        <>About:<p className="about"> {about}</p></>
+                        {/* <p className="interests">Interests: {interests}</p> */}
+                    </div>
+                </div >
             </div>
             <button id={id} onClick={handleDelete} >Delete Athlete </button>
         </div>
