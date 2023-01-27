@@ -53,17 +53,17 @@ function SingleAthlete(profile) {
                         </div >
                     </div>
                     <div className="card-back" >
-                        <img className="card-img" src={avatar} />
-                        <div className="card-info">
+                        <div className="back-info">
                             <div id='basic-info'>
-                                <p className="name">Name: {name}</p>
-                                <p className="sports">Sports: {sports}</p>
-                                <p className="gender">Gender: {gender}</p>
-                                <p className="birthdate">Birthdate: {birthdate}</p>
-                            </div>
-                            <div id='about'>
-                                <p className="location">Location: {location}</p>
                                 <p className="team">Team: {team}</p>
+                                <p className="name">Name: {name}</p>
+                                <p className="location">Location: {location}</p>
+                            </div>
+                            <img className="back-img" src={avatar} />
+                            <div id='about'>
+                                <p className="birthdate">Birthdate: {birthdate}</p>
+                                <p className="gender">Gender: {gender}</p>
+                                <p className="sports">Sports: {sports}</p>
                                 <>About:<p className="about"> {about}</p></>
                                 {/* <p className="interests">Interests: {interests}</p> */}
                             </div>

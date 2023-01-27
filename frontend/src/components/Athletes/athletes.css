@@ -7,14 +7,10 @@
 }
 
 .outer-profile {
-    border: 5px solid red;
-
+    border: 3px solid black;
 }
 
 .profile {
-    /* display: flex;
-    flex-direction: column;
-    justify-content: space-evenly; */
 
     height: 35rem;
     width: 25rem;
@@ -30,8 +26,8 @@
 
 .card {
     position: relative;
-    /* width: 100%;
-    height: 100%; */
+    width: 100%;
+    height: 100%;
     /* height: 35rem; */
     /* height: fit-content; */
     /* width: 25rem; */
@@ -47,6 +43,7 @@
 
 .card-back {
     position: relative;
+    /* height: 100%; */
 }
 
 .card-img {
@@ -55,12 +52,48 @@
     width: 28rem;
 }
 
+.back-img {
+    height: 60%;
+    width: 60%;
+    object-fit: contain;
+    /* float: right; */
+}
+
 .card-info {
     position: absolute;
     top: 0;
     left: 0;
     background-color: rgba(200, 200, 200, .8);
+
+
 }
+
+.back-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vb;
+    background-color: rgba(200, 200, 200, .8);
+    border: 3px solid red;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.back-info img,
+.back-info div {
+    border: 1px solid chartreuse;
+}
+
+#basic-info {
+    width: 40%;
+}
+
+#about {
+    width: 100%;
+}
+
 
 .about,
 .interests {
