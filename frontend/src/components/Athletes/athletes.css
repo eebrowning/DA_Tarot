@@ -1,25 +1,56 @@
 .athletes {
     display: flex;
     flex-wrap: wrap;
-    border: 1px solid red;
+    /* border: 1px solid red; */
+    height: 100%;
     justify-content: space-evenly;
 }
 
+.outer-profile {
+    border: 5px solid red;
+
+}
+
 .profile {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    border: 1px solid black;
+    justify-content: space-evenly; */
+
     height: 35rem;
-    width: 28rem;
+    width: 25rem;
     padding: 10px;
+    /*card animation stuff*/
+    background-color: transparent;
+    border: 1px solid #f1f1f1;
+    border-radius: 3px;
+    perspective: 1000px;
+
+}
+
+
+.card {
+    position: relative;
+    /* width: 100%;
+    height: 100%; */
+    /* height: 35rem; */
+    /* height: fit-content; */
+    /* width: 25rem; */
+    text-align: center;
+    /*card animation stuff*/
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
 }
 
 .card-front {
     position: relative;
 }
 
+.card-back {
+    position: relative;
+}
+
 .card-img {
-    object-fit: cover;
+    object-fit: contain;
     height: 35rem;
     width: 28rem;
 }
@@ -42,4 +73,34 @@
 .about::-webkit-scrollbar,
 .interests::-webkit-scrollbar {
     display: none;
+}
+
+.delete-button {
+    z-index: 15;
+    margin: 20px;
+}
+
+
+/* Card animation*/
+.profile:hover .card {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.card-front {
+    background-color: #bbb;
+    color: black;
+}
+
+.card-back {
+    color: white;
+    transform: rotateY(180deg);
 }
