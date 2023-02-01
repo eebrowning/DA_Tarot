@@ -1,14 +1,14 @@
 import axios from 'axios'
 
 const api = axios.create({
-    // baseURL: MONGO_URI,
+
     baseURL: 'http://localhost:8000/api',
 
 })
 
 export const insertProfile = async payload => {
     try {
-        let res = await api.post(`/profile`, payload)
+        let res = await api.post(`/profiles`, payload)
         // console.log(res, payload, 'balaaaaaah')
         // Work with the response...
         return res;
@@ -41,9 +41,9 @@ export const insertProfile = async payload => {
 
 export const getAllProfiles = () => api.get(`/profiles`)
 
-export const updateProfileById = (id, payload) => api.put(`/profile/${id}`, payload)
-export const getProfileById = id => api.get(`/profile/${id}`)
-export const deleteProfileById = id => api.delete(`profile/${id}`)
+export const updateProfileById = (id, payload) => api.put(`/profiles/${id}`, payload)
+export const getProfileById = id => api.get(`/profiles/${id}`)
+export const deleteProfileById = id => api.delete(`profiles/${id}`)
 
 
 const apis = {

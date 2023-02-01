@@ -47,6 +47,7 @@ createProfile = (req, res) => {
         })
 }
 
+//TODO
 updateProfile = async (req, res) => {
     const body = req.body
 

@@ -137,6 +137,8 @@ const AthleteForm = () => {
                     <Part2 receivePart2={receivePart2} step={step} />
                     <Part3 receivePart3={receivePart3} step={step} />
                 </div>
+                {/* {errors && ( */}
+
                 <div id='errors' style={{ display: errors.length ? 'flex' : 'none' }}>
                     <ul id='athlete-errors'>
                         <p>Check form for the following errors:</p>
@@ -144,6 +146,8 @@ const AthleteForm = () => {
                         {errors.length > 0 && errors.length < 4 && errors.map((error) => <li style={{ color: 'red' }} key={error.param + error.msg}>{error.msg}</li>)}
                     </ul>
                 </div>
+
+                {/* )} */}
                 <div id='buttons'>
                     <button style={{ display: step > 1 ? "block" : "none" }} onClick={prev}>Previous</button>
                     <button className="btn btn-primary" type="submit" style={{ display: step < 3 ? "block" : "none" }} onClick={next}>Next</button>

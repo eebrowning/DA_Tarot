@@ -4,9 +4,10 @@ const Schema = mongoose.Schema;
 
 const ProfileSchema = Schema({
 
-    // isComplete: {
-    //     type: Boolean,
-    //     default: false,
+    //association will be similar to this:
+    // creator: {
+    //     type: ObjectId,
+    //     ref: "User"
     // },
     name: {
         type: String,
