@@ -3,8 +3,15 @@
 // const jwt = require('jsonwebtoken');
 const express = require('express');
 const UserCtrl = require('../../db/controllers/user-ctrl');
+const passport = require('passport')
 
 const router = express.Router()
+
+
+// router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
+//     res.json({ msg: 'Success' });
+// })
+router.get('/current', passport.authenticate('jwt', { session: false }), UserCtrl.currentUser)
 
 router.post('/login', UserCtrl.loginUser)
 router.post('/register', UserCtrl.createUser)

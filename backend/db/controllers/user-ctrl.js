@@ -37,6 +37,16 @@ loginUser = (req, res) => {
 
 }
 
+currentUser = (req, res) => {
+
+    res.json({
+        id: req.user.id,
+        username: req.user.username,
+        email: req.user.email
+    });
+}
+
+
 createUser = (req, res) => {
 
     // Check to make sure nobody has already registered with a duplicate email
@@ -188,6 +198,7 @@ deleteUserById = async (req, res) => {
 module.exports = {
     loginUser,
     createUser,
+    currentUser,
     getAllUsers,
     getUser,
     updateUser,

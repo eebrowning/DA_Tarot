@@ -5,9 +5,13 @@ const cors = require('cors')
 const db = require('./db');
 const profileRouter = require('./routes/api/profiles-router');
 const userRouter = require('./routes/api/users-router')
-// const apiRouter = require('./routes/index.js')
+const passport = require('passport')
+
 const app = express()
 const apiPort = 8000
+
+app.use(passport.initialize());
+require('./config/passport')(passport);
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
