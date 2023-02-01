@@ -64,6 +64,7 @@ updateProfile = async (req, res) => {
                 message: 'profile not found!',
             })
         }
+        //TODO update values, 2/1/2023
         profile.name = body.name
         profile.time = body.time
         profile.rating = body.rating
@@ -127,7 +128,13 @@ deleteProfileById = async (req, res) => {
 
 
 getProfiles = async (req, res) => {
+
+
+
     let profiles = await Profile.find({})
+    // console.log('xxxxxxxx')
+    // console.log(profiles, 'in main index.js in API')
+    // console.log('xxxxxxxx')
 
     try {
         res.status(200).json({

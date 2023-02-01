@@ -6,3 +6,11 @@ Animated 'baseball card'
 
 
 MAYBE Dragon age character cards with classes instead of sport
+
+
+
+
+
+Stretch:
+users, interactive
+ro-sham-bo w/ classes? 

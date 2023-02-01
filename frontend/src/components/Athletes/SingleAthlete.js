@@ -41,14 +41,18 @@ function SingleAthlete(profile) {
 
                     <div className="card-front">
                         <img className="card-img" src={avatar} />
-                        <div className="card-info">
+                        <div className="front-info">
                             <div id='basic-info'>
-                                <p className="name">Name: {name}</p>
-                                <p className="sports">Sport: {sports}</p>
+                                {/* <p className="name">Name: {name}</p>
+                                <p className="sports">Sport: {sports}</p> */}
+                                <p className="name">{name}</p>
+                                <p className="sports">{sports}</p>
                             </div>
                             <div id='about'>
-                                <p className="location">Location: {location}</p>
-                                <p className="team">Team: {team}</p>
+                                {/* <p className="location">Location: {location}</p>
+                                <p className="team">Team: {team}</p> */}
+                                <p className="team">{team}</p>
+                                <p className="location">{location}</p>
                             </div>
                         </div >
                     </div>
