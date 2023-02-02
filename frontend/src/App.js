@@ -1,5 +1,5 @@
 // import logo from './logo.svg';
-import './App.css';
+
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Athletes from './components/Athletes/Athletes';
 import AthleteForm from './components/AthleteForm/AthleteForm';

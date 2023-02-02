@@ -48,7 +48,12 @@ currentUser = (req, res) => {
 
 
 createUser = (req, res) => {
-
+    if (req.errors) {
+        return res.status(400).json({
+            success: false,
+            "errors": req.errors
+        })
+    }
     // Check to make sure nobody has already registered with a duplicate email
     User.findOne({ email: req.body.email })
         .then(user => {
