@@ -1,0 +1,29 @@
+button {
+    position: relative;
+    color: #48C2F9;
+    font-weight: bolder;
+    background: #00000000;
+    width: 75px;
+    cursor: hand;
+}
+
+
+#login-box {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#login-form {
+    margin-top: 20px;
+    border-radius: 4px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+    border: 1px solid grey;
+    padding-bottom: 20px;
+}

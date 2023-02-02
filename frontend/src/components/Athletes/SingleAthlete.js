@@ -11,7 +11,7 @@ import "./athletes.css"
 function SingleAthlete(profile) {
     profile = profile.profile;
     let dispatch = useDispatch();
-    const athletes = useSelector((state) => Object.values(state.athletesReducer));
+    const athletes = useSelector((state) => Object.values(state.athletes));
     let [name, setName] = useState(profile.name);
     let [birthdate, setBirthdate] = useState(profile.birthdate);
     let [location, setLocation] = useState(profile.location);

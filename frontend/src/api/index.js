@@ -1,32 +1,22 @@
 import axios from 'axios'
 
 const api = axios.create({
-
     baseURL: 'http://localhost:8000/api',
-
 })
 
 export const insertProfile = async payload => {
     try {
         let res = await api.post(`/profiles`, payload)
         // console.log(res, payload, 'balaaaaaah')
-        // Work with the response...
         return res;
     }
     catch (error) {
-        // Handle error -> I circumvent this to send more robust error data. totally unnecessary
-        // console.log(error, 'new new new');
+
         if (error.response) {
-            // The request was made and the server responded with a status code
-            // that falls out of the range of 2xx
-            // console.log(error.response.data);
+
             return error.response.data
-            // console.log(error.response.status);
-            // console.log(error.response.headers);
+
         } else if (error.request) {
-            // The request was made but no response was received
-            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-            // http.ClientRequest in node.js
             console.log(error.request, 'should never be here');
         } else {
             // Something happened in setting up the request that triggered an Error
@@ -40,10 +30,39 @@ export const insertProfile = async payload => {
 
 
 export const getAllProfiles = () => api.get(`/profiles`)
-
 export const updateProfileById = (id, payload) => api.put(`/profiles/${id}`, payload)
 export const getProfileById = id => api.get(`/profiles/${id}`)
 export const deleteProfileById = id => api.delete(`profiles/${id}`)
+
+
+//login
+export const login = async (payload) => {
+    let res = await api.post(`/users/login`, payload)
+    // console.log(res, payload, 'balaaaaaah')
+    return res;
+    // api.post('/users/login', payload)
+}
+export const demo = async (payload) => {
+    let res = await api.post(`/users/login`, payload)
+    // console.log(res, payload, 'balaaaaaah')
+    return res;
+    // api.post('/users/login', payload)
+}
+
+export const signup = async (payload) => {
+    let res = await api.post(`/users/register`, payload)
+    // console.log(res, payload, 'balaaaaaah')
+    return res;
+    // api.post('/users/login', payload)
+}
+
+
+//logout
+// export const logout = (payload) => api.post('/users/logout')
+//demo login
+//register
+
+
 
 
 const apis = {
@@ -51,6 +70,9 @@ const apis = {
     getAllProfiles,
     updateProfileById,
     getProfileById,
-    deleteProfileById
+    deleteProfileById,
+    login,
+    demo,
+    signup
 }
 export default apis

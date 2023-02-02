@@ -11,7 +11,7 @@ import { thunkGetAllAthletes } from "../../store/athletes";
 function Athletes() {
     let [profiles, setProfiles] = useState([]);
     let dispatch = useDispatch();
-    const athletes = useSelector((state) => Object.values(state.athletesReducer));
+    const athletes = useSelector((state) => Object.values(state.athletes));
     useEffect(() => {
 
         dispatch(thunkGetAllAthletes());

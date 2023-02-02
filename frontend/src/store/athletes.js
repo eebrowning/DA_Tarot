@@ -1,6 +1,4 @@
-// const { csrfFetch } = require('./csrf');
 
-import axios from "axios";
 import api from "../api";
 
 const CREATE_ATHLETE = 'create/createAthlete'//create

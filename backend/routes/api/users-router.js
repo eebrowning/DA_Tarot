@@ -5,6 +5,7 @@ const passport = require('passport')
 const { check } = require('express-validator');
 
 const { handleValidationErrors } = require('../../utils/validation');
+// const { restoreUser } = require('../../utils/auth');
 
 const router = express.Router()
 
@@ -24,10 +25,15 @@ const validateUser = [//pass as middleware with the correct fields
     handleValidationErrors
 ];
 
-// router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
-//     res.json({ msg: 'Success' });
-// })
-router.get('/current', passport.authenticate('jwt', { session: false }), UserCtrl.currentUser)
+router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
+    res.json({
+        id: req.user.id,
+        username: req.user.username,
+        email: req.user.email,
+        msg: 'this is the current user'
+    });
+})
+// router.get('/current', passport.authenticate('jwt', { session: false }), UserCtrl.currentUser);
 
 router.post('/login', UserCtrl.loginUser)
 router.post('/register', validateUser, UserCtrl.createUser)
@@ -35,6 +41,19 @@ router.get('/:id', UserCtrl.getUser);
 router.get('/', UserCtrl.getAllUsers);
 router.put('/:id', UserCtrl.updateUser)
 router.delete("/:id", UserCtrl.deleteUserById)
+
+router.get(
+    '/',
+    // restoreUser,
+    (req, res) => {
+        const { user } = req;
+        if (user) {
+            return res.json({
+                user: user.toSafeObject()
+            });
+        } else return res.json({});
+    }
+);
 
 
 module.exports = router

@@ -1,12 +1,13 @@
 const User = require('../../models/user');
 const bcrypt = require('bcryptjs');
 const [SECRET] = require('../../config/keys');
+
 const jwt = require('jsonwebtoken');
+const { setTokenCookie } = require('../../utils/auth')
 
 loginUser = (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
-
     User.findOne({ email })
         .then(user => {
             if (!user) {
@@ -16,22 +17,25 @@ loginUser = (req, res) => {
                 .then(isMatch => {
                     if (isMatch) {
                         const payload = { id: user.id, username: user.username };
-
+                        // console.log(payload.username, 'signing in')
                         jwt.sign(
                             payload,
                             SECRET,
                             // Tell the key to expire in one hour
                             { expiresIn: 3600 },
                             (err, token) => {
+
                                 res.json({
                                     success: true,
-                                    token: 'Bearer ' + token
+                                    token: 'Bearer ' + token,
+                                    user: payload,
                                 });
                             });
                     } else {
                         return res.status(400).json({ password: 'Incorrect password' });
                     }
                 })
+
 
         })
 
@@ -79,7 +83,8 @@ createUser = (req, res) => {
                                 jwt.sign(payload, SECRET, { expiresIn: 3600 }, (err, token) => {
                                     res.json({
                                         success: true,
-                                        token: "Bearer " + token
+                                        token: "Bearer " + token,
+                                        user: user
                                     });
                                 });
                             })
