@@ -55,6 +55,19 @@ export const signup = async (payload) => {
     return res;
     // api.post('/users/login', payload)
 }
+export const logout = async (payload) => {
+    let res = await api.post(`/users/logout`, payload)
+    // console.log(res, payload, 'balaaaaaah')
+    return res;
+    // api.post('/users/login', payload)
+}
+
+
+export const restore = async (payload) => {
+    let res = await api.get('/users/current')
+    console.log(res, 'res in restore')
+    return res;
+}
 
 
 //logout
@@ -73,6 +86,7 @@ const apis = {
     deleteProfileById,
     login,
     demo,
-    signup
+    signup,
+    logout
 }
 export default apis
