@@ -4,6 +4,10 @@ import { csrfFetch } from './csrf';
 
 const SET_USER = 'session/setUser';
 const REMOVE_USER = 'session/removeUser';
+const GET_USERS = 'session/getUsers';
+
+//bless this mess
+
 
 const setUser = (user) => {
     return {
@@ -17,6 +21,14 @@ const removeUser = () => {
         type: REMOVE_USER,
     };
 };
+const getUsers = (users) => {
+    return {
+        type: GET_USERS,
+        users
+    }
+}
+
+
 
 
 //login thunk
@@ -49,19 +61,18 @@ export const demoLogin = () => async (dispatch) => {
     setAuthToken(data.token)
 
     localStorage.setItem('jwtToken', data.token);
-    console.log(data.token, 'in demo login')
+    // console.log(data.token, 'in demo login')
     dispatch(setUser(data.user));
     return response;
 };
 
-export const restoreUser = () => async dispatch => {
-    const response = await csrfFetch('/api/session');
-    const data = await response.json();
-    console.log(data, 'data in restoreUser ')
-    dispatch(setUser(data.user));
-    return response;
-};
-
+// export const restoreUser = () => async dispatch => {
+//     const response = await csrfFetch('/api/session');
+//     const data = await response.json();
+//     console.log(data, 'data in restoreUser ')
+//     dispatch(setUser(data.user));
+//     return response;
+// };
 
 
 export const signup = (user) => async (dispatch) => {
@@ -87,7 +98,13 @@ export const logout = () => async (dispatch) => {
     dispatch(removeUser());
     // return response;
 };
+export const getAllUsers = () => async (dispatch) => {
+    let users = await api.getAllUsers()
+    // console.log(users, 'users in getall users')
 
+    dispatch(getUsers(users.data.data))
+    return users;
+}
 
 
 const sessionReducer = (state = {}, action) => {
@@ -97,6 +114,12 @@ const sessionReducer = (state = {}, action) => {
             newState = Object.assign({}, state);
             newState.user = action.payload;
             console.log(action.payload, 'this is the action of SET_USER')
+            return newState;
+        case GET_USERS:
+            newState = Object.assign({}, state);
+            newState.users = action.payload;
+            console.log(state)
+            console.log(action, 'this is the action of GET_USERS')
             return newState;
         case REMOVE_USER:
             newState = Object.assign({}, state);

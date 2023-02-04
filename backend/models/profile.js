@@ -5,10 +5,10 @@ const Schema = mongoose.Schema;
 const ProfileSchema = Schema({
 
     //association will be similar to this:
-    // user: {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'users'
-    //   },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'users'
+    },
     name: {
         type: String,
         minLength: 4,

@@ -14,8 +14,8 @@ const Part1 = ({ receivePart1, step }) => {
 
     return (< div style={{ display: step === 1 ? 'flex' : "none" }} className="part-1 bootPart" >
 
-        <label for="name" className="form-label">Athlete name
-            <label id='name-error' for="name"></label>
+        <label htmlFor="name" className="form-label">Athlete name
+            <label id='name-error' htmlFor="name"></label>
             <input
                 required
                 name="name"
@@ -27,8 +27,8 @@ const Part1 = ({ receivePart1, step }) => {
                 onChange={e => setName(e.target.value)}
             />
         </label>
-        <label for="avatar" className="form-label">Avatar link
-            <label id='avatar-error' for="avatar"></label>
+        <label htmlFor="avatar" className="form-label">Avatar link
+            <label id='avatar-error' htmlFor="avatar"></label>
             <input
                 name='avatar'
                 className="form-control boot-data"

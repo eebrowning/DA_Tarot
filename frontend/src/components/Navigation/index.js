@@ -7,11 +7,8 @@ import { demoLogin } from '../../store/session';
 
 
 function Navigation({ isLoaded }) {
-    const state = useSelector(state => state);
-    console.log(state, 'state')
     const sessionUser = useSelector(state => state.session.user);
 
-    // console.log(sessionUser, 'current session')
 
     const dispatch = useDispatch();
     const history = useHistory()

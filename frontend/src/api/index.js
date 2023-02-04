@@ -36,6 +36,8 @@ export const deleteProfileById = id => api.delete(`profiles/${id}`)
 
 
 //login
+export const getAllUsers = () => api.get(`/users/`)
+
 export const login = async (payload) => {
     let res = await api.post(`/users/login`, payload)
     // console.log(res, payload, 'balaaaaaah')
@@ -87,6 +89,7 @@ const apis = {
     login,
     demo,
     signup,
-    logout
+    logout,
+    getAllUsers
 }
 export default apis

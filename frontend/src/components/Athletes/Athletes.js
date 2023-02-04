@@ -6,6 +6,7 @@ import "./athletes.css"
 import SingleAthlete from "./SingleAthlete";
 import { useDispatch, useSelector } from "react-redux";
 import { thunkGetAllAthletes } from "../../store/athletes";
+import { getAllUsers } from "../../store/session";
 
 
 function Athletes() {
@@ -15,6 +16,7 @@ function Athletes() {
     useEffect(() => {
 
         dispatch(thunkGetAllAthletes());
+        dispatch(getAllUsers());
         // console.log("sent dispatch to thunkGetAllAthletes")
 
     }, [dispatch, athletes.length])

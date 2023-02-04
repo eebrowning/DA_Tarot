@@ -14,3 +14,5 @@ MAYBE Dragon age character cards with classes instead of sport
 Stretch:
 users, interactive
 ro-sham-bo w/ classes? 
+accounts can store experience for each of their cards/heroes.
+class ties can be broken with a level difference

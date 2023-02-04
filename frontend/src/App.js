@@ -15,29 +15,28 @@ function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
-    dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+    // dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
   return (
     <div className="App">
       <BrowserRouter>
         <Navigation isLoaded={isLoaded} />
-        <Switch >
-          < LoginFormPage path='/login' />
-          < SignupFormPage path='/signup' />
+        <div className='sans-nav'>
 
-          {/* <Switch> */}
-          {/* <Route path='/new-athlete' exact={true}> */}
-          <AthleteForm path='/' />
-          {/* </Route> */}
-          {/* <Route path='/' exact={true}> */}
-          {/* </Route> */}
-          {/* </Switch> */}
-        </Switch>
+          <Switch >
+            < LoginFormPage path='/login' />
+            < SignupFormPage path='/signup' />
+            <AthleteForm path='/create' />
+            {/* </Route> */}
+            {/* <Route path='/' exact={true}> */}
+            {/* </Route> */}
+          </Switch>
+        </div>
         < Athletes />
       </BrowserRouter>
 
-    </div>
+    </div >
   );
 }
 

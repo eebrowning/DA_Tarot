@@ -12,8 +12,8 @@ const Part3 = ({ receivePart3, step }) => {
 
     return (< div style={{ display: step === 3 ? 'flex' : "none" }} className="part-3 bootPart" >
         <div id="team-location">
-            <label for="team">Team
-                <label id='team-error' for="team" className="form-label"></label>
+            <label htmlFor="team">Team
+                <label id='team-error' htmlFor="team" className="form-label"></label>
                 <input
                     required
                     name='team'
@@ -24,8 +24,8 @@ const Part3 = ({ receivePart3, step }) => {
                     onChange={e => setTeam(e.target.value)}
                 />
             </label>
-            <label for="location" className="form-label">Location
-                <label id='location-error' for="location"></label>
+            <label htmlFor="location" className="form-label">Location
+                <label id='location-error' htmlFor="location"></label>
                 <input
                     required
                     className="form-control boot-data"
@@ -40,8 +40,8 @@ const Part3 = ({ receivePart3, step }) => {
 
         </div>
 
-        <label for="about" className="form-label">About Summary
-            <label id='about-error' for="about"></label>
+        <label htmlFor="about" className="form-label">About Summary
+            <label id='about-error' htmlFor="about"></label>
             <textarea
                 required
                 className="form-control boot-data"
@@ -53,8 +53,8 @@ const Part3 = ({ receivePart3, step }) => {
             />
         </label>
 
-        {/* <label for="interests" className="form-label">Interests
-            <label id='interests-error' for="interests"></label>
+        {/* <label htmlFor= "interests" className="form-label">Interests
+            <label id='interests-error' htmlFor= "interests"></label>
             <textarea
                 name='interests'
                 className="form-control"

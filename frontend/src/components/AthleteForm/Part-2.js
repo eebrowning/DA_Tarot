@@ -14,8 +14,8 @@ const Part2 = ({ receivePart2, step }) => {
     }, [gender, sports, birthdate])
 
     return (<div style={{ display: step === 2 ? 'flex' : "none" }} className="part-2 bootPart">
-        <label for="sports" className="form-label">Sport
-            <label id='sports-error' for="sports"></label>
+        <label htmlFor="sports" className="form-label">Sport
+            <label id='sports-error' htmlFor="sports"></label>
             <select name='sports' id='sports-select' className="form-control boot-data" onChange={e => setSports(e.target.value)} required>
                 <option>{null}</option>
                 {
@@ -25,8 +25,8 @@ const Part2 = ({ receivePart2, step }) => {
                 }
             </select>
         </label>
-        <label for="gender-select" className="form-label">Gender
-            <label id='gender-error' for="gender-select"></label>
+        <label htmlFor="gender-select" className="form-label">Gender
+            <label id='gender-error' htmlFor="gender-select"></label>
             <select onChange={e => setGender(e.target.value)} id='gender' className="form-control boot-data" required>
                 <option>{null}</option>
                 <option>Male</option>
@@ -35,8 +35,8 @@ const Part2 = ({ receivePart2, step }) => {
 
             </select>
         </label>
-        <label for="birthdate" className="form-label">Birthdate
-            <label id='birthdate-error' for="birthdate"></label>
+        <label htmlFor="birthdate" className="form-label">Birthdate
+            <label id='birthdate-error' htmlFor="birthdate"></label>
             <input
                 required
                 name='birthdate'

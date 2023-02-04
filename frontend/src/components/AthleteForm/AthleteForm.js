@@ -25,6 +25,8 @@ const AthleteForm = () => {
     const [errors, setErrors] = useState([]);
 
     const [step, setStep] = useState(1)
+    const user = useSelector((state) => state.session.user)
+
 
     useEffect(() => {
         bootSubmit();
@@ -33,7 +35,7 @@ const AthleteForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const newAthlete = { name, birthdate, location, team, gender, sports, about, interests, avatar }
+        const newAthlete = { user: user.id, name, birthdate, location, team, gender, sports, about, interests, avatar }
         setErrors([]);
         let response = await dispatch(thunkCreateAthlete(newAthlete));
 
