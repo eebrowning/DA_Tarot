@@ -21,7 +21,6 @@ import { thunkLogout } from './actions/session_actions';
 
 
 
-
 document.addEventListener('DOMContentLoaded', () => {
   let store;
 
@@ -45,7 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (decodedUser.exp < currentTime) {
       // Logout the user and redirect to the login page
       store.dispatch(thunkLogout());
-      window.location.href = '/login';
+      // window.location.href = '/login';
+      window.location.href = '/';
+
     }
   } else {
     // If this is a first time user, start with an empty store
@@ -54,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Render our root component and pass in the store as a prop
   const root = ReactDOM.createRoot(document.getElementById('root'));
+
   root.render(
     <React.StrictMode>
       <Provider store={store} >

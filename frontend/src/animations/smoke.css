@@ -1,0 +1,70 @@
+@keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+  }
+
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+  }
+}
+
+@-webkit-keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+  }
+
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+  }
+}
+
+@-moz-keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+  }
+
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+  }
+}
+
+@-webkit-keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+  }
+
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+  }
+}
+
+.inq-logo {
+  height: 150%;
+  width: 100%;
+  object-fit: cover;
+  position: absolute;
+  right: 0;
+  top: 00px;
+  bottom: 0;
+  z-index: -2;
+
+}
+
+.clouds {
+  width: 10000px;
+  height: 150%;
+  background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds_repeat.png") repeat;
+  background-size: 1000px 1000px;
+  opacity: .48;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  -moz-animation: move-background 85s linear infinite;
+  -ms-animation: move-background 85s linear infinite;
+  -o-animation: move-background 85s linear infinite;
+  -webkit-animation: move-background 85s linear infinite;
+  animation: move-background 85s linear infinite;
+
+}

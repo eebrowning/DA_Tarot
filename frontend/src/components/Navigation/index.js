@@ -58,14 +58,17 @@ function Navigation({ isLoaded }) {
                     {/* <img onClick={() => history.push('/')} id='nav-logo' src='https://fontmeme.com/permalink/220702/01a4e3f2e2dfca0efb0d85c9a5590637.png' /> */}
 
                     {/* <img onClick={() => history.push('/')} id='nav-logo' src='https://fontmeme.com/permalink/220703/1ef7f1b8fbea632b7949072dce294a0b.png' /> */}
-                    <p id='nav-logo'> MERN PRACTICE</p>
+                    <a href='/' style={{ textDecoration: 'none' }}>
+
+                        <p id='nav-logo'> MERN PRACTICE</p>
+                    </a>
                 </li>
 
                 <li>
                 </li>
 
                 <li id={'right-nav-box'}>
-                    <NavLink exact to="/">Home</NavLink>
+                    <NavLink exact to="/cards">Show cards</NavLink>
                     {isLoaded && sessionLinks}
                     {sessionLinks}
                 </li>
