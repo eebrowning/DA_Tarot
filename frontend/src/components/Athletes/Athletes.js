@@ -65,7 +65,8 @@ function Athletes() {
     let handleClickRight = (e) => {
         e.preventDefault();
 
-        // moveToSelected('next')
+        moveToSelected('next')
+
         // return document.getElementById('athletes').scrollBy({
         //     top: 0,
         //     left: carouselWidth,
@@ -74,32 +75,64 @@ function Athletes() {
     }
 
     /////////////////
+
+    //so far, left to right traversal is working,but going back left the 'next' side isn't removed
+    //also, new 'prev' not being labeled.
     function moveToSelected(element) {
-        let $ = document.$
-        console.log('element', element)
+        let $ = document.querySelector(`.${element}`)
+        console.log('direction:', element)
+
         if (element == "next") {
-            var selected = $(".selected").next();
+            var newSelected = document.querySelector(".selected").nextSibling;
         } else if (element == "prev") {
-            var selected = $(".selected").prev();
+            var newSelected = document.querySelector(".selected").previousSibling;
         } else {
-            var selected = element;
+            // var selected = element;
+            var newSelected = document.querySelector(".selected");
         }
 
-        var next = $(selected).next();
-        var prev = $(selected).prev();
-        var prevSecond = $(prev).prev();
-        var nextSecond = $(next).next();
+        var next = newSelected.nextSibling;
+        var prev = newSelected.previousSibling;
+        var prevSecond = prev?.previousSibling;
+        var nextSecond = next?.nextSibling;
 
-        $(selected).removeClass().addClass("selected");
 
-        $(prev).removeClass().addClass("prev");
-        $(next).removeClass().addClass("next");
+        // console.log(next)
 
-        $(nextSecond).removeClass().addClass("nextRightSecond");
-        $(prevSecond).removeClass().addClass("prevLeftSecond");
+        console.log(newSelected, 'selected', element, 'element')
+        newSelected?.classList.remove(element);
+        newSelected?.classList.add('selected');
+        document.querySelector(".selected").classList.add('next')
+        document.querySelector(".selected").classList.remove('selected')
 
-        $(nextSecond).nextAll().removeClass().addClass('hideRight');
-        $(prevSecond).prevAll().removeClass().addClass('hideLeft');
+
+        prev?.classList.remove('prevLeftSecond');
+        prev?.classList.add('prev');
+        document.querySelector(".prev").classList.add('prevLeftSecond')
+        document.querySelector(".prev").classList.remove('prev')
+
+        next?.classList.remove('nextRightSecond')
+        next?.classList.add("next");
+        document.querySelector(".next").classList.add('nextRightSecond')
+        document.querySelector(".next").classList.remove('next')
+
+        nextSecond?.classList.remove('hideRight');
+        nextSecond?.classList.add("nextRightSecond");
+        // document.querySelector(".nextRightSecond").classList.add('hideRight')
+        document.querySelector(".nextRightSecond").classList.remove('nextRightSecond')
+
+        prevSecond?.classList.remove('hideLeft');
+        prevSecond?.classList.add("prevLeftSecond")
+        // document.querySelector(".prevLeftSecond").classList.add('hideLeft')
+        document.querySelector(".prevLeftSecond").classList.remove('prevLeftSecond')
+        // prevSecond.removeClass().addClass("prevLeftSecond");
+
+        console.log(nextSecond, 'dooooo iiiiit')
+
+
+        // nextSecond.nextAll().removeClass().addClass('hideRight');
+
+        // prevSecond.prevAll().removeClass().addClass('hideLeft');
 
     }
 
@@ -113,6 +146,7 @@ function Athletes() {
             <img className={'white-arrow'} onClick={handleClickRight} id="next" src='https://i.imgur.com/UpFYkCd.png' />
 
             <div id='athletes' className="athletes">
+
                 {athletes.map(profile => (
 
                     < SingleAthlete key={profile._id} profile={profile} profiles={profiles} />
@@ -120,8 +154,8 @@ function Athletes() {
 
                 ))}
                 {carouselCards.length && handleLabels()}
-            </div>
 
+            </div>
         </div >
     );
 }
