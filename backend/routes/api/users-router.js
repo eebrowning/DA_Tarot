@@ -1,6 +1,6 @@
 
 const express = require('express');
-const UserCtrl = require('../../db/controllers/user-ctrl');
+const UserCtrl = require('../controllers/user-ctrl');
 const passport = require('passport')
 const { check } = require('express-validator');
 

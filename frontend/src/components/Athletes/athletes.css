@@ -1,13 +1,18 @@
 .athletes {
     display: flex;
-    flex-wrap: wrap;
-    /* border: 1px solid red; */
+    /* flex-wrap: wrap; */
+    border: 1px solid red;
+    width: 100%;
     height: 100%;
     justify-content: space-evenly;
+    overflow: scroll hidden;
+
 }
 
 .outer-profile {
     border: 3px solid black;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .profile {
@@ -15,6 +20,7 @@
     height: 35rem;
     width: 25rem;
     padding: 10px;
+
     /*card animation stuff*/
     background-color: transparent;
     /* border: 1px solid #f1f1f1; */
@@ -140,10 +146,23 @@
 }
 
 
-/* Card animation*/
-.profile:hover .card {
-    transform: rotateY(180deg);
+/* Carousel */
+.white-arrow {
+    height: 50px;
+    width: 50px;
+    z-index: 10000;
 }
+
+.white-arrow:hover {
+    cursor: pointer;
+}
+
+
+/* Card animation*/
+
+/* .profile:hover .card {
+    transform: rotateY(180deg);
+} */
 
 .card-front,
 .card-back {

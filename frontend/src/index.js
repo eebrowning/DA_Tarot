@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
   root.render(
     <React.StrictMode>
       <Provider store={store} >
-        {console.log('store', store)}
+        {/* {console.log('store', store)} */}
         <App />
       </Provider>
     </React.StrictMode>

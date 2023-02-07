@@ -1,7 +1,7 @@
 const express = require('express')
 const { check } = require('express-validator');
 const asyncHandler = require('express-async-handler');
-const ProfileCtrl = require('../../db/controllers/profile-ctrl');
+const ProfileCtrl = require('../controllers/profile-ctrl');
 const { handleValidationErrors } = require('../../utils/validation');
 
 const router = express.Router()

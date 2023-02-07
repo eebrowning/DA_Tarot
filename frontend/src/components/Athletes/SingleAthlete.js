@@ -36,7 +36,7 @@ function SingleAthlete(profile) {
     return (
         <div className="outer-profile">
 
-            <div className='profile'>
+            <div id='profile-card' className='profile'>
                 <div className='card'>
 
                     <div className="card-front">
