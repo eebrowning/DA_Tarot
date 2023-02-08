@@ -1,16 +1,10 @@
 /* carousel is #athletes */
 #athletes {
-    /* position: relative; */
-    /* height: 400px; */
-    /* top: 50%; */
-    /* transform: translateY(-50%); */
     display: flex;
     overflow: hidden;
     width: 40rem;
     height: 30rem;
-    /* justify-content: flex-start; */
     margin: auto;
-    /* border: 1px solid red; */
 }
 
 #athletes div {
