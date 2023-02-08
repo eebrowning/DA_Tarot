@@ -76,19 +76,23 @@ function Athletes() {
 
     /////////////////
 
-    //so far, left to right traversal is working,but going back left the 'next' side isn't removed
-    //also, new 'prev' not being labeled.
+    //so far, it works: BUT.
+
+    //
+
     function moveToSelected(element) {
         let $ = document.querySelector(`.${element}`)
         console.log('direction:', element)
 
         if (element == "next") {
             var newSelected = document.querySelector(".selected").nextSibling;
+
         } else if (element == "prev") {
             var newSelected = document.querySelector(".selected").previousSibling;
+            console.log('in prev ', newSelected)
         } else {
             // var selected = element;
-            var newSelected = document.querySelector(".selected");
+            // var newSelected = document.querySelector(".selected");
         }
 
         var next = newSelected.nextSibling;
@@ -96,42 +100,67 @@ function Athletes() {
         var prevSecond = prev?.previousSibling;
         var nextSecond = next?.nextSibling;
 
-
         // console.log(next)
+        if (element == 'next') {
+            // var newSelected = document.querySelector(".selected").nextSibling;
 
-        console.log(newSelected, 'selected', element, 'element')
-        newSelected?.classList.remove(element);
-        newSelected?.classList.add('selected');
-        document.querySelector(".selected").classList.add('next')
-        document.querySelector(".selected").classList.remove('selected')
+            console.log(newSelected, 'selected', element, 'element')
+            newSelected?.classList.remove(element);
+            newSelected?.classList.add('selected');
+            document.querySelector(".selected").classList.add('next')
+            document.querySelector(".selected").classList.remove('selected')
 
 
-        prev?.classList.remove('prevLeftSecond');
-        prev?.classList.add('prev');
-        document.querySelector(".prev").classList.add('prevLeftSecond')
-        document.querySelector(".prev").classList.remove('prev')
+            prev?.classList.remove('prevLeftSecond');
+            prev?.classList.add('prev');
+            document.querySelector(".prev").classList.add('prevLeftSecond')
+            document.querySelector(".prev").classList.remove('prev')
 
-        next?.classList.remove('nextRightSecond')
-        next?.classList.add("next");
-        document.querySelector(".next").classList.add('nextRightSecond')
-        document.querySelector(".next").classList.remove('next')
+            next?.classList.remove('nextRightSecond')
+            next?.classList.add("next");
+            document.querySelector(".next").classList.add('nextRightSecond')
+            document.querySelector(".next").classList.remove('next')
 
-        nextSecond?.classList.remove('hideRight');
-        nextSecond?.classList.add("nextRightSecond");
-        // document.querySelector(".nextRightSecond").classList.add('hideRight')
-        document.querySelector(".nextRightSecond").classList.remove('nextRightSecond')
+            nextSecond?.classList.remove('hideRight');
+            nextSecond?.classList.add("nextRightSecond");
+            // document.querySelector(".nextRightSecond").classList.add('hideRight')
+            document.querySelector(".nextRightSecond").classList.remove('nextRightSecond')
 
-        prevSecond?.classList.remove('hideLeft');
-        prevSecond?.classList.add("prevLeftSecond")
-        // document.querySelector(".prevLeftSecond").classList.add('hideLeft')
-        document.querySelector(".prevLeftSecond").classList.remove('prevLeftSecond')
-        // prevSecond.removeClass().addClass("prevLeftSecond");
+            prevSecond?.classList.remove('hideLeft');
+            prevSecond?.classList.add("prevLeftSecond")
+            // document.querySelector(".prevLeftSecond").classList.add('hideLeft')
+            document.querySelector(".prevLeftSecond").classList.remove('prevLeftSecond')
 
-        console.log(nextSecond, 'dooooo iiiiit')
 
+        } else if (element == 'prev') {
+            console.log(newSelected, 'new selected', element, 'element')
+
+            //adjust selected to the left
+            document.querySelector(".selected").classList.add('next')
+            document.querySelector(".selected").classList.remove('selected')
+            newSelected?.classList.remove(element);
+            newSelected?.classList.add('selected');
+
+            //prev needs to move left
+            prev?.classList.add('prev');
+            prev?.classList.remove('prevLeftSecond');
+
+            //next needs to move left
+            next?.classList.add("next");
+            next?.classList.remove('nextRightSecond')
+            next.nextSibling.classList.remove('next');
+
+            //nextsecond needs to move left
+            nextSecond?.classList.add("nextRightSecond");
+            nextSecond.nextSibling.classList.remove('nextRightSecond');
+
+            //prevsecond needs to move left
+            prevSecond?.classList.add("prevLeftSecond")
+            prevSecond.previousSibling.classList.remove('prevLeftSecond');
+
+        }
 
         // nextSecond.nextAll().removeClass().addClass('hideRight');
-
         // prevSecond.prevAll().removeClass().addClass('hideLeft');
 
     }
