@@ -155,6 +155,7 @@ function Athletes() {
 
             //nextsecond needs to move left
             nextSecond?.classList.add("nextRightSecond");
+            nextSecond.nextSibling.classList.add('hideRight');
             nextSecond.nextSibling.classList.remove('nextRightSecond');
 
             //prevsecond needs to move left
