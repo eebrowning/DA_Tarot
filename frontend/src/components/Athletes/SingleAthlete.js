@@ -34,7 +34,7 @@ function SingleAthlete(profile) {
     //front: pic, name, sport, team
     //back: name, team, location, about
     return (
-        <div className="outer-profile">
+        <div className="outer-profile hideRight">
 
             <div id='profile-card' className='profile'>
                 <div className='card'>
