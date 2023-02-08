@@ -1,31 +1,14 @@
-.athletes {
-    display: flex;
-    /* flex-wrap: wrap; */
-    /* border: 1px solid red; */
-    width: 100%;
-    height: 100%;
-    /* justify-content: space-evenly; */
-    overflow: scroll hidden;
-
-}
+/* taken care of in carousel.css */
 
 .outer-profile {
-    border: 3px solid black;
-    margin-left: 20px;
-    margin-right: 20px;
+    height: 24rem;
+    width: 15rem;
 }
 
 .profile {
-
-    height: 35rem;
-    width: 25rem;
-    padding: 10px;
-
+    width: 100%;
     /*card animation stuff*/
     background-color: transparent;
-    /* border: 1px solid #f1f1f1; */
-    /* border: 3px solid red; */
-
     border-radius: 3px;
     perspective: 1000px;
 
@@ -36,14 +19,11 @@
     position: relative;
     width: 100%;
     height: 100%;
-    /* height: 35rem; */
-    /* height: fit-content; */
-    /* width: 25rem; */
-
     text-align: center;
     /*card animation stuff*/
     transition: transform 0.8s;
     transform-style: preserve-3d;
+
 }
 
 .card-front {
@@ -53,38 +33,44 @@
 
 .card-back {
     position: relative;
-    /* height: 100%; */
 }
 
 .card-img {
     object-fit: contain;
-    height: 35rem;
-    width: 28rem;
+    height: 24rem;
+    /* width: 28rem; */
+
 }
 
 .back-img {
-    height: 60%;
-    width: 60%;
+    height: 55%;
+    width: 55%;
     object-fit: contain;
     /* float: right; */
 }
 
+/* TODO temp disabled */
 .front-info {
+    display: flex;
     position: absolute;
     top: 0;
     left: 0;
     background-color: rgba(200, 200, 200, .1);
-    height: 35rem;
     width: 100%;
-    border: 3px solid red;
-    display: flex;
     flex-direction: column;
     justify-content: space-between;
     color: red;
+    border: 1px solid red;
+    height: 24rem;
+
+    border: 3px solid white;
+    outline: 12px solid white;
+    border-radius: 35px 2px 35px 2px;
 
 }
 
 .front-info #basic-info {
+
     display: relative;
     margin-left: auto;
 }
@@ -100,29 +86,39 @@
 
 .back-info {
     position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 35rem;
-    background-color: rgba(200, 200, 200, .8);
-    border: 3px solid red;
-    /* border: 1px solid #f1f1f1; */
+    height: 24rem;
+    background-color: rgb(86, 83, 83);
 
+    border: 3px solid white;
+    outline: 12px solid white;
+    border-radius: 35px 2px 35px 2px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-.back-info img,
-.back-info div {
-    border: 1px solid chartreuse;
-}
 
-#basic-info {
-    width: 40%;
+.back-info img {
+    position: absolute;
+    right: 0;
 }
 
 #about {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
+
+.card-front #basic-info {
+    width: 100%;
+}
+
+.card-back #basic-info {
+    width: 40%;
+}
+
+.card-back #about {
     width: 100%;
 }
 
@@ -143,6 +139,8 @@
 .delete-button {
     z-index: 15;
     margin: 20px;
+    position: absolute;
+    top: 0;
 }
 
 
@@ -160,9 +158,9 @@
 
 /* Card animation*/
 
-/* .profile:hover .card {
+.profile:hover .card {
     transform: rotateY(180deg);
-} */
+}
 
 .card-front,
 .card-back {

@@ -54,17 +54,23 @@
   width: 10000px;
   height: 150%;
   background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds_repeat.png") repeat;
+  filter: drop-shadow(12px 12px 12px chartreuse) opacity(40%) contrast(40%);
   background-size: 1000px 1000px;
+
   opacity: .48;
   position: absolute;
   right: 0;
   top: 0;
   bottom: 0;
   z-index: -1;
-  -moz-animation: move-background 85s linear infinite;
-  -ms-animation: move-background 85s linear infinite;
-  -o-animation: move-background 85s linear infinite;
-  -webkit-animation: move-background 85s linear infinite;
-  animation: move-background 85s linear infinite;
+  -moz-animation: move-background 45s linear infinite;
+  -ms-animation: move-background 45s linear infinite;
+  -o-animation: move-background 45s linear infinite;
+  -webkit-animation: move-background 45s linear infinite;
+  animation: move-background 45s linear infinite;
+
+
+
+  overflow: hidden;
 
 }

@@ -35,14 +35,8 @@ function Athletes() {
     }, [dispatch, athletes.length])
 
     /////////////////
-    const [carouselWidth, setCarouselWidth] = useState(document.getElementById("profile-card")?.clientWidth);
-    let scrollBox = document.getElementById("athletes");
 
-    useEffect(() => {
-        setCarouselWidth(document.getElementById("profile-card")?.clientWidth)
-        // console.log('width changed')
 
-    })
     let handleLabels = () => {
         for (let i = 0; i < carouselLabels.length; i++) {
             document.getElementsByClassName('outer-profile')[i]?.classList.remove('hideRight')
@@ -55,11 +49,7 @@ function Athletes() {
 
         moveToSelected('prev')
 
-        return document.getElementById('athletes').scrollBy({
-            top: 0,
-            left: -carouselWidth,
-            behavior: 'smooth'
-        })
+
     }
 
     let handleClickRight = (e) => {
@@ -67,11 +57,6 @@ function Athletes() {
 
         moveToSelected('next')
 
-        return document.getElementById('athletes').scrollBy({
-            top: 0,
-            left: carouselWidth,
-            behavior: 'smooth'
-        })
     }
 
     /////////////////
@@ -102,7 +87,6 @@ function Athletes() {
         if (element == 'next') {
             // var newSelected = document.querySelector(".selected").nextSibling;
 
-            console.log(newSelected, 'selected', element, 'element')
             newSelected?.classList.remove(element);
             newSelected?.classList.add('selected');
             document.querySelector(".selected").classList.add('next')
@@ -160,9 +144,10 @@ function Athletes() {
 
             //prevsecond needs to move left
             prevSecond?.classList.add("prevLeftSecond")
-            prevSecond.previousSibling.classList.remove('prevLeftSecond');
+            prevSecond.previousSibling?.classList.remove('prevLeftSecond');
 
         }
+
         //need to figure this logic out for react.
         // nextSecond.nextAll().removeClass().addClass('hideRight');
         // prevSecond.prevAll().removeClass().addClass('hideLeft');

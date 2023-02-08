@@ -59,23 +59,23 @@ function SingleAthlete(profile) {
                     <div className="card-back" >
                         <div className="back-info">
                             <div id='basic-info'>
-                                <p className="team">Team: {team}</p>
                                 <p className="name">Name: {name}</p>
-                                <p className="location">Location: {location}</p>
+                                <p className="sports">Class: {sports}</p>
                             </div>
                             <img className="back-img" src={avatar} />
                             <div id='about'>
-                                <p className="birthdate">Birthdate: {birthdate}</p>
-                                <p className="gender">Gender: {gender}</p>
-                                <p className="sports">Sports: {sports}</p>
+                                {/* <p className="birthdate">Birthdate: {birthdate}</p> */}
+                                {/* <p className="gender">Gender: {gender}</p> */}
+                                <p className="team">Faction: {team}</p>
+                                <p className="location">Location: {location}</p>
                                 <>About:<p className="about"> {about}</p></>
                                 {/* <p className="interests">Interests: {interests}</p> */}
                             </div>
                         </div >
+                        <button className="delete-button" id={id} onClick={handleDelete} >Delete Athlete </button>
                     </div>
                 </div>
             </div>
-            <button className="delete-button" id={id} onClick={handleDelete} >Delete Athlete </button>
 
         </div>
     );
