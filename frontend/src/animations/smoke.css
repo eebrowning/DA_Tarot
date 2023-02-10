@@ -20,11 +20,11 @@
 
 @-moz-keyframes move-background {
   from {
-    -webkit-transform: translate(0px, 0px, 0px);
+    -webkit-transform: translate(0px);
   }
 
   to {
-    -webkit-transform: translate(1000px, 0px, 0px);
+    -webkit-transform: translate(1000px);
   }
 }
 
@@ -39,6 +39,7 @@
 } */
 
 .inq-logo {
+  min-height: 1000px;
   height: 150%;
   width: 100%;
   object-fit: cover;
@@ -47,32 +48,90 @@
   top: 00px;
   bottom: 0;
   z-index: -2;
-
 }
+
+
+.logo-pulse {
+  display: flex;
+}
+
+.pulse-circle {
+  position: relative;
+  top: 35vh;
+  left: 50.25cqw;
+  height: 1px;
+  width: 1px;
+  border-radius: 100%;
+  animation: pulse-animation 7s infinite;
+  rotate: 45deg;
+  z-index: -1;
+  /* border: 3px solid red; */
+}
+
+/* top sizing issue, resolved */
+@media screen and (max-height:650px) {
+  .pulse-circle {
+    top: 19rem;
+  }
+}
+
+@media screen and (min-height:651px) {
+  .pulse-circle {
+    top: 46vh;
+  }
+}
+
+@keyframes pulse-animation {
+  0% {
+    /* offset-x | offset-y | blur-radius | spread-radius | color */
+    box-shadow: 0 0 60px 0px rgba(0, 0, 0, 0.2);
+  }
+
+  25% {
+    box-shadow: 0 0 60px 40px rgba(20, 193, 40, .6);
+  }
+
+  50% {
+    box-shadow: 0 0 0px 0px rgba(0, 0, 0, 0);
+  }
+
+  75% {
+    box-shadow: 0 0 60px 40px rgba(20, 193, 40, .6);
+  }
+
+  100% {
+    box-shadow: 0 0 60px 0px rgba(0, 0, 0, 0.2);
+  }
+}
+
+
 
 .clouds {
   width: 10000px;
-
-  height: 142%;
+  /* width: 100%; */
+  height: 150%;
   background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds_repeat.png") repeat;
-  filter: drop-shadow(12px 12px 12px chartreuse) opacity(40%) contrast(40%);
+  filter: drop-shadow(12px 12px 12px chartreuse) opacity(30%) contrast(40%);
+  /* filter: drop-shadow(2px 2px 2px chartreuse) opacity(20%) contrast(10%); */
+
   background-size: 1000px 1000px;
 
   opacity: .48;
   position: absolute;
   right: 0;
-  top: 60px;
+  top: 0;
+  /* top: 60px; */
   bottom: 0;
   z-index: -1;
-  -moz-animation: move-background 42s linear infinite;
+  /* -moz-animation: move-background 42s linear infinite;
   -ms-animation: move-background 42s linear infinite;
   -o-animation: move-background 42s linear infinite;
   -webkit-animation: move-background 42s linear infinite;
+  */
+  /* animation causing flashing in the UI of the browser, also resizes background on mobile and I hate it */
+  /* animation: move-background 42s linear infinite; */
 
-  animation: move-background 42s linear infinite;
 
 
-
-  overflow: hidden;
 
 }

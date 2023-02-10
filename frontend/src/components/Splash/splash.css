@@ -1,0 +1,16 @@
+.splash {
+    font-family: "Inquisition";
+    border: 1px solid chartreuse;
+    width: 80%;
+    margin: auto;
+    color: white;
+    text-shadow: 1px 1px 1px green;
+}
+
+.splash h2 {
+    font-size: 60px;
+}
+
+.splash p {
+    font-size: 30px;
+}
