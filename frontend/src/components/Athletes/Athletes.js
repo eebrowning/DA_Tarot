@@ -62,95 +62,75 @@ function Athletes() {
     /////////////////
     //TODO
     //so far, it works: BUT.
-    //need to cleanup NEXT portion, logic may be a bit redundant.
+    //I think I could use conditions to reduce the if(left)else if(right) portion by about half,
+    // but it works.
 
-    function moveToSelected(element) {
-        let $ = document.querySelector(`.${element}`)
-        console.log('direction:', element)
+    function moveToSelected(direction) {
+        let $ = document.querySelector(`.${direction}`)
+        console.log('direction:', direction)
 
-        if (element == "next") {
+        if (direction == "next") {
             var newSelected = document.querySelector(".selected").nextSibling;
 
-        } else if (element == "prev") {
+        } else if (direction == "prev") {
             var newSelected = document.querySelector(".selected").previousSibling;
             console.log('in prev ', newSelected)
-        } else {
-            // var selected = element;
-            // var newSelected = document.querySelector(".selected");
         }
+
         var next = newSelected.nextSibling;
         var prev = newSelected.previousSibling;
         var prevSecond = prev?.previousSibling;
         var nextSecond = next?.nextSibling;
 
         // console.log(next)
-        if (element == 'next') {
-            // var newSelected = document.querySelector(".selected").nextSibling;
-
-            newSelected?.classList.remove(element);
-            newSelected?.classList.add('selected');
-            document.querySelector(".selected").classList.add('next')
+        if (direction == 'next') {
+            //adjust selected to the right
+            document.querySelector(".selected").classList.add('prev')
             document.querySelector(".selected").classList.remove('selected')
-
-            prev?.classList.remove('prevLeftSecond');
-            prevSecond?.previousSibling?.classList.add('hideLeft');//
+            newSelected?.classList.remove('next');
+            newSelected?.classList.add('selected');
+            //prev needs to move right
             prev?.classList.add('prev');
-
-            document.querySelector(".prev").classList.add('prevLeftSecond')
-            document.querySelector(".prev").classList.remove('prev')
-
-            next?.classList.remove('nextRightSecond')
-            next?.nextSibling?.classList.remove('hideRight');//
-            // nextSecond?.nextSibling?.classList.add('hideRight');//
-
+            prev?.previousSibling?.classList.remove('hideRight');//
+            prev?.classList.remove('nextRightSecond');
+            //next needs to move right
             next?.classList.add("next");
-            document.querySelector(".next").classList.add('nextRightSecond')
-            document.querySelector(".next").classList.remove('next')
-
-            // nextSecond?.classList.remove('hideRight');
+            next?.classList.remove('nextRightSecond')
+            next.nextSibling.classList.remove('next');
+            //nextsecond needs to move right
             nextSecond?.classList.add("nextRightSecond");
-            // document.querySelector(".nextRightSecond").classList.add('hideRight')
-            document.querySelector(".nextRightSecond").classList.remove('nextRightSecond')
-
-            // prevSecond?.classList.remove('hideLeft');
+            nextSecond?.classList.remove('hideRight')
+            nextSecond.nextSibling.classList.add('hideRight');
+            //prevsecond needs to move right
             prevSecond?.classList.add("prevLeftSecond")
-            // document.querySelector(".prevLeftSecond").classList.add('hideLeft')
-            document.querySelector(".prevLeftSecond").classList.remove('prevLeftSecond')
+            prevSecond?.classList.remove('prev')
+            prevSecond.previousSibling?.classList.remove('prevLeftSecond');
+            prevSecond.previousSibling?.classList.add('hideLeft');
 
 
-        } else if (element == 'prev') {
+        } else if (direction == 'prev') {
             //adjust selected to the left
             document.querySelector(".selected").classList.add('next')
             document.querySelector(".selected").classList.remove('selected')
-            newSelected?.classList.remove(element);
+            newSelected?.classList.remove('prev');
             newSelected?.classList.add('selected');
-
-
             //prev needs to move left
             prev?.classList.add('prev');
+            prevSecond?.classList.add('hideLeft')
             prev?.previousSibling?.classList.remove('hideLeft');//
-
             prev?.classList.remove('prevLeftSecond');
-
             //next needs to move left
             next?.classList.add("next");
             next?.classList.remove('nextRightSecond')
             next.nextSibling.classList.remove('next');
-
             //nextsecond needs to move left
             nextSecond?.classList.add("nextRightSecond");
             nextSecond.nextSibling.classList.add('hideRight');
             nextSecond.nextSibling.classList.remove('nextRightSecond');
-
             //prevsecond needs to move left
             prevSecond?.classList.add("prevLeftSecond")
             prevSecond.previousSibling?.classList.remove('prevLeftSecond');
-
         }
-
-        //need to figure this logic out for react.
-        // nextSecond.nextAll().removeClass().addClass('hideRight');
-        // prevSecond.prevAll().removeClass().addClass('hideLeft');
 
     }
 
