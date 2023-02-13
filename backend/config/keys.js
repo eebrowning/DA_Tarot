@@ -1,4 +1,5 @@
-const MONGO_URI = "mongodb+srv://eebrowning:twinkle1@cluster0.sroq4dh.mongodb.net/test"
-const SECRET = 'superSecret'
+
+const MONGO_URI = process.env.MONGO_URI
+const SECRET = process.env.SECRET
 
 module.exports = [MONGO_URI, SECRET];
