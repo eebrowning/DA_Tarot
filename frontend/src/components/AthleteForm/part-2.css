@@ -1,0 +1,37 @@
+/* 
+Check this out for radio buttons with image backgrounds:
+ 
+"https://stackoverflow.com/questions/37114081/style-bootsrap-radio-buttons-via-images"
+
+*/
+
+
+
+#sports-select {
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border: 1px solid red;
+    color: white;
+}
+
+#sports-select input {
+    border: 1px solid chartreuse;
+    /* display: none; */
+}
+
+
+.sport label {
+    border: 5px solid purple;
+    height: 200px;
+    width: 200px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.sport img {
+    height: 200px;
+    width: 200px;
+}
