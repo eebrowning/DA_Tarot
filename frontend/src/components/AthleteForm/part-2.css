@@ -6,6 +6,12 @@ Check this out for radio buttons with image backgrounds:
 */
 
 
+.form-check-label {
+    background-image: url("https://i.pinimg.com/736x/cf/86/65/cf8665820bced2d38bc7cd125e66f104--dragon-age-inquisition-tarot-cards.jpg");
+    /* object-fit: cover; */
+    background-size: cover;
+    height: 100%;
+}
 
 #sports-select {
     height: 300px;

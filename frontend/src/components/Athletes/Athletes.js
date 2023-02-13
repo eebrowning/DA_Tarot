@@ -9,6 +9,8 @@ import { thunkGetAllAthletes } from "../../store/athletes";
 import { getAllUsers } from "../../store/session";
 import "./carousel.css"
 
+
+//this is the carousel of profile cards
 function Athletes() {
     let [profiles, setProfiles] = useState([]);
     let dispatch = useDispatch();
@@ -21,16 +23,7 @@ function Athletes() {
 
         dispatch(thunkGetAllAthletes());
         dispatch(getAllUsers());
-        // console.log("sent dispatch to thunkGetAllAthletes")
-
         setCarouselCards(document.getElementsByClassName('outer-profile'))
-
-        // if (profiles.length > 0) {
-        // for (let i = 0; i < carouselLabels.length; i++) {
-        //     document.getElementsByClassName('outer-profile')[i].classList.add(carouselLabels[i])
-        //     if (i >= profiles.length) return;
-        // }
-        // }
 
     }, [dispatch, athletes.length])
 
@@ -41,22 +34,16 @@ function Athletes() {
         for (let i = 0; i < carouselLabels.length; i++) {
             document.getElementsByClassName('outer-profile')[i]?.classList.remove('hideRight')
             document.getElementsByClassName('outer-profile')[i]?.classList.add(carouselLabels[i])
-            // if (i >= carouselCards.length) return;
         }
     }
     let handleClickLeft = (e) => {
         e.preventDefault();
-
         moveToSelected('prev')
-
-
     }
 
     let handleClickRight = (e) => {
         e.preventDefault();
-
         moveToSelected('next')
-
     }
 
     /////////////////
@@ -64,7 +51,6 @@ function Athletes() {
     //so far, it works: BUT.
     //I think I could use conditions to reduce the if(left)else if(right) portion by about half,
     // but it works.
-
     function moveToSelected(direction) {
         let $ = document.querySelector(`.${direction}`)
         console.log('direction:', direction)
@@ -82,7 +68,6 @@ function Athletes() {
         var prevSecond = prev?.previousSibling;
         var nextSecond = next?.nextSibling;
 
-        // console.log(next)
         if (direction == 'next') {
             //adjust selected to the right
             document.querySelector(".selected").classList.add('prev')

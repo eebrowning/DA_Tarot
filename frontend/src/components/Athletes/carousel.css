@@ -14,25 +14,21 @@
     opacity: 1;
 }
 
-.hideleft,
-.hideright {
+.hideLeft,
+.hideRight {
     /* display: none; */
-    width: 0;
-    height: 0;
 }
 
 
-
-
 #athletes div.hideLeft {
-    left: 0%;
+    left: 10%;
     opacity: 0;
     transform: translateY(50%) translateX(-50%);
 }
 
 
 #athletes div.hideRight {
-    left: 100%;
+    left: 90%;
     opacity: 0;
     transform: translateY(50%) translateX(-50%);
 }

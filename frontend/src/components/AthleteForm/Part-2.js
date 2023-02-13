@@ -1,16 +1,20 @@
 import { useEffect, useState } from "react";
 import './part-2.css'
-
+import classData from "../../util/classData";
 
 
 ////TODO for dragon age app: make radio options for gender, after gender selected, move to class.
 //class radio options appear, after selection, next enabled.
 //this will be the test of the DA:Inquisition-like character detail menu.
 const Part2 = ({ receivePart2, step }) => {
+
+    console.log(classData, 'classDAta')
     // let sportsArr = [
     //     'Golf', 'Tennis', 'Cricket', 'Basketball', 'Baseball', 'American Football', 'Aquatics', 'Archery', 'Automobile Racing', 'Badminton', 'Beach Volleyball', 'Bobsleigh', 'Body Building', 'Boxing', 'Cross Country Running', 'Cross Country Skiing', 'Curling', 'Cycling', 'Darts', 'Decathlon', 'Down Hill Skiing', 'Equestrianism', 'eSports', 'Fencing', 'Field Hockey', 'Figure Skating', 'Gymnastics', 'Ice Hockey', 'Martial Arts', 'Mixed Martial Arts', 'Modern Pentathlon', 'Motorcycle Racing', 'Netball', 'Polo', 'Racquetball', 'Rowing', 'Rugby', 'Sailing', 'Softball', 'Shooting', 'Skateboarding', 'Skeet Shooting', 'Skeleton', 'Snow Boarding', 'Soccer (Football)', 'Squash', 'Surfing', 'Swimming', 'Track and Field'
     // ]
-    let sportsArr = ["Mage", "Warrior", "Rogue"];
+    //maybe consider database objects for classes?
+    // let sportsArr = ["Mage", "Warrior", "Rogue"];
+    let sportsArr = Object.keys(classData);
     const [gender, setGender] = useState();
     const [sports, setSports] = useState();
     // const [birthdate, setBirthdate] = useState();
@@ -40,10 +44,10 @@ const Part2 = ({ receivePart2, step }) => {
                     sportsArr?.map(sport => (
                         <div class="form-check form-check-inline sport" >
                             <input type='radio' className="form-check-input" name="inlineRadioOptions" value={sport} id={`inlineRadio${sport}`} />
-                            {sport}
-                            {/* <label className="form-check-label" htmlFor={`inlineRadio${sport}`}>
-                            <img href="https://i.pinimg.com/736x/cf/86/65/cf8665820bced2d38bc7cd125e66f104--dragon-age-inquisition-tarot-cards.jpg" alt={""} />
-                            </label> */}
+                            <label className="form-check-label" htmlFor={`inlineRadio${sport}`} style={{ backgroundImage: `URL(${classData[sport]["cardURL"]})` }}>
+                                {sport}
+                                {/* <img href="https://i.pinimg.com/736x/cf/86/65/cf8665820bced2d38bc7cd125e66f104--dragon-age-inquisition-tarot-cards.jpg" alt={""} /> */}
+                            </label>
                         </div>
                     ))
                 }
