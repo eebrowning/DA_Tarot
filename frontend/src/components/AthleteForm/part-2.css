@@ -7,14 +7,13 @@ Check this out for radio buttons with image backgrounds:
 
 
 .form-check-label {
-    background-image: url("https://i.pinimg.com/736x/cf/86/65/cf8665820bced2d38bc7cd125e66f104--dragon-age-inquisition-tarot-cards.jpg");
     /* object-fit: cover; */
     background-size: cover;
     height: 100%;
 }
 
 #sports-select {
-    height: 300px;
+    /* height: 300px; */
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -30,8 +29,8 @@ Check this out for radio buttons with image backgrounds:
 
 .sport label {
     border: 5px solid purple;
-    height: 200px;
-    width: 200px;
+    height: 26rem;
+    width: 15rem;
     color: white;
     display: flex;
     flex-direction: column;
@@ -40,4 +39,61 @@ Check this out for radio buttons with image backgrounds:
 .sport img {
     height: 200px;
     width: 200px;
+}
+
+
+
+
+
+
+/* second left of center */
+#Rogue-card {
+    border: 10px solid red;
+    rotate: -15deg;
+    /* z-index: 3; */
+    /* left: 50%; */
+    transform: translateY(20%) translateX(0%);
+    /* transition: rotate 1s, transform 1s, left 1.2s, z-index 0s; */
+}
+
+
+
+/* left of center */
+#RogueBow-card {
+    /* z-index: 2; */
+    /* left: 68%; */
+    transform: translateY(5%) translateX(0);
+    rotate: -10deg;
+    border: 10px solid orange;
+
+}
+
+/* center */
+#Warrior2H-card {
+    /* z-index: 4; */
+    /* left: 40%; */
+    /* transform: translateY(20%) translateX(0%); */
+    rotate: 0deg;
+    border: 10px solid yellow;
+
+
+}
+
+/* right of center */
+#Warrior-card {
+    /* z-index: 5; */
+    /* left: 30%; */
+    transform: translateY(5%) translateX(0%);
+    rotate: 10deg;
+    border: 10px solid green;
+}
+
+/*second right of center */
+#Mage-card {
+    border: 10px solid blue;
+    /* z-index: 1; */
+    /* left: 35%; */
+    transform: translateY(20%) translateX(0%);
+    /* opacity: 0.7; */
+    rotate: 15deg;
 }

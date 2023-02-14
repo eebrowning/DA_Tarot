@@ -28,7 +28,7 @@ function SingleAthlete(profile) {
         e.preventDefault();
         // console.log(e.target.id, 'should be ath id')
         dispatch(thunkDeleteAthlete(e.target.id))
-
+        //consider putting delete option on profile page only, will remove need for dynamic delete for your carousel
     }
     //if you want a card, have two sections of profile, and a flip animation to transition between the two.
     //front: pic, name, sport, team

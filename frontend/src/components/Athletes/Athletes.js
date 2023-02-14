@@ -24,9 +24,9 @@ function Athletes() {
         dispatch(thunkGetAllAthletes());
         dispatch(getAllUsers());
         setCarouselCards(document.getElementsByClassName('outer-profile'))
-
+        console.log(document.querySelector('.selected'), 'balddd')
+        // if (!document.querySelector('.selected')) setCarouselCards(document.getElementsByClassName('outer-profile'))
     }, [dispatch, athletes.length])
-
     /////////////////
 
 
@@ -40,7 +40,6 @@ function Athletes() {
         e.preventDefault();
         moveToSelected('prev')
     }
-
     let handleClickRight = (e) => {
         e.preventDefault();
         moveToSelected('next')
@@ -118,7 +117,6 @@ function Athletes() {
         }
 
     }
-
 
     //////////
     return (
