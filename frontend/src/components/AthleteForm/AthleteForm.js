@@ -24,7 +24,9 @@ const AthleteForm = () => {
     const [interests, setInterests] = useState("");
     const [errors, setErrors] = useState([]);
 
-    const [step, setStep] = useState(1)
+    // const [step, setStep] = useState(1)
+    const [step, setStep] = useState(2); //todo temporary while styling
+
     const user = useSelector((state) => state.session.user)
 
 

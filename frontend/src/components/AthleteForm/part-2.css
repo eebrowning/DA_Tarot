@@ -6,52 +6,58 @@ Check this out for radio buttons with image backgrounds:
 */
 
 
-.form-check-label {
-    /* object-fit: cover; */
+/* .form-check-label {
+    object-fit: cover;
     background-size: cover;
     height: 100%;
-}
+} */
 
 #sports-select {
-    /* height: 300px; */
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     border: 1px solid red;
     color: white;
+    padding-bottom: 100px;
 }
 
 #sports-select input {
-    border: 1px solid chartreuse;
-    /* display: none; */
+    display: none;
 }
 
 
 .sport label {
-    border: 5px solid purple;
-    height: 26rem;
-    width: 15rem;
     color: white;
     display: flex;
     flex-direction: column;
+    background-size: cover;
+    /* height: 26rem;
+    width: 15rem;
+    margin-left: -1.5rem;
+    margin-bottom: -1rem; */
+    height: 33ch;
+    width: 19ch;
+    margin-left: -1.5rem;
+    margin-bottom: -1rem;
 }
 
 .sport img {
-    height: 200px;
-    width: 200px;
+    /* height: 200px;
+    width: 200px; */
+
 }
 
 
+.selectedSport {
+    border: 3px solid chartreuse !important;
+    height: 33.70ch;
 
-
-
+}
 
 /* second left of center */
 #Rogue-card {
-    border: 10px solid red;
+    /* border: 1px solid red; */
     rotate: -15deg;
-    /* z-index: 3; */
-    /* left: 50%; */
     transform: translateY(20%) translateX(0%);
     /* transition: rotate 1s, transform 1s, left 1.2s, z-index 0s; */
 }
@@ -60,40 +66,55 @@ Check this out for radio buttons with image backgrounds:
 
 /* left of center */
 #RogueBow-card {
-    /* z-index: 2; */
-    /* left: 68%; */
     transform: translateY(5%) translateX(0);
     rotate: -10deg;
-    border: 10px solid orange;
+    /* border: 1px solid orange; */
 
 }
 
 /* center */
 #Warrior2H-card {
-    /* z-index: 4; */
-    /* left: 40%; */
-    /* transform: translateY(20%) translateX(0%); */
     rotate: 0deg;
-    border: 10px solid yellow;
+    /* border: 1px solid yellow; */
 
 
 }
 
 /* right of center */
 #Warrior-card {
-    /* z-index: 5; */
-    /* left: 30%; */
     transform: translateY(5%) translateX(0%);
     rotate: 10deg;
-    border: 10px solid green;
+    /* border: 1px solid green; */
 }
 
 /*second right of center */
 #Mage-card {
-    border: 10px solid blue;
-    /* z-index: 1; */
-    /* left: 35%; */
+    /* border: 1px solid blue; */
     transform: translateY(20%) translateX(0%);
-    /* opacity: 0.7; */
     rotate: 15deg;
+}
+
+
+
+
+
+
+
+/* gonna need a lot of query work to make this mobile-friendly! */
+@media screen and (orientation:portrait) {
+
+    #sports-select {
+        width: 100vw;
+        overflow: scroll;
+    }
+
+}
+
+@media mobile and (orientation:landscape) {
+
+    #sports-select {
+        width: 80cqw;
+        overflow: scroll;
+    }
+
 }

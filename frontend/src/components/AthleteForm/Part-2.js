@@ -3,7 +3,7 @@ import './part-2.css'
 import classData from "../../util/classData";
 
 
-////TODO for dragon age app: make radio options for gender, after gender selected, move to class.
+////TODO for dragon age app: make radio options for gender, after gender selectedSport, move to class.
 //class radio options appear, after selection, next enabled.
 //this will be the test of the DA:Inquisition-like character detail menu.
 const Part2 = ({ receivePart2, step }) => {
@@ -16,15 +16,40 @@ const Part2 = ({ receivePart2, step }) => {
     const [sports, setSports] = useState();
     // const [birthdate, setBirthdate] = useState();
     const [birthdate, setBirthdate] = useState("1111-11-11T00:00:00.000Z");//temp to disable input TODO
-    console.log(testData, testData2)
+    const [select, setSelect] = useState();
 
     useEffect(() => {
         receivePart2({ gender, sports, birthdate })
     }, [gender, sports, birthdate])
 
+
+    let handleSelect = (e) => {
+        e.preventDefault();
+        // console.log(document.querySelector('.selectedSport').firstChild.value)
+        setSports(document.querySelector('.selectedSport').firstChild.value)
+        console.log(sports)
+
+    }
+    let handleClickLeft = (e) => {
+        e.preventDefault();
+        document.querySelector('.selectedSport')?.previousSibling.classList.add('selectedSport')
+        document.getElementsByClassName('selectedSport')[1].classList.remove('selectedSport')
+    }
+    let handleClickRight = (e) => {
+        e.preventDefault();
+        document.querySelector('.selectedSport')?.nextSibling.classList.add('selectedSport')
+        document.querySelector('.selectedSport').classList.remove('selectedSport')
+    }
+    let handleClickPicture = (e) => {
+        e.preventDefault();
+        document.querySelector('.selectedSport')?.classList.remove('selectedSport');
+        document.getElementById(e.target.id + '-card').classList.add('selectedSport')
+    }
+
     return (<div style={{ display: step === 2 ? 'flex' : "none" }} className="part-2 bootPart">
         <label htmlFor="sports" className="form-label">Select Class
             <label id='sports-error' htmlFor="sports"></label>
+
             {/* 
             KEEP, former form structure
             <select  name='sports' id='sports-select' className="form-control boot-data" onChange={e => setSports(e.target.value)} required>
@@ -36,22 +61,24 @@ const Part2 = ({ receivePart2, step }) => {
                 }
             </select> 
             */}
-            <div name='sports' id='sports-select' >
+            <div name='sports' id='sports-select'>
                 {
                     sportsArr?.map(sport => (
-                        <div class={`form-check form-check-inline sport`} id={`${sport}-card`}>
+                        <div className={`form-check form-check-inline sport`} id={`${sport}-card`} key={`${sport}`}>
                             <input type='radio' className="form-check-input " name="inlineRadioOptions" value={sport} id={`inlineRadio${sport}`} />
-                            <label className="form-check-label" htmlFor={`inlineRadio${sport}`} style={{ backgroundImage: `URL(${classData[sport]["cardURL"]})` }}>
+                            <label onClick={handleClickPicture} id={sport} className="form-check-label" htmlFor={`inlineRadio${sport}`} style={{ backgroundImage: `URL(${classData[sport]["cardURL"]})` }}>
                                 {sport}
                             </label>
                         </div>
                     ))
                 }
+                {!document.getElementsByClassName('selectedSport') && document.getElementById('sports-select')?.firstChild.classList.add('selectedSport')}
+
             </div>
+            <img className={'white-arrow'} onClick={handleClickLeft} id="prev" src='https://i.imgur.com/oTediJN.png' />
+            {/* <button onClick={handleSelect}>Select</button> */}
+            <img className={'white-arrow'} onClick={handleClickRight} id="next" src='https://i.imgur.com/UpFYkCd.png' />
         </label >
-
-
-
 
         <label htmlFor="gender-select" className="form-label">Gender
             <label id='gender-error' htmlFor="gender-select"></label>
