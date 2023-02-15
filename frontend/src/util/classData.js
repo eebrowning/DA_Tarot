@@ -6,7 +6,7 @@ const Warrior = {
     cardURL: "https://i.imgur.com/BC39pMG.jpg",
     attack: 'melee',
     defense: 'ranged',
-    general_class: 'warrior'
+    general_class: 'Warrior'
 }
 const Warrior2H = {
     class: 'Warrior2H',
@@ -14,17 +14,17 @@ const Warrior2H = {
     cardURL: "https://i.imgur.com/sQ7b4uN.jpg",
     attack: 'melee',
     defense: 'melee',
-    general_class: 'warrior'
+    general_class: 'Warrior'
 
 }
 
 const Mage = {
     class: 'Mage',
     weapon: 'mage',
-    cardURL: "https://i.imgur.com/Ef5ukTm.jpg",
+    cardURL: "https://i.imgur.com/snRpfxv.png",
     attack: 'ranged',
     defense: 'ranged',
-    general_class: 'mage'
+    general_class: 'Mage'
 
 }
 
@@ -34,7 +34,7 @@ const Rogue = {
     cardURL: "https://i.imgur.com/g0P5oSS.png",
     attack: 'melee',
     defense: 'ranged',
-    general_class: 'rogue'
+    general_class: 'Rogue'
 
 
 }
@@ -44,7 +44,7 @@ const RogueBow = {
     cardURL: "https://i.imgur.com/94Eeg5C.png",
     attack: 'ranged',
     defense: 'melee',
-    general_class: 'rogue'
+    general_class: 'Rogue'
 
 }
 

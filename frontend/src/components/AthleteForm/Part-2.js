@@ -20,47 +20,55 @@ const Part2 = ({ receivePart2, step }) => {
 
     useEffect(() => {
         receivePart2({ gender, sports, birthdate })
+        console.log(sports, 'did class change?')
     }, [gender, sports, birthdate])
+    useEffect(() => {
+        document.getElementById('sports-select')?.firstChild.classList.add('selectedSport')
 
-
+    }, [])
     let handleSelect = (e) => {
         e.preventDefault();
-        // console.log(document.querySelector('.selectedSport').firstChild.value)
         setSports(document.querySelector('.selectedSport').firstChild.value)
-        console.log(sports)
 
     }
     let handleClickLeft = (e) => {
         e.preventDefault();
         document.querySelector('.selectedSport')?.previousSibling.classList.add('selectedSport')
         document.getElementsByClassName('selectedSport')[1].classList.remove('selectedSport')
+        setSports(document.querySelector('.selectedSport').firstChild.value)
+
     }
     let handleClickRight = (e) => {
         e.preventDefault();
         document.querySelector('.selectedSport')?.nextSibling.classList.add('selectedSport')
         document.querySelector('.selectedSport').classList.remove('selectedSport')
+        setSports(document.querySelector('.selectedSport').firstChild.value)
+
     }
     let handleClickPicture = (e) => {
         e.preventDefault();
         document.querySelector('.selectedSport')?.classList.remove('selectedSport');
-        document.getElementById(e.target.id + '-card').classList.add('selectedSport')
+        document.getElementById(e.target.id + '-card').classList.add('selectedSport');
+        setSports(document.querySelector('.selectedSport').firstChild.value)
     }
 
     return (<div style={{ display: step === 2 ? 'flex' : "none" }} className="part-2 bootPart">
         <label htmlFor="sports" className="form-label">Select Class
             <label id='sports-error' htmlFor="sports"></label>
 
-            {/* 
-            KEEP, former form structure
-            <select  name='sports' id='sports-select' className="form-control boot-data" onChange={e => setSports(e.target.value)} required>
-                <option>{null}</option>
-                {
-                    sportsArr.map(sport => (
-                        <option key={sport}>{sport}</option>
-                    ))
-                }
-            </select> 
-            */}
+
+            <label htmlFor="gender-select" className="form-label">Gender
+                <label id='gender-error' htmlFor="gender-select"></label>
+                <select onChange={e => setGender(e.target.value)} id='gender' className="form-control boot-data" required>
+                    <option>{null}</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Other</option>
+
+                </select>
+            </label>
+
+
             <div name='sports' id='sports-select'>
                 {
                     sportsArr?.map(sport => (
@@ -73,23 +81,24 @@ const Part2 = ({ receivePart2, step }) => {
                     ))
                 }
                 {!document.getElementsByClassName('selectedSport') && document.getElementById('sports-select')?.firstChild.classList.add('selectedSport')}
-
             </div>
             <img className={'white-arrow'} onClick={handleClickLeft} id="prev" src='https://i.imgur.com/oTediJN.png' />
-            {/* <button onClick={handleSelect}>Select</button> */}
+            <button onClick={handleSelect}>Select {sports ? classData[sports]['general_class'] : null}</button>
             <img className={'white-arrow'} onClick={handleClickRight} id="next" src='https://i.imgur.com/UpFYkCd.png' />
         </label >
 
-        <label htmlFor="gender-select" className="form-label">Gender
-            <label id='gender-error' htmlFor="gender-select"></label>
-            <select onChange={e => setGender(e.target.value)} id='gender' className="form-control boot-data" required>
+        {/* 
+            KEEP, former form structure
+            <select  name='sports' id='sports-select' className="form-control boot-data" onChange={e => setSports(e.target.value)} required>
                 <option>{null}</option>
-                <option>Male</option>
-                <option>Female</option>
-                <option>Other</option>
+                {
+                    sportsArr.map(sport => (
+                        <option key={sport}>{sport}</option>
+                    ))
+                }
+            </select> 
+            */}
 
-            </select>
-        </label>
         {/* temp disable  */}
         {/* <label htmlFor="birthdate" className="form-label">Birthdate
             <label id='birthdate-error' htmlFor="birthdate"></label>
@@ -103,6 +112,8 @@ const Part2 = ({ receivePart2, step }) => {
                 onChange={e => setBirthdate(e.target.value)}
             />
         </label> */}
+
+
     </div >)
 }
 
