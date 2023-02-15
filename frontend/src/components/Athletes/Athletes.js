@@ -51,19 +51,19 @@ function Athletes() {
     //I think I could use conditions to reduce the if(left)else if(right) portion by about half,
     // but it works.
     function moveToSelected(direction) {
-        let $ = document.querySelector(`.${direction}`)
+        // let $ = document.querySelector(`.${direction}`)
         console.log('direction:', direction)
-
         if (direction == "next") {
-            var newSelected = document.querySelector(".selected").nextSibling;
+            var newSelected = document.querySelector(".selected")?.nextSibling;
 
         } else if (direction == "prev") {
-            var newSelected = document.querySelector(".selected").previousSibling;
+            var newSelected = document.querySelector(".selected")?.previousSibling;
             console.log('in prev ', newSelected)
         }
 
-        var next = newSelected.nextSibling;
-        var prev = newSelected.previousSibling;
+        if (!newSelected) return;
+        var next = newSelected?.nextSibling;
+        var prev = newSelected?.previousSibling;
         var prevSecond = prev?.previousSibling;
         var nextSecond = next?.nextSibling;
 
@@ -80,16 +80,16 @@ function Athletes() {
             //next needs to move right
             next?.classList.add("next");
             next?.classList.remove('nextRightSecond')
-            next.nextSibling.classList.remove('next');
+            next?.nextSibling?.classList.remove('next');
             //nextsecond needs to move right
             nextSecond?.classList.add("nextRightSecond");
             nextSecond?.classList.remove('hideRight')
-            nextSecond.nextSibling.classList.add('hideRight');
+            nextSecond?.nextSibling?.classList.add('hideRight');
             //prevsecond needs to move right
             prevSecond?.classList.add("prevLeftSecond")
             prevSecond?.classList.remove('prev')
-            prevSecond.previousSibling?.classList.remove('prevLeftSecond');
-            prevSecond.previousSibling?.classList.add('hideLeft');
+            prevSecond?.previousSibling?.classList.remove('prevLeftSecond');
+            prevSecond?.previousSibling?.classList.add('hideLeft');
 
 
         } else if (direction == 'prev') {
@@ -106,14 +106,14 @@ function Athletes() {
             //next needs to move left
             next?.classList.add("next");
             next?.classList.remove('nextRightSecond')
-            next.nextSibling.classList.remove('next');
+            next?.nextSibling?.classList.remove('next');
             //nextsecond needs to move left
             nextSecond?.classList.add("nextRightSecond");
-            nextSecond.nextSibling.classList.add('hideRight');
-            nextSecond.nextSibling.classList.remove('nextRightSecond');
+            nextSecond?.nextSibling?.classList.add('hideRight');
+            nextSecond?.nextSibling?.classList.remove('nextRightSecond');
             //prevsecond needs to move left
             prevSecond?.classList.add("prevLeftSecond")
-            prevSecond.previousSibling?.classList.remove('prevLeftSecond');
+            prevSecond?.previousSibling?.classList.remove('prevLeftSecond');
         }
 
     }
