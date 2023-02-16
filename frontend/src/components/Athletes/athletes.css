@@ -5,7 +5,8 @@
     width: 15rem;
     box-sizing: border-box;
     /* border: 1px solid red; */
-    border-radius: 35px 2px 35px 2px;
+    /* border-radius: 35px 2px 35px 2px;
+     */
 
 }
 
@@ -13,6 +14,7 @@
     width: 100%;
     /*card animation stuff*/
     /* background-color: transparent; */
+
 
     border-radius: 3px;
     perspective: 1000px;
@@ -26,21 +28,25 @@
     width: 100%;
     text-align: center;
     /*card animation stuff*/
-    border-radius: 35px 2px 35px 2px;
+    /* border-radius: 35px 2px 35px 2px; */
     transition: transform 0.8s;
     transform-style: preserve-3d;
-    /* background-color: rgba(200, 200, 200, 0); */
+
 }
 
 .card-front {
     position: relative;
     margin: -10px;
     /* margin-top: -.8rem; */
+    border-radius: 35px 2px 35px 2px;
+
 }
 
 .card-back {
     position: relative;
     padding: -25px;
+    /* border-radius: 2px 35px 2px 35px; */
+    border-radius: 2px 35px 2px 35px !important;
 
     /* margin-top: -.8rem; */
 
@@ -61,10 +67,9 @@
     height: 55%;
     width: 55%;
     object-fit: contain;
-    /* float: right; */
 }
 
-/* TODO temp disabled */
+
 .front-info {
     display: flex;
     position: absolute;
@@ -85,16 +90,15 @@
 
 }
 
-.front-info #basic-info {
-    /* background-color: red; */
-    /* border-radius: 35px 2px 35px 2px; */
+.front-info {
+    font-size: 20px;
 
-    /* display: relative; */
-    /* margin-left: auto; */
+    font-family: "Inquisition";
 }
 
 .front-info .name {
     font-size: 30px;
+    font-family: "InquisitionBold" !important;
 
 }
 
@@ -111,7 +115,8 @@
 
     border: 3px solid white;
     outline: 12px solid white;
-    border-radius: 35px 2px 35px 2px;
+    /* border-radius: 35px 2px 35px 2px; */
+    border-radius: 2px 1.5rem 2px 1.5rem !important;
 
     display: flex;
     flex-direction: row;
@@ -136,6 +141,7 @@
 
 .card-back #basic-info {
     width: 40%;
+
 }
 
 .card-back #about {
@@ -177,11 +183,13 @@
 
 
 /* Card animation*/
-
-
 .profile:hover .card {
     transform: rotateY(180deg);
 }
+
+/* .profile .card {
+    transform: rotateY(180deg);
+} */
 
 .card-front,
 .card-back {

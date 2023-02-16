@@ -19,7 +19,81 @@ Check this out for radio buttons with image backgrounds:
     border: 1px solid red;
     color: white;
     padding-bottom: 100px;
+
+
+    overflow: hidden;
+    /* width: 40rem; */
+    height: 30rem;
+    margin: auto;
 }
+
+#sports-select div {
+    /* todo THIS IS THE PART*/
+    position: absolute;
+    transition: transform 1s, left 1s, opacity 1s, z-index 0s;
+    opacity: 1;
+}
+
+/* ///////////// */
+
+#sports-select div.hideLeft {
+    opacity: 0;
+    transform: translateY(40%) translateX(-400%);
+    rotate: -20deg;
+}
+
+
+#sports-select div.prevLeftSecond {
+
+
+    z-index: 4;
+    transform: translateY(30%) translateX(-260%);
+    rotate: -10deg;
+}
+
+#sports-select div.prev {
+
+    z-index: 5;
+    transform: translateY(20%) translateX(-130%);
+    rotate: -8deg;
+
+}
+
+#sports-select div.selected {
+    rotate: 0deg;
+    z-index: 10;
+    transform: translateY(-0%) translateX(-0%);
+    /* transition: rotate 1s, transform 1s, left 1.2s, z-index 0s; */
+
+}
+
+#sports-select div.next {
+    z-index: 6;
+    transform: translateY(20%) translateX(30%);
+    /* transform: translateY(5%) translateX(0%); */
+    rotate: 8deg;
+}
+
+
+#sports-select div.nextRightSecond {
+    z-index: 5;
+    transform: translateY(30%) translateX(160%);
+    rotate: 10deg;
+    /* 
+    transform: translateY(20%) translateX(0%);
+    rotate: 15deg; */
+
+}
+
+#sports-select div.hideRight {
+    opacity: 0;
+    transform: translateY(40%) translateX(500%);
+    /* transform: translateY(20%) translateX(0%); */
+    rotate: 20deg;
+}
+
+/* //////////// */
+
 
 #sports-select input {
     display: none;
@@ -48,52 +122,49 @@ Check this out for radio buttons with image backgrounds:
 }
 
 
-.selectedSport {
+.selectedSport,
+#sports-select .selected {
     border: 3px solid chartreuse !important;
     height: 33.70ch;
+    position: relative;
 
 }
 
-/* second left of center */
+
+
+
+
+/* 
+
+
 #Rogue-card {
-    /* border: 1px solid red; */
     rotate: -15deg;
     transform: translateY(20%) translateX(0%);
-    /* transition: rotate 1s, transform 1s, left 1.2s, z-index 0s; */
 }
 
 
 
-/* left of center */
 #RogueBow-card {
     transform: translateY(5%) translateX(0);
     rotate: -10deg;
-    /* border: 1px solid orange; */
 
 }
-
-/* center */
 #Warrior2H-card {
     rotate: 0deg;
-    /* border: 1px solid yellow; */
 
 
 }
 
-/* right of center */
 #Warrior-card {
     transform: translateY(5%) translateX(0%);
     rotate: 10deg;
-    /* border: 1px solid green; */
 }
 
-/*second right of center */
 #Mage-card {
-    /* border: 1px solid blue; */
     transform: translateY(20%) translateX(0%);
     rotate: 15deg;
 }
-
+ */
 
 
 

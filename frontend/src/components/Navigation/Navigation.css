@@ -5,6 +5,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'InquisitionBold';
+    src: url('../../../public/fonts/Inquisition.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
 
 
 
