@@ -10,6 +10,8 @@ import Part2 from "./Part-2";
 import Part3 from "./Part-3";
 
 
+
+
 //todo: sports picking up -select sport- as an option.
 const AthleteForm = () => {
     const dispatch = useDispatch();
@@ -28,7 +30,6 @@ const AthleteForm = () => {
     const [step, setStep] = useState(2); //todo temporary while styling
 
     const user = useSelector((state) => state.session.user)
-
 
     useEffect(() => {
         bootSubmit();

@@ -12,20 +12,23 @@ const Part2 = ({ receivePart2, step }) => {
     let sportsArr = [];
     classValues.forEach(entry => { sportsArr.push(entry['class']) })
     const [gender, setGender] = useState();
-    const [sports, setSports] = useState();
+    const [sports, setSports] = useState("Rogue");
     // const [birthdate, setBirthdate] = useState();
     const [birthdate, setBirthdate] = useState("1111-11-11T00:00:00.000Z");//temp to disable input TODO
-    // const carouselLabels = ["prevLeftSecond", "prev", "selected", "next", "nextRightSecond"];
     //some wiggle room with my carousel: allows me to pick starting point
     const carouselLabels = ["selected", 'next', 'nextRightSecond', 'hideRight', 'hideRight'];
-    // const carouselLabels = ["selected", 'next', 'nextRightSecond'];
-
 
     const [carouselCards, setCarouselCards] = useState([])
 
 
     useEffect(() => {
         receivePart2({ gender, sports, birthdate })
+        console.log('gender?', gender)
+
+
+        document.querySelector('.gender-top').classList.replace('gender-top', 'gender-bottom')
+        document.querySelector('.gender-bottom').classList.replace('gender-bottom', 'gender-top')
+
     }, [gender, sports, birthdate])
 
     useEffect(() => {
@@ -36,6 +39,13 @@ const Part2 = ({ receivePart2, step }) => {
 
         console.log(document.getElementsByClassName('form-phase')[0], 'blaaah');
         document.getElementsByClassName('form-phase')[0].innerText = "Select Class"
+
+        document.getElementById('prev').addEventListener("mousedown", () => document.getElementById('prev').classList.add('click'))
+        document.getElementById('prev').addEventListener("mouseup", () => document.getElementById('prev').classList.remove('click'))
+        document.getElementById('next').addEventListener("mousedown", () => document.getElementById('next').classList.add('click'))
+        document.getElementById('next').addEventListener("mouseup", () => document.getElementById('next').classList.remove('click'))
+
+
 
     }, [])
 
@@ -48,21 +58,15 @@ const Part2 = ({ receivePart2, step }) => {
     }
     let handleClickLeft = (e) => {
         e.preventDefault();
-        // setSports(document.querySelector('.selected').firstChild.value)
 
-        // document.querySelector('#sports-select .selected')?.previousSibling.classList.add('selected')
-        // document.querySelectorAll('#sports-select .selected')[1]?.classList.remove('selected')
         moveToSelected('prev')
 
         setSports(document.querySelector('#sports-select  .selected')?.firstChild.value)
-
-
 
     }
     let handleClickRight = (e) => {
         e.preventDefault();
         moveToSelected('next');
-        // console.log(document.querySelector('#sports-select  .selected'), 'selected class in .sports');
         setSports(document.querySelector('#sports-select  .selected')?.firstChild.value)
     }
 
@@ -80,30 +84,15 @@ const Part2 = ({ receivePart2, step }) => {
 
     return (<div style={{ display: step === 2 ? 'flex' : "none" }} className="part-2 bootPart">
 
-        <label htmlFor="gender-select" className="form-label" style={{ display: 'none' }}>Gender
-            <label id='gender-error' htmlFor="gender-select"></label>
-            <select onChange={e => setGender(e.target.value)} id='gender' className="form-control boot-data" required>
-                <option>{null}</option>
-                <option>Male</option>
-                <option>Female</option>
-                <option>Other</option>
-
-            </select>
-        </label>
-
-
-
-        <label htmlFor="sports" className="form-label sport-label">
+        <label htmlFor="sports" className="form-label sport-label" style={{ display: 'none' }}>
             {/* <img src="https://cdn.dragonagekeep.com/bundles/eabwedahub/images/ui_new/banner.png" /> */}
             {/* <div id='menu-header'>
                 <img src='https://cdn.dragonagekeep.com/bundles/eabwedahub/images/ui_new/world_states/slot-banner.png' />
                 <h2>Character Creation {">"} <strong>Select Class</strong></h2>
             </div> */}
             <label id='sports-error' htmlFor="sports"></label>
-
             <div name='sports' id='sports-select'>
                 <div>
-
                     {
                         sportsArr?.map(sport => (
                             <div className={`form-check form-check-inline sport`} id={`${sport}-card`} key={`${sport}`}>
@@ -125,15 +114,47 @@ const Part2 = ({ receivePart2, step }) => {
             </div>
 
             <img className={'white-arrow'} onClick={handleClickLeft} id="prev" src='https://i.imgur.com/oTediJN.png' />
-            {/*  */}
-            {/*  */}
             <img className={'white-arrow'} onClick={handleClickRight} id="next" src='https://i.imgur.com/UpFYkCd.png' />
-
             <div className='arrow-spacer'></div>
-            {/* <button onClick={handleSelect} id='class-button'>Select {sports ? classData[sports]['general_class'] : null}</button> */}
-
 
         </label >
+
+
+        <label htmlFor="gender-select" id='gender-select' className="form-label" style={{ display: 'flex' }}>
+            <div>
+                Gender Select
+            </div>
+            <div>
+                <input onChange={() => setGender("Male")} type='radio' className="form-check-input " name="inlineRadioOptions" value="Male" id={`inlineRadio${1}`} />
+                Male
+            </div>
+            <div>
+
+                <input onChange={() => setGender("Female")} type='radio' className="form-check-input " name="inlineRadioOptions" value="Female" id={`inlineRadio${1}`} />
+                Female
+            </div>
+            <label id='gender-error' htmlFor="gender-select"></label>
+        </label>
+
+        {/* TODO change to races in carousel */}
+        <label htmlFor="race-select" id='race-select' className="form-label" style={{ display: 'flex' }}>
+            <div className={`form-check form-check-inline sport`} id={`${1}-card`} key={`${1}`}>
+
+
+                <label onClick={handleClickPicture} id={1} className="form-check-label gender-top" htmlFor={`inlineRadio${1}`} style={{ backgroundImage: `URL(${'https://i.imgur.com/2dtacUM.png'})` }}>
+                    <input type='radio' className="form-check-input" name="inlineRadioOptions" value="Male" id={`inlineRadio${1}`} />
+                </label>
+
+
+                <label onClick={handleClickPicture} id={1} className="form-check-label gender-bottom" htmlFor={`inlineRadio${1}`} style={{ backgroundImage: `URL(${'https://i.imgur.com/IMv2C07.jpg'})` }}>
+                    <input type='radio' className="form-check-input" name="inlineRadioOptions" value="Female" id={`inlineRadio${1}`} />
+                </label>
+
+            </div>
+            <label id='gender-error' htmlFor="gender-select"></label>
+        </label>
+
+
 
         {/* 
             KEEP, former form structure
@@ -164,5 +185,4 @@ const Part2 = ({ receivePart2, step }) => {
 
     </div >)
 }
-
 export default Part2;
