@@ -18,7 +18,6 @@ export default function moveToSelected(direction) {
     var prevSecond = prev?.previousSibling;
     var nextSecond = next?.nextSibling;
 
-
     if (direction == 'next') {
         //adjust selected to the right
         document.querySelector(".selected").classList.add('prev')
@@ -65,5 +64,12 @@ export default function moveToSelected(direction) {
         prevSecond?.classList.add("prevLeftSecond")
         prevSecond?.previousSibling?.classList.remove('prevLeftSecond');
     }
+
+
+    if (!prev) document.getElementById('prev').style.opacity = '0';
+    else if (prev) document.getElementById('prev').style.opacity = '1';
+
+    if (!next) document.getElementById('next').style.opacity = '0';
+    else if (next) document.getElementById('next').style.opacity = '1';
 
 }

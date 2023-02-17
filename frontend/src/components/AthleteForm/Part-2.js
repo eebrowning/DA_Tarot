@@ -74,9 +74,9 @@ const Part2 = ({ receivePart2, step }) => {
     }
     let handleClickPicture = (e) => {
         e.preventDefault();
-        document.querySelector('.selected')?.classList.remove('selected');
-        document.getElementById(e.target.id + '-card').classList.add('selected');
-        setSports(document.querySelector('#sports-select .selected').firstChild.value)
+        // document.querySelector('.selected')?.classList.remove('selected');
+        // document.getElementById(e.target.id + '-card').classList.add('selected');
+        // setSports(document.querySelector('#sports-select .selected').firstChild.value)
     }
 
     return (<div style={{ display: step === 2 ? 'flex' : "none" }} className="part-2 bootPart">
