@@ -28,13 +28,13 @@ const Part2 = ({ receivePart2, step }) => {
         receivePart2({ gender, sports, birthdate })
         console.log(sports, 'did class change?')
     }, [gender, sports, birthdate])
+
     useEffect(() => {
         setCarouselCards(document.getElementById("sports-select").children)
         handleLabels();
         setSports(document.querySelector('.sport')?.firstChild.value)
-
-        console.log(document.querySelector('.selected'));
-
+        document.getElementById('prev').style.opacity = '0';//cheeky fix
+        // console.log(document.querySelector('.selected'));
     }, [])
 
 
@@ -109,10 +109,15 @@ const Part2 = ({ receivePart2, step }) => {
                     }
                     {!document.getElementsByClassName('selectedSport') && document.getElementById('sports-select')?.firstChild.classList.add('selectedSport')}
                 </div>
+                <div className="sports-info-bubble">
+                    <h2>Class:  {sports ? classData[sports]['general_class'] : null}</h2>
+                    <p>class description TODO: will be very long, so should type a bunch of bs here to see</p>
+                </div>
+
             </div>
             <img className={'white-arrow'} onClick={handleClickLeft} id="prev" src='https://i.imgur.com/oTediJN.png' />
 
-            {/* <button onClick={handleSelect} id='class-button'>Select </button> */}
+
             <button onClick={handleSelect} id='class-button'>Select {sports ? classData[sports]['general_class'] : null}</button>
 
             <img className={'white-arrow'} onClick={handleClickRight} id="next" src='https://i.imgur.com/UpFYkCd.png' />

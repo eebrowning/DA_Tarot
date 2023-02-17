@@ -19,8 +19,6 @@ Check this out for radio buttons with image backgrounds:
     border: 1px solid red;
     color: white;
     padding-bottom: 100px;
-
-
     overflow: hidden;
     /* width: 40rem; */
     height: 30rem;
@@ -30,7 +28,7 @@ Check this out for radio buttons with image backgrounds:
 #sports-select div {
     /* todo THIS IS THE PART*/
     position: absolute;
-    top: 10rem;
+    /* top: 10rem; */
     /* transition: transform .5s, left .1s, opacity 1s, z-index 0s; */
     transition: ease-in-out;
     opacity: 1;
@@ -106,6 +104,11 @@ Check this out for radio buttons with image backgrounds:
     display: none;
 }
 
+.sports-info-bubble {
+    border: 1px solid chartreuse;
+    position: relative;
+    top: 35rem;
+}
 
 .sport label {
     color: white;
@@ -137,9 +140,11 @@ Check this out for radio buttons with image backgrounds:
 
 }
 
+
+
 .form-label .white-arrow {
     position: relative;
-    top: -15rem;
+    top: -20rem;
     filter: sepia(100%) drop-shadow(4px 1px 3px rgb(255, 143, 3)) drop-shadow(-4.25px -1px 3px rgb(255, 143, 3)) contrast(95%);
 
 }
