@@ -135,7 +135,12 @@ const AthleteForm = () => {
 
             <form id="athlete-form" className="needs-validation" onSubmit={handleSubmit} noValidate>
 
-                <h2 id='form-head'>Create a new Athlete:</h2>
+                {/* <h2 id='form-head'>Create a new Athlete:</h2> */}
+                <div id='menu-header'>
+                    <img src='https://cdn.dragonagekeep.com/bundles/eabwedahub/images/ui_new/world_states/slot-banner.png' />
+                    <h2>Character Creation {">"} <strong className="form-phase">Stage {step}</strong></h2>
+                </div>
+
                 <div id='fields'>
                     <Part1 receivePart1={receivePart1} step={step} />
                     <Part2 receivePart2={receivePart2} step={step} />

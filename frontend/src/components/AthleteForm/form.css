@@ -9,12 +9,12 @@
 }
 
 #athlete-form {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-radius: 10px;
-    box-shadow: 2px 2px 0px gray;
-    /* height: 30rem; */
-    height: fit-content;
-    width: 80%;
+    /* box-shadow: 2px 2px 0px gray; */
+    height: 30rem;
+    /* height: fit-content; */
+    width: 90%;
     margin: auto;
     margin-top: 3rem;
     display: grid;

@@ -11,18 +11,37 @@ Check this out for radio buttons with image backgrounds:
     background-size: cover;
     height: 100%;
 } */
+#menu-header {
+    font-family: "Inquisition";
+
+    position: absolute;
+    color: grey;
+    display: flex;
+    margin-bottom: 5rem;
+}
+
+#menu-header img {
+    width: 5rem;
+    height: 10rem;
+}
+
+#menu-header strong {
+    color: white;
+}
 
 #sports-select {
+    font-family: "Inquisition";
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    border: 1px solid red;
-    color: white;
+    /* border: 1px solid red; */
+    color: whitesmoke;
     padding-bottom: 100px;
     overflow: hidden;
-    /* width: 40rem; */
     height: 30rem;
     margin: auto;
+    position: relative;
+    top: 50px;
 }
 
 #sports-select div {
@@ -42,7 +61,6 @@ Check this out for radio buttons with image backgrounds:
     transform: translateY(-45%) translateX(-280%);
     rotate: -30deg;
 }
-
 
 #sports-select div.prevLeftSecond {
 
@@ -97,6 +115,7 @@ Check this out for radio buttons with image backgrounds:
     z-index: 0;
 }
 
+
 /* //////////// */
 
 
@@ -105,13 +124,21 @@ Check this out for radio buttons with image backgrounds:
 }
 
 .sports-info-bubble {
-    border: 1px solid chartreuse;
+    font-size: .73rem;
+    text-shadow: 10px 20px 20px black;
     position: relative;
-    top: 35rem;
+    top: 23rem;
+    width: 21rem;
+}
+
+.sports-info-bubble h2 {
+    font-size: 1.25rem;
+    padding: 0;
+    margin: 0;
 }
 
 .sport label {
-    color: white;
+    color: whitesmoke;
     display: flex;
     flex-direction: column;
     background-size: cover;
@@ -146,15 +173,27 @@ Check this out for radio buttons with image backgrounds:
     position: relative;
     top: -20rem;
     filter: sepia(100%) drop-shadow(4px 1px 3px rgb(255, 143, 3)) drop-shadow(-4.25px -1px 3px rgb(255, 143, 3)) contrast(95%);
-
 }
 
+/* 
+.form-label .white-arrow:click {
+    filter: none;
+    transform: scale(150%);
+} */
+#sports-select #prev,
 .form-label #prev {
-    left: -3.5rem;
+    left: -6.25rem;
+    z-index: 10;
 }
 
+/* .form-label .arrow-spacer {
+    width: 50rem;
+} */
+
+#sports-select #next,
 .form-label #next {
-    right: -2.5rem;
+    right: -5.25rem;
+    z-index: 10;
 
 }
 

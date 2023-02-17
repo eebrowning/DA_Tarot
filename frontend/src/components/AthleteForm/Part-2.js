@@ -26,7 +26,6 @@ const Part2 = ({ receivePart2, step }) => {
 
     useEffect(() => {
         receivePart2({ gender, sports, birthdate })
-        console.log(sports, 'did class change?')
     }, [gender, sports, birthdate])
 
     useEffect(() => {
@@ -34,7 +33,10 @@ const Part2 = ({ receivePart2, step }) => {
         handleLabels();
         setSports(document.querySelector('.sport')?.firstChild.value)
         document.getElementById('prev').style.opacity = '0';//cheeky fix
-        // console.log(document.querySelector('.selected'));
+
+        console.log(document.getElementsByClassName('form-phase')[0], 'blaaah');
+        document.getElementsByClassName('form-phase')[0].innerText = "Select Class"
+
     }, [])
 
 
@@ -59,12 +61,9 @@ const Part2 = ({ receivePart2, step }) => {
     }
     let handleClickRight = (e) => {
         e.preventDefault();
-
         moveToSelected('next');
-
-        console.log(document.querySelector('#sports-select  .selected'), 'selected class in .sports');
+        // console.log(document.querySelector('#sports-select  .selected'), 'selected class in .sports');
         setSports(document.querySelector('#sports-select  .selected')?.firstChild.value)
-
     }
 
     let handleSelect = (e) => {
@@ -81,7 +80,7 @@ const Part2 = ({ receivePart2, step }) => {
 
     return (<div style={{ display: step === 2 ? 'flex' : "none" }} className="part-2 bootPart">
 
-        <label htmlFor="gender-select" className="form-label">Gender
+        <label htmlFor="gender-select" className="form-label" style={{ display: 'none' }}>Gender
             <label id='gender-error' htmlFor="gender-select"></label>
             <select onChange={e => setGender(e.target.value)} id='gender' className="form-control boot-data" required>
                 <option>{null}</option>
@@ -92,8 +91,16 @@ const Part2 = ({ receivePart2, step }) => {
             </select>
         </label>
 
-        <label htmlFor="sports" className="form-label">Select Class
+
+
+        <label htmlFor="sports" className="form-label sport-label">
+            {/* <img src="https://cdn.dragonagekeep.com/bundles/eabwedahub/images/ui_new/banner.png" /> */}
+            {/* <div id='menu-header'>
+                <img src='https://cdn.dragonagekeep.com/bundles/eabwedahub/images/ui_new/world_states/slot-banner.png' />
+                <h2>Character Creation {">"} <strong>Select Class</strong></h2>
+            </div> */}
             <label id='sports-error' htmlFor="sports"></label>
+
             <div name='sports' id='sports-select'>
                 <div>
 
@@ -109,18 +116,22 @@ const Part2 = ({ receivePart2, step }) => {
                     }
                     {!document.getElementsByClassName('selectedSport') && document.getElementById('sports-select')?.firstChild.classList.add('selectedSport')}
                 </div>
-                <div className="sports-info-bubble">
-                    <h2>Class:  {sports ? classData[sports]['general_class'] : null}</h2>
-                    <p>class description TODO: will be very long, so should type a bunch of bs here to see</p>
-                </div>
+
+                {sports && (<div className="sports-info-bubble">
+                    <h2>{classData[sports]['general_class']}</h2>
+                    <p>{classData[sports]['description']}</p>
+                </div>)}
 
             </div>
+
             <img className={'white-arrow'} onClick={handleClickLeft} id="prev" src='https://i.imgur.com/oTediJN.png' />
-
-
-            <button onClick={handleSelect} id='class-button'>Select {sports ? classData[sports]['general_class'] : null}</button>
-
+            {/*  */}
+            {/*  */}
             <img className={'white-arrow'} onClick={handleClickRight} id="next" src='https://i.imgur.com/UpFYkCd.png' />
+
+            <div className='arrow-spacer'></div>
+            {/* <button onClick={handleSelect} id='class-button'>Select {sports ? classData[sports]['general_class'] : null}</button> */}
+
 
         </label >
 
