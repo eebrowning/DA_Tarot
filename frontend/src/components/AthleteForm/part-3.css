@@ -1,0 +1,220 @@
+/* 
+Check this out for radio buttons with image backgrounds:
+ 
+"https://stackoverflow.com/questions/37114081/style-bootsrap-radio-buttons-via-images"
+
+*/
+
+
+/* .form-check-label {
+    object-fit: cover;
+    background-size: cover;
+    height: 100%;
+} */
+#menu-header {
+    font-family: "Inquisition";
+    position: absolute;
+    color: grey;
+    display: flex;
+    margin-bottom: 5rem;
+}
+
+#menu-header img {
+    width: 5rem;
+    height: 10rem;
+}
+
+#menu-header strong {
+    color: white;
+}
+
+#sports-select {
+    /* border: 1px solid red; */
+
+    font-family: "Inquisition";
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    color: whitesmoke;
+    padding-bottom: 100px;
+    overflow: hidden;
+    height: 33rem;
+    margin: auto;
+    position: relative;
+    top: 50px;
+}
+
+#sports-select div {
+    /* todo THIS IS THE PART*/
+    position: absolute;
+    /* top: 10rem; */
+    /* transition: transform .5s, left .1s, opacity 1s, z-index 0s; */
+    transition: ease-in-out;
+    opacity: 1;
+}
+
+
+/* ///////////// */
+
+#sports-select div.hideLeft {
+    opacity: .55;
+    /* background-color: rgb(0, 0, 0, 0.8); */
+    transform: translateY(-45%) translateX(-280%);
+    rotate: -30deg;
+}
+
+#sports-select div.prevLeftSecond {
+
+    /* z-index: 4; */
+    transform: translateY(-20%) translateX(-255%);
+    rotate: -20deg;
+}
+
+#sports-select div.prev {
+
+    /* z-index: 5; */
+    transform: translateY(-5%) translateX(-130%);
+    rotate: -12.5deg;
+
+}
+
+#sports-select div.selected {
+    rotate: 0deg;
+    z-index: 2;
+    transform: translateY(2%) translateX(-0%);
+    /* transition: rotate 1s, transform 1s, left 1.2s, z-index 0s; */
+
+}
+
+#sports-select div.next {
+    z-index: 2;
+    transform: translateY(9%) translateX(22.5%);
+    /* transform: translateY(5%) translateX(0%); */
+    rotate: 12.5deg;
+}
+
+
+#sports-select div.nextRightSecond {
+    z-index: 2;
+    transform: translateY(2%) translateX(150%);
+    rotate: 20deg;
+    /* 
+    transform: translateY(20%) translateX(0%);
+    rotate: 15deg; */
+
+}
+
+#sports-select div.hideRight {
+    opacity: .55;
+    z-index: 0;
+    transform: translateY(-15%) translateX(180%);
+    /* transform: translateY(20%) translateX(0%); */
+    rotate: 30deg;
+}
+
+
+
+/* //////////// */
+
+
+#sports-select input {
+    display: none;
+}
+
+.sports-info-bubble {
+    font-size: .73rem;
+    text-shadow: 10px 20px 20px black;
+    position: relative;
+    top: 23rem;
+    width: 21rem;
+}
+
+.sports-info-bubble h2 {
+    font-size: 1.25rem;
+    padding: 0;
+    margin: 0;
+}
+
+
+.sport label {
+    color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    height: 33ch;
+    width: 19ch;
+    margin-left: -1.5rem;
+    margin-bottom: -1rem;
+}
+
+
+.sport img {
+    /* height: 200px;
+    width: 200px; */
+
+}
+
+
+.selectedSport,
+#sports-select .selected {
+    /* border: 3px solid chartreuse !important; */
+    height: 33.70ch;
+    position: relative;
+
+}
+
+
+
+.sport-label .white-arrow {
+    position: relative;
+    top: -19rem;
+    filter: sepia(100%) drop-shadow(4px 1px 3px rgb(255, 143, 3)) drop-shadow(-4.25px -1px 3px rgb(255, 143, 3)) contrast(95%);
+}
+
+.click {
+    filter: blur(1px) drop-shadow(4px 1px 3px rgb(252, 252, 252)) drop-shadow(-4.25px -1px 3px rgb(255, 255, 255)) contrast(100%) !important;
+    scale: 150%;
+}
+
+/* 
+.form-label .white-arrow:click {
+    filter: none;
+    transform: scale(150%);
+} */
+.prev-3 {
+    left: -6.25rem;
+    z-index: 10;
+}
+
+/* .form-label .arrow-spacer {
+    width: 50rem;
+} */
+
+.next-3 {
+    right: -5.25rem;
+    z-index: 10;
+
+}
+
+
+
+
+
+/* gonna need a lot of query work to make this mobile-friendly! */
+@media screen and (orientation:portrait) {
+
+    #sports-select {
+        width: 100vw;
+        overflow: scroll;
+    }
+
+}
+
+@media mobile and (orientation:landscape) {
+
+    #sports-select {
+        width: 80cqw;
+        overflow: scroll;
+    }
+
+}

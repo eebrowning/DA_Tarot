@@ -8,7 +8,7 @@ import { thunkCreateAthlete, thunkGetAllAthletes } from "../../store/athletes";
 import Part1 from "./Part-1";
 import Part2 from "./Part-2";
 import Part3 from "./Part-3";
-
+import Part4 from "./Part-4";
 
 
 
@@ -58,6 +58,9 @@ const AthleteForm = () => {
         await setBirthdate(data.birthdate)
     }
     const receivePart3 = async (data) => {
+        await setGender(data.gender)
+    }
+    const receivePart4 = async (data) => {
         await setLocation(data.location)
         await setAbout(data.about)
         await setTeam(data.team)
@@ -146,6 +149,7 @@ const AthleteForm = () => {
                     <Part1 receivePart1={receivePart1} step={step} />
                     <Part2 receivePart2={receivePart2} step={step} />
                     <Part3 receivePart3={receivePart3} step={step} />
+                    <Part4 receivePart4={receivePart4} step={step} />
                 </div>
                 {/* {errors && ( */}
 
@@ -160,8 +164,8 @@ const AthleteForm = () => {
                 {/* )} */}
                 <div id='buttons'>
                     <button style={{ display: step > 1 ? "block" : "none" }} onClick={prev}>Previous</button>
-                    <button className="btn btn-primary" type="submit" style={{ display: step < 3 ? "block" : "none" }} onClick={next}>Next</button>
-                    <button className="btn btn-primary" type='submit' style={{ display: step === 3 ? "block" : "none" }} onClick={bootSubmit} >Submit Athlete</button>
+                    <button className="btn btn-primary" type="submit" style={{ display: step < 4 ? "block" : "none" }} onClick={next}>Next</button>
+                    <button className="btn btn-primary" type='submit' style={{ display: step === 4 ? "block" : "none" }} onClick={bootSubmit} >Submit Athlete</button>
                 </div>
             </form>
 

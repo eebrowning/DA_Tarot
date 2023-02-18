@@ -1,59 +1,3 @@
-/* 
-Check this out for radio buttons with image backgrounds:
- 
-"https://stackoverflow.com/questions/37114081/style-bootsrap-radio-buttons-via-images"
-
-*/
-
-
-/* .form-check-label {
-    object-fit: cover;
-    background-size: cover;
-    height: 100%;
-} */
-#menu-header {
-    font-family: "Inquisition";
-    position: absolute;
-    color: grey;
-    display: flex;
-    margin-bottom: 5rem;
-}
-
-#menu-header img {
-    width: 5rem;
-    height: 10rem;
-}
-
-#menu-header strong {
-    color: white;
-}
-
-#sports-select {
-    /* border: 1px solid red; */
-
-    font-family: "Inquisition";
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    color: whitesmoke;
-    padding-bottom: 100px;
-    overflow: hidden;
-    height: 33rem;
-    margin: auto;
-    position: relative;
-    top: 50px;
-}
-
-#race-select div,
-#sports-select div {
-    /* todo THIS IS THE PART*/
-    position: absolute;
-    /* top: 10rem; */
-    /* transition: transform .5s, left .1s, opacity 1s, z-index 0s; */
-    transition: ease-in-out;
-    opacity: 1;
-}
-
 /* GENDER/RACE */
 #gender-select {
     border: 1px solid red;
@@ -67,32 +11,40 @@ Check this out for radio buttons with image backgrounds:
     /* height: 10rem; */
     /* margin: auto; */
     position: relative;
-    top: 50px;
+    top: 3rem;
     left: 4rem;
 }
 
 
 
 .gender-top {
+    width: 20rem;
+    border-radius: .5rem;
     z-index: 2;
     position: absolute;
     top: 0;
+    transition: .5s;
+
 }
 
 .gender-bottom {
+    border-radius: .5rem;
+
     z-index: 1;
     position: relative;
-    top: 2rem;
-    left: 2rem;
+    top: -1rem;
+    left: 1.5rem;
+    opacity: .7;
     /* left: 13rem; */
-
+    transition: .5s;
+    rotate: 8deg;
 }
 
 
 
 #race-select {
-    border: 1px solid red;
-    /* width: 30rem; */
+    border: 1px solid chartreuse;
+    /* width: 50rem; */
     width: 100%;
     font-family: "Inquisition";
     display: flex;
@@ -101,146 +53,59 @@ Check this out for radio buttons with image backgrounds:
     color: whitesmoke;
     padding-bottom: 100px;
     overflow: hidden;
-    height: 33rem;
+    height: 35rem;
     margin: auto;
     position: relative;
-    top: 50px;
+    top: 3rem;
 }
+
+#race-select div {
+    /* border: 1px solid red; */
+
+    /* todo THIS IS THE PART*/
+    position: absolute;
+    top: 1rem;
+    /* top: 10rem; */
+    /* transition: transform .5s, left .1s, opacity 1s, z-index 0s; */
+    transition: ease-in-out;
+    opacity: 1;
+    width: 30rem;
+}
+
 
 #race-select input {
     display: none;
 }
 
+/* .race {
+    box-sizing: border-box;
+    border: 5px solid red;
+} */
 
-/* ///////////// */
-
-#sports-select div.hideLeft {
-    opacity: .55;
-    /* background-color: rgb(0, 0, 0, 0.8); */
-    transform: translateY(-45%) translateX(-280%);
-    rotate: -30deg;
-}
-
-#sports-select div.prevLeftSecond {
-
-    /* z-index: 4; */
-    transform: translateY(-20%) translateX(-255%);
-    rotate: -20deg;
-}
-
-#sports-select div.prev {
-
-    /* z-index: 5; */
-    transform: translateY(-5%) translateX(-130%);
-    rotate: -12.5deg;
-
-}
-
-#sports-select div.selected {
-    rotate: 0deg;
-    z-index: 2;
-    transform: translateY(2%) translateX(-0%);
-    /* transition: rotate 1s, transform 1s, left 1.2s, z-index 0s; */
-
-}
-
-#sports-select div.next {
-    z-index: 2;
-    transform: translateY(9%) translateX(22.5%);
-    /* transform: translateY(5%) translateX(0%); */
-    rotate: 12.5deg;
-}
-
-
-#sports-select div.nextRightSecond {
-    z-index: 2;
-    transform: translateY(2%) translateX(150%);
-    rotate: 20deg;
-    /* 
-    transform: translateY(20%) translateX(0%);
-    rotate: 15deg; */
-
-}
-
-#sports-select div.hideRight {
-    opacity: .55;
-    z-index: 0;
-    transform: translateY(-15%) translateX(180%);
-    /* transform: translateY(20%) translateX(0%); */
-    rotate: 30deg;
-}
-
-
-
-/* //////////// */
-
-
-#sports-select input {
-    display: none;
-}
-
-.sports-info-bubble {
-    font-size: .73rem;
-    text-shadow: 10px 20px 20px black;
-    position: relative;
-    top: 23rem;
-    width: 21rem;
-}
-
-.sports-info-bubble h2 {
-    font-size: 1.25rem;
-    padding: 0;
-    margin: 0;
-}
-
-.sport label {
+.race label {
     color: whitesmoke;
     display: flex;
     flex-direction: column;
     background-size: cover;
     height: 33ch;
-    width: 19ch;
+    width: 13rem;
+
     margin-left: -1.5rem;
     margin-bottom: -1rem;
 }
 
-.sport img {
-    /* height: 200px;
-    width: 200px; */
 
-}
-
-
-.selectedSport,
-#sports-select .selected {
-    /* border: 3px solid chartreuse !important; */
-    height: 33.70ch;
+.part-2 .white-arrow {
     position: relative;
-
-}
-
-
-
-.form-label .white-arrow {
-    position: relative;
-    top: -19rem;
+    top: 15rem;
+    left: 15rem;
     filter: sepia(100%) drop-shadow(4px 1px 3px rgb(255, 143, 3)) drop-shadow(-4.25px -1px 3px rgb(255, 143, 3)) contrast(95%);
 }
 
-.click {
-    filter: blur(1px) drop-shadow(4px 1px 3px rgb(252, 252, 252)) drop-shadow(-4.25px -1px 3px rgb(255, 255, 255)) contrast(100%) !important;
-    scale: 150%;
 
-}
 
-/* 
-.form-label .white-arrow:click {
-    filter: none;
-    transform: scale(150%);
-} */
-#sports-select #prev,
-.form-label #prev {
-    left: -6.25rem;
+.prev-2 {
+    /* left: -1rem; */
     z-index: 10;
 }
 
@@ -248,9 +113,8 @@ Check this out for radio buttons with image backgrounds:
     width: 50rem;
 } */
 
-#sports-select #next,
-.form-label #next {
-    right: -5.25rem;
+.next-2 {
+    /* right: -1rem; */
     z-index: 10;
 
 }
@@ -259,21 +123,67 @@ Check this out for radio buttons with image backgrounds:
 
 
 
-/* gonna need a lot of query work to make this mobile-friendly! */
-@media screen and (orientation:portrait) {
+/* //////////// */
+/* //////////// */
+/* //////////// */
 
-    #sports-select {
-        width: 100vw;
-        overflow: scroll;
-    }
+
+div.hideLeftPart2 {
+    opacity: .55;
+    /* background-color: rgb(0, 0, 0, 0.8); */
+    transform: translateY(-105%) translateX(-180%);
+    /* rotate: -30deg; */
+}
+
+div.prevLeftSecondPart2 {
+
+    z-index: 1;
+
+    transform: translateY(-20%) translateX(-120%);
+    /* rotate: -20deg; */
+}
+
+div.prevPart2 {
+
+    z-index: 1;
+
+    transform: translateY(-0%) translateX(-60%);
+    /* rotate: -12.5deg; */
 
 }
 
-@media mobile and (orientation:landscape) {
+#sports-select div.selectedPart2 {
+    z-index: 1;
+    transform: translateY(0%) translateX(-0%);
+    /* transition: rotate 1s, transform 1s, left 1.2s, z-index 0s; */
+    rotate: 0deg;
+    /* border: 10px solid blue; */
+}
 
-    #sports-select {
-        width: 80cqw;
-        overflow: scroll;
-    }
+div.nextPart2 {
+    z-index: 1;
+    transform: translateY(0%) translateX(60%);
+    /* transform: translateY(5%) translateX(0%); */
+    /* rotate: 12.5deg; */
+}
+
+
+div.nextRightSecondPart2 {
+    z-index: 1;
+    transform: translateY(0%) translateX(120%);
+    /* rotate: 20deg; */
+    /* 
+    transform: translateY(20%) translateX(0%);
+    rotate: 15deg; */
 
 }
+
+div.hideRightPart2 {
+    opacity: .55;
+    z-index: 0;
+    transform: translateY(0%) translateX(180%);
+    /* transform: translateY(20%) translateX(0%); */
+    /* rotate: 30deg; */
+}
+
+/* //////////// */

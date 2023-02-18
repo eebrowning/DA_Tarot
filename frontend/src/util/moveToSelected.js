@@ -72,4 +72,18 @@ export default function moveToSelected(direction) {
     if (!next) document.getElementById('next').style.opacity = '0';
     else if (next) document.getElementById('next').style.opacity = '1';
 
+
+    // if (!prev) document.querySelector('.prev-3').style.opacity = '0';
+    // else if (prev) document.querySelector('.prev-3').style.opacity = '1';
+
+    // if (!next) document.querySelector('.next-3').style.opacity = '0';
+    // else if (next) document.querySelector('.next-3').style.opacity = '1';
+
+
+    // if (!prev) document.querySelector('.prev-2').style.opacity = '0';
+    // else if (prev) document.querySelector('.prev-2').style.opacity = '1';
+
+    // if (!next) document.querySelector('.next-2').style.opacity = '0';
+    // else if (next) document.querySelector('.next-2').style.opacity = '1';
+
 }
