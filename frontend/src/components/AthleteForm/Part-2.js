@@ -73,7 +73,7 @@ const Part2_5 = ({ receivePart2, step }) => {
                     Gender Select
                 </div>
                 <div>
-                    <input onChange={() => setGender("Male")} type='radio' className="form-check-input " name="inlineRadioOptions" value="Male" id={`inlineRadio${1}`} />
+                    <input defaultChecked onChange={() => setGender("Male")} type='radio' className="form-check-input " name="inlineRadioOptions" value="Male" id={`inlineRadio${1}`} />
                     Male
                 </div>
                 <div>

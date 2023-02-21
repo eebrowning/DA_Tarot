@@ -49,8 +49,10 @@ Check this out for radio buttons with image backgrounds:
     position: absolute;
     /* top: 10rem; */
     /* transition: transform .5s, left .1s, opacity 1s, z-index 0s; */
-    transition: ease-in-out;
+    /* transition: ease-in-out; */
+    /* transition: rotate .5s, transform .5s, z-index 0s; */
     opacity: 1;
+
 }
 
 
@@ -60,6 +62,8 @@ Check this out for radio buttons with image backgrounds:
     opacity: .55;
     /* background-color: rgb(0, 0, 0, 0.8); */
     transform: translateY(-45%) translateX(-280%);
+    transition: rotate .5s, transform .5s, z-index 0s;
+
     rotate: -30deg;
 }
 
@@ -67,6 +71,8 @@ Check this out for radio buttons with image backgrounds:
 
     /* z-index: 4; */
     transform: translateY(-20%) translateX(-255%);
+    transition: rotate .5s, transform .5s, z-index 0s;
+
     rotate: -20deg;
 }
 
@@ -74,29 +80,41 @@ Check this out for radio buttons with image backgrounds:
 
     /* z-index: 5; */
     transform: translateY(-5%) translateX(-130%);
+
     rotate: -12.5deg;
+    transition: rotate .5s, transform .5s, z-index 0s;
+
 
 }
 
 #sports-select div.selected {
-    rotate: 0deg;
+    /* rotate: 0deg; */
     z-index: 2;
-    transform: translateY(2%) translateX(-0%);
-    /* transition: rotate 1s, transform 1s, left 1.2s, z-index 0s; */
+    transform: translateY(2%) translateX(0%);
+    transition: transform .65s, rotate .25s, z-index 0s;
+
+
+    /* transition-duration: .25s; */
 
 }
 
 #sports-select div.next {
     z-index: 2;
     transform: translateY(9%) translateX(22.5%);
-    /* transform: translateY(5%) translateX(0%); */
+    transition: rotate .5s, transform .65s, z-index 0s;
+
+
     rotate: 12.5deg;
+
 }
 
 
 #sports-select div.nextRightSecond {
     z-index: 2;
     transform: translateY(2%) translateX(150%);
+    transition: rotate .5s, transform .5s, z-index 0s;
+
+
     rotate: 20deg;
     /* 
     transform: translateY(20%) translateX(0%);
@@ -108,6 +126,9 @@ Check this out for radio buttons with image backgrounds:
     opacity: .55;
     z-index: 0;
     transform: translateY(-15%) translateX(180%);
+
+    transition: rotate .5s, transform .5s, z-index 0s;
+
     /* transform: translateY(20%) translateX(0%); */
     rotate: 30deg;
 }

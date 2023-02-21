@@ -30,7 +30,7 @@ const Part3 = ({ receivePart3, step, race }) => {
 
         if (race === 'Dwarf' && mageCard) {
             mageCard.style.display = 'none'
-            console.log('Its a dwarf, next is mage card', next.id)
+            // console.log('Its a dwarf, next is mage card', next.id)
             if (next.id === "Mage-card") {
                 next3.style.opacity = 0
                 next3.style.zIndex = -5
