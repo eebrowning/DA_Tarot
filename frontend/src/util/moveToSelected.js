@@ -5,7 +5,7 @@
 
 export default function moveToSelected(direction) {
     // let $ = document.querySelector(`.${direction}`)
-    console.log('direction:', direction)
+    // console.log('direction:', direction)
     if (direction == "next") {
         var newSelected = document.querySelector(".selected")?.nextSibling;
     } else if (direction == "prev") {
@@ -41,6 +41,7 @@ export default function moveToSelected(direction) {
         prevSecond?.classList.remove('prev')
         prevSecond?.previousSibling?.classList.remove('prevLeftSecond');
         prevSecond?.previousSibling?.classList.add('hideLeft');
+
     } else if (direction == 'prev') {
         //adjust selected to the left
         document.querySelector(".selected").classList.add('next')
@@ -66,18 +67,20 @@ export default function moveToSelected(direction) {
     }
 
 
-    if (!prev) document.getElementById('prev').style.opacity = '0';
-    else if (prev) document.getElementById('prev').style.opacity = '1';
+    // if (!prev) document.getElementById('prev').style.opacity = '0';
+    // else if (prev) document.getElementById('prev').style.opacity = '1';
 
-    if (!next) document.getElementById('next').style.opacity = '0';
-    else if (next) document.getElementById('next').style.opacity = '1';
+    // if (!next) document.getElementById('next').style.opacity = '0';
+    // else if (next) document.getElementById('next').style.opacity = '1';
 
 
-    // if (!prev) document.querySelector('.prev-3').style.opacity = '0';
-    // else if (prev) document.querySelector('.prev-3').style.opacity = '1';
 
-    // if (!next) document.querySelector('.next-3').style.opacity = '0';
-    // else if (next) document.querySelector('.next-3').style.opacity = '1';
+    //TODO replacing moveToSelected with move2 would need to have the following be more flexible than it is right now:
+    if (!prev) document.querySelector('.prev-3').style.opacity = '0';
+    else if (prev) document.querySelector('.prev-3').style.opacity = '1';
+
+    if (!next) document.querySelector('.next-3').style.opacity = '0';
+    else if (next) document.querySelector('.next-3').style.opacity = '1';
 
 
     // if (!prev) document.querySelector('.prev-2').style.opacity = '0';

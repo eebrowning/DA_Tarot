@@ -2,14 +2,12 @@
 //try out ideas here, don't mess with moveToSelected
 export default function moveToSelectedRedux(direction, formSection) {
     // let $ = document.querySelector(`.${direction}`)
-    console.log('direction:', direction, 'formSection:', formSection)
+    // console.log('direction:', direction, 'formSection:', formSection)
     if (direction == `next`) {
         var newSelected = document.querySelector(`.selected${formSection}`)?.nextSibling;
     } else if (direction == "prev") {
         var newSelected = document.querySelector(`.selected${formSection}`)?.previousSibling;
     }
-    console.log('newSelected:', newSelected)
-
     if (!newSelected) return;
     var next = newSelected?.nextSibling;
     var prev = newSelected?.previousSibling;
@@ -64,11 +62,11 @@ export default function moveToSelectedRedux(direction, formSection) {
     }
 
 
-    if (!prev) document.getElementById(`prev`).style.opacity = '0';
-    else if (prev) document.getElementById(`prev`).style.opacity = '1';
+    // if (!prev) document.getElementById(`prev`).style.opacity = '0';
+    // else if (prev) document.getElementById(`prev`).style.opacity = '1';
 
-    if (!next) document.getElementById(`next`).style.opacity = '0';
-    else if (next) document.getElementById(`next`).style.opacity = '1';
+    // if (!next) document.getElementById(`next`).style.opacity = '0';
+    // else if (next) document.getElementById(`next`).style.opacity = '1';
 
 
     // if (!prev) document.querySelector('.prev-3').style.opacity = '0';
@@ -77,11 +75,12 @@ export default function moveToSelectedRedux(direction, formSection) {
     // if (!next) document.querySelector('.next-3').style.opacity = '0';
     // else if (next) document.querySelector('.next-3').style.opacity = '1';
 
+    //TODO replacing moveToSelected with move2 would need to have the following be more flexible than it is right now:
 
-    // if (!prev) document.querySelector('.prev-2').style.opacity = '0';
-    // else if (prev) document.querySelector('.prev-2').style.opacity = '1';
+    if (!prev) document.querySelector('.prev-2').style.opacity = '0';
+    else if (prev) document.querySelector('.prev-2').style.opacity = '1';
 
-    // if (!next) document.querySelector('.next-2').style.opacity = '0';
-    // else if (next) document.querySelector('.next-2').style.opacity = '1';
+    if (!next) document.querySelector('.next-2').style.opacity = '0';
+    else if (next) document.querySelector('.next-2').style.opacity = '1';
 
 }

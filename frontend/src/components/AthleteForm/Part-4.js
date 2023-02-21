@@ -10,7 +10,7 @@ const Part4 = ({ receivePart4, step }) => {
         receivePart4({ location, about, team, interests })
     }, [location, about, team, interests])
 
-    return (< div style={{ display: step === 4 ? 'flex' : "none" }} className="part-3 bootPart" >
+    return (< div style={{ display: step === 4 ? 'flex' : "none" }} className="part-4 bootPart" >
         <div id="team-location">
             <label htmlFor="team">Team
                 <label id='team-error' htmlFor="team" className="form-label"></label>

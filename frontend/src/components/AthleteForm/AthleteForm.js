@@ -18,6 +18,7 @@ const AthleteForm = () => {
     const [name, setName] = useState("");
     const [avatar, setAvatar] = useState("");
     const [gender, setGender] = useState("");
+    const [race, setRace] = useState('')
     const [sports, setSports] = useState("");
     const [birthdate, setBirthdate] = useState();
     const [location, setLocation] = useState("");
@@ -25,16 +26,53 @@ const AthleteForm = () => {
     const [team, setTeam] = useState("");
     const [interests, setInterests] = useState("");
     const [errors, setErrors] = useState([]);
-
     // const [step, setStep] = useState(1)
     const [step, setStep] = useState(2); //todo temporary while styling
 
     const user = useSelector((state) => state.session.user)
 
+
+
+
     useEffect(() => {
         bootSubmit();
         labelErrors();
     }, [errors])
+
+
+
+
+
+    useEffect(() => {
+        if (step == 2 && document.querySelector('.prev-2')) {
+            document.querySelector('.prev-2').addEventListener("mousedown", () => document.querySelector('.prev-2').classList.add('click'))
+            document.querySelector('.prev-2').addEventListener("mouseup", () => document.querySelector('.prev-2').classList.remove('click'))
+            document.querySelector('.next-2').addEventListener("mousedown", () => document.querySelector('.next-2').classList.add('click'))
+            document.querySelector('.next-2').addEventListener("mouseup", () => document.querySelector('.next-2').classList.remove('click'))
+        } else if (document.querySelector('.prev-2')) {
+            document.querySelector('.prev-2').removeEventListener("mousedown", () => document.querySelector('.prev-2').classList.add('click'))
+            document.querySelector('.prev-2').removeEventListener("mouseup", () => document.querySelector('.prev-2').classList.remove('click'))
+            document.querySelector('.next-2').removeEventListener("mousedown", () => document.querySelector('.next-2').classList.add('click'))
+            document.querySelector('.next-2').removeEventListener("mouseup", () => document.querySelector('.next-2').classList.remove('click'))
+        }
+
+        if (step == 3 && document.querySelector('.prev-3')) {
+            document.querySelector('.prev-3').addEventListener("mousedown", () => document.querySelector('.prev-3').classList.add('click'))
+            document.querySelector('.prev-3').addEventListener("mouseup", () => document.querySelector('.prev-3').classList.remove('click'))
+            document.querySelector('.next-3').addEventListener("mousedown", () => document.querySelector('.next-3').classList.add('click'))
+            document.querySelector('.next-3').addEventListener("mouseup", () => document.querySelector('.next-3').classList.remove('click'))
+        } else if (document.querySelector('.prev-3')) {
+            document.querySelector('.prev-3').removeEventListener("mousedown", () => document.querySelector('.prev-3').classList.add('click'))
+            document.querySelector('.prev-3').removeEventListener("mouseup", () => document.querySelector('.prev-3').classList.remove('click'))
+            document.querySelector('.next-3').removeEventListener("mousedown", () => document.querySelector('.next-3').classList.add('click'))
+            document.querySelector('.next-3').removeEventListener("mouseup", () => document.querySelector('.next-3').classList.remove('click'))
+        }
+
+
+    }, [step])
+
+
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -53,12 +91,12 @@ const AthleteForm = () => {
         await setAvatar(data.avatar)
     }
     const receivePart2 = async (data) => {
-        await setSports(data.sports)
         await setGender(data.gender)
-        await setBirthdate(data.birthdate)
+        await setRace(data.race)
     }
     const receivePart3 = async (data) => {
-        await setGender(data.gender)
+        await setSports(data.sports)
+        await setBirthdate(data.birthdate)
     }
     const receivePart4 = async (data) => {
         await setLocation(data.location)
@@ -68,7 +106,6 @@ const AthleteForm = () => {
     }
     ////////End Data receipt/
     const labelErrors = () => {
-
         if (errors.length) {
             errors.forEach(err => {
                 // console.log(err, 'error looking for info')
@@ -93,7 +130,9 @@ const AthleteForm = () => {
     let next = (e) => {
         e.preventDefault();
         bootSubmit();
+
         let good = true;
+
         const form = document.querySelectorAll('.needs-validation')[0];
         const inputVal = document.querySelectorAll(`.part-${step} .boot-data`)
 
@@ -108,10 +147,12 @@ const AthleteForm = () => {
 
         if (!good) {
             form.classList.add('was-validated')
+
         } else {
             form.classList.remove('was-validated')
-            setStep(step + 1);
         }
+        setStep(step + 1);
+
     }
     /////////////Bootstrap validation
     let bootSubmit = () => {
@@ -148,7 +189,7 @@ const AthleteForm = () => {
                 <div id='fields'>
                     <Part1 receivePart1={receivePart1} step={step} />
                     <Part2 receivePart2={receivePart2} step={step} />
-                    <Part3 receivePart3={receivePart3} step={step} />
+                    <Part3 receivePart3={receivePart3} step={step} race={race ? race : undefined} />
                     <Part4 receivePart4={receivePart4} step={step} />
                 </div>
                 {/* {errors && ( */}

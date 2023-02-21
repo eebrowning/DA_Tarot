@@ -2,32 +2,32 @@
 
 let Qunari = {
     race: "Qunari",
-    male: "url",
-    female: "url",
-    descriptor: 'Qunari'
+    male: "https://i.imgur.com/Glv7njE.jpg?1",
+    female: "https://i.imgur.com/Ux7iNZo.jpg?1",
+    description: 'Qunari'
 }
 
 let Human = {
     race: "Human",
-    male: "url",
-    female: "url",
-    descriptor: 'Human'
+    male: "https://i.imgur.com/2dtacUM.png",
+    female: "'https://i.imgur.com/IMv2C07.jpg'",
+    description: 'Human'
 
 }
 
 let Dwarf = {
     race: "Dwarf",
-    male: "url",
-    female: "url",
-    descriptor: 'Dwarven'
+    male: "https://i.imgur.com/uPVCEHS.jpg?1",
+    female: "https://i.imgur.com/Rc05VmJ.jpg?1",
+    description: 'Dwarven'
 }
 
 let Elf = {
     race: "Elf",
-    male: "url",
-    female: "url",
-    descriptor: 'Elvhen'
+    male: "https://i.imgur.com/yyNoQzS.png",
+    female: "https://i.imgur.com/WoLKLRW.jpg",
+    description: 'Elvhen'
 }
 
 
-module.exports = { Qunari, Human, Elf, Dwarf }
+module.exports = { Human, Elf, Dwarf, Qunari }

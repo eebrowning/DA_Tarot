@@ -165,7 +165,7 @@ Check this out for radio buttons with image backgrounds:
 
 
 
-.sport-label .white-arrow {
+.part-3 .white-arrow {
     position: relative;
     top: -19rem;
     filter: sepia(100%) drop-shadow(4px 1px 3px rgb(255, 143, 3)) drop-shadow(-4.25px -1px 3px rgb(255, 143, 3)) contrast(95%);
@@ -176,11 +176,9 @@ Check this out for radio buttons with image backgrounds:
     scale: 150%;
 }
 
-/* 
-.form-label .white-arrow:click {
-    filter: none;
-    transform: scale(150%);
-} */
+
+
+
 .prev-3 {
     left: -6.25rem;
     z-index: 10;
