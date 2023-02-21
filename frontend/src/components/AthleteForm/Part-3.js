@@ -106,7 +106,7 @@ const Part3 = ({ receivePart3, step, race }) => {
                         sportsArr?.map(sport => (
                             <div className={`form-check form-check-inline sport`} id={`${sport}-card`} key={`${sport}`}>
                                 <input type='radio' className="form-check-input " name="inlineRadioOptions" value={sport} id={`inlineRadio${sport}`} />
-                                <label onClick={handleClickPicture} id={sport} className="form-check-label" htmlFor={`inlineRadio${sport}`} style={{ backgroundImage: `URL(${classData[sport]["cardURL"]})` }}>
+                                <label onClick={handleClickPicture} id={sport} className="form-check-label sports-label" htmlFor={`inlineRadio${sport}`} style={{ backgroundImage: `URL(${classData[sport]["cardURL"]})` }}>
                                     {sport}
                                 </label>
                             </div>

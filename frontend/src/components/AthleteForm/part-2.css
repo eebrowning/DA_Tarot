@@ -19,16 +19,20 @@
 
 .gender-top {
     width: 20rem;
+    box-sizing: border-box;
+
     border-radius: .5rem;
+    border: 5px solid white;
     z-index: 2;
     position: absolute;
     top: 0;
     transition: .5s;
-
 }
 
 .gender-bottom {
+    box-sizing: border-box;
     border-radius: .5rem;
+    border: 5px solid white;
 
     z-index: 1;
     position: relative;
@@ -49,7 +53,8 @@
     font-family: "Inquisition";
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
+    /* align-items: center; */
     color: whitesmoke;
     padding-bottom: 100px;
     overflow: hidden;
@@ -59,17 +64,22 @@
     top: 3rem;
 }
 
-#race-select div {
-    /* border: 1px solid red; */
-
+#race-gallery {
     /* todo THIS IS THE PART*/
     position: absolute;
-    top: 1rem;
-    /* top: 10rem; */
+    top: 0rem;
     /* transition: transform .5s, left .1s, opacity 1s, z-index 0s; */
     transition: ease-in-out;
     opacity: 1;
-    width: 30rem;
+    border: 1px solid red;
+
+}
+
+#race-select div {
+    position: absolute;
+    /* border: 1px solid blue; */
+    width: 0rem;
+
 }
 
 
@@ -77,10 +87,26 @@
     display: none;
 }
 
-/* .race {
+.race-info-bubble {
+    position: relative;
+    top: 22rem;
     box-sizing: border-box;
-    border: 5px solid red;
-} */
+    /* border: 5px solid red; */
+    height: 10rem;
+    font-size: .73rem;
+    text-shadow: 10px 20px 20px black;
+    position: relative;
+    /* top: 23rem; */
+    width: 21rem !important;
+
+}
+
+.race-info-bubble h2 {
+    font-size: 1.25rem;
+    padding: 0;
+    margin: 0;
+}
+
 
 .race label {
     color: whitesmoke;
@@ -89,7 +115,7 @@
     background-size: cover;
     height: 33ch;
     width: 13rem;
-
+    scale: 95%;
     margin-left: -1.5rem;
     margin-bottom: -1rem;
 }
@@ -97,24 +123,28 @@
 
 .part-2 .white-arrow {
     position: relative;
-    top: 15rem;
-    left: 15rem;
+    top: 14rem;
+    /* right: 25rem; */
     filter: sepia(100%) drop-shadow(4px 1px 3px rgb(255, 143, 3)) drop-shadow(-4.25px -1px 3px rgb(255, 143, 3)) contrast(95%);
 }
 
 
 
 .prev-2 {
-    /* left: -1rem; */
+    position: relative;
     z-index: 10;
 }
 
-/* .form-label .arrow-spacer {
-    width: 50rem;
-} */
+#race-select .arrow-spacer {
+    display: flex;
+    justify-content: space-between;
+    width: 19rem;
+    position: relative;
+    right: -.8%;
+}
 
 .next-2 {
-    /* right: -1rem; */
+    /* position: relative; */
     z-index: 10;
 
 }
@@ -131,59 +161,82 @@
 div.hideLeftPart2 {
     opacity: .55;
     /* background-color: rgb(0, 0, 0, 0.8); */
-    transform: translateY(-105%) translateX(-180%);
     /* rotate: -30deg; */
+
+    /* transform: translateY(-105%) translateX(-180%); */
+
+    transform: translateY(-800%) translateX(-4000%);
+    /* transition: rotate .5s, transform .5s, z-index 0s; */
+    rotate: -30deg;
+
 }
 
 div.prevLeftSecondPart2 {
 
     z-index: 1;
 
-    transform: translateY(-20%) translateX(-120%);
-    /* rotate: -20deg; */
+    transform: translateY(-300%) translateX(-2675%);
+    rotate: -20deg;
+
+    transition: rotate .25s, transform .3s, z-index 0s;
+
 }
 
 div.prevPart2 {
 
     z-index: 1;
 
-    transform: translateY(-0%) translateX(-60%);
-    /* rotate: -12.5deg; */
+    transform: translateY(-100%) translateX(-1600%);
+
+    rotate: -12.5deg;
+    /* transition: rotate .25s, transform .3s, z-index 0s; */
+
+    transition: rotate .25s, transform .3s, z-index 0s;
 
 }
 
-#sports-select div.selectedPart2 {
+#race-select div.selectedPart2 {
     z-index: 1;
-    transform: translateY(0%) translateX(-0%);
-    /* transition: rotate 1s, transform 1s, left 1.2s, z-index 0s; */
+    transform: translateY(0%) translateX(-400%);
     rotate: 0deg;
-    /* border: 10px solid blue; */
+
+    transition: transform .35s, z-index 0s;
+
 }
 
 div.nextPart2 {
     z-index: 1;
-    transform: translateY(0%) translateX(60%);
+    transform: translateY(-100%) translateX(800%);
     /* transform: translateY(5%) translateX(0%); */
-    /* rotate: 12.5deg; */
+    rotate: 12.5deg;
+
+    transition: transform .3s, z-index 0s;
+
 }
 
 
 div.nextRightSecondPart2 {
     z-index: 1;
-    transform: translateY(0%) translateX(120%);
-    /* rotate: 20deg; */
+    transform: translateY(-300%) translateX(1875%);
+    rotate: 20deg;
     /* 
     transform: translateY(20%) translateX(0%);
     rotate: 15deg; */
+
+
+    transition: rotate .25s, transform .25s, z-index 0s;
 
 }
 
 div.hideRightPart2 {
     opacity: .55;
     z-index: 0;
-    transform: translateY(0%) translateX(180%);
+    transform: translateY(0%) translateX(3000%);
     /* transform: translateY(20%) translateX(0%); */
-    /* rotate: 30deg; */
+    rotate: 30deg;
+
+    transition: rotate .25s, transform .3s, z-index 0s;
+
 }
 
 /* //////////// */

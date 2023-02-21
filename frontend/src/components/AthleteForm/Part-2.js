@@ -83,32 +83,39 @@ const Part2_5 = ({ receivePart2, step }) => {
                 <label id='gender-error' htmlFor="gender-select"></label>
             </label>
 
-            <label htmlFor="race-select" id='race-select' className="form-label" style={{ display: 'flex' }}>
-                <div>
-                    {raceValues.map(race => (
-                        <div className={`form-check form-check-inline race`} key={race['race']}>
-                            <div id={race['race']}>
-                                <label id={'male-gender'} className={`form-check-label ${gender === "Male" ? "gender-top" : "gender-bottom"}`} htmlFor={`inlineRadio${1}`} style={{ backgroundImage: `URL(${race['male']})` }}>
-                                    <input type='radio' className="form-check-input" name="inlineRadioOptions" value="Male" id={`inlineRadio${1}`} />
-                                </label>
-                                <label id={'female-gender'} className={`form-check-label ${gender === "Male" ? "gender-bottom" : "gender-top"}`} htmlFor={`inlineRadio${1}`} style={{ backgroundImage: `URL(${race['female']})` }}>
-                                    <input type='radio' className="form-check-input" name="inlineRadioOptions" value="Female" id={`inlineRadio${1}`} />
-                                </label>
+            <label htmlFor="race-select" className="form-label" style={{ display: 'flex' }}>
+                <div id='race-select'>
+                    <div id="race-gallery">
+                        {raceValues.map(race => (
+                            <div className={`form-check form-check-inline race`} key={race['race']}>
+                                <div id={race['race']}>
+                                    <label id={'male-gender'} className={`form-check-label ${gender === "Male" ? "gender-top" : "gender-bottom"}`} htmlFor={`inlineRadio${1}`} style={{ backgroundImage: `URL(${race['male']})` }}>
+                                        <input type='radio' className="form-check-input" name="inlineRadioOptions" value="Male" id={`inlineRadio${1}`} />
+                                    </label>
+                                    <label id={'female-gender'} className={`form-check-label ${gender === "Male" ? "gender-bottom" : "gender-top"}`} htmlFor={`inlineRadio${1}`} style={{ backgroundImage: `URL(${race['female']})` }}>
+                                        <input type='radio' className="form-check-input" name="inlineRadioOptions" value="Female" id={`inlineRadio${1}`} />
+                                    </label>
+                                </div>
+
                             </div>
 
-                        </div>
+                        ))}
+                    </div>
 
-                    ))}
+                    {race && (<div className="race-info-bubble">
+                        <h2>{raceData[race]['race']}</h2>
+                        <p>{raceData[race]['description']}</p>
+                    </div>)}
+
+
+                    <div className='arrow-spacer'>
+                        <img className={'white-arrow prev-2'} onClick={handleClickLeft} id="prev" src='https://i.imgur.com/oTediJN.png' />
+                        <img className={'white-arrow next-2'} onClick={handleClickRight} id="next" src='https://i.imgur.com/UpFYkCd.png' />
+                    </div>
                 </div>
-                {race && (<div className="race-info-bubble">
-                    <h2>{raceData[race]['race']}</h2>
-                    <p>{raceData[race]['description']}</p>
-                </div>)}
-                <img className={'white-arrow prev-2'} onClick={handleClickLeft} id="prev" src='https://i.imgur.com/oTediJN.png' />
-                <img className={'white-arrow next-2'} onClick={handleClickRight} id="next" src='https://i.imgur.com/UpFYkCd.png' />
-                <div className='arrow-spacer'></div>
-                <label id='gender-error' htmlFor="gender-select"></label>
 
+
+                <label id='gender-error' htmlFor="gender-select"></label>
             </label>
         </div >
     </div >)

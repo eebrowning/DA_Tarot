@@ -71,7 +71,7 @@ Check this out for radio buttons with image backgrounds:
 
     /* z-index: 4; */
     transform: translateY(-20%) translateX(-255%);
-    transition: rotate .5s, transform .5s, z-index 0s;
+    transition: rotate .25s, transform .3s, z-index 0s;
 
     rotate: -20deg;
 }
@@ -82,7 +82,7 @@ Check this out for radio buttons with image backgrounds:
     transform: translateY(-5%) translateX(-130%);
 
     rotate: -12.5deg;
-    transition: rotate .5s, transform .5s, z-index 0s;
+    transition: rotate .25s, transform .3s, z-index 0s;
 
 
 }
@@ -91,7 +91,7 @@ Check this out for radio buttons with image backgrounds:
     /* rotate: 0deg; */
     z-index: 2;
     transform: translateY(2%) translateX(0%);
-    transition: transform .65s, rotate .25s, z-index 0s;
+    transition: transform .3s, z-index 0s;
 
 
     /* transition-duration: .25s; */
@@ -101,18 +101,20 @@ Check this out for radio buttons with image backgrounds:
 #sports-select div.next {
     z-index: 2;
     transform: translateY(9%) translateX(22.5%);
-    transition: rotate .5s, transform .65s, z-index 0s;
-
-
     rotate: 12.5deg;
+
+
+    transition: transform .3s, z-index 0s;
+
+
 
 }
 
 
 #sports-select div.nextRightSecond {
-    z-index: 2;
+    z-index: 1;
     transform: translateY(2%) translateX(150%);
-    transition: rotate .5s, transform .5s, z-index 0s;
+    transition: rotate .25s, transform .25s, z-index 0s;
 
 
     rotate: 20deg;
@@ -127,13 +129,15 @@ Check this out for radio buttons with image backgrounds:
     z-index: 0;
     transform: translateY(-15%) translateX(180%);
 
-    transition: rotate .5s, transform .5s, z-index 0s;
+    transition: rotate .25s, transform .3s, z-index 0s;
 
     /* transform: translateY(20%) translateX(0%); */
     rotate: 30deg;
 }
 
-
+.sports-label {
+    border-radius: 6px;
+}
 
 /* //////////// */
 

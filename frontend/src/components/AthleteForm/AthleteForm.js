@@ -44,7 +44,13 @@ const AthleteForm = () => {
 
 
     useEffect(() => {
+        if (step == 1) {
+            document.getElementsByClassName('form-phase')[0].innerText = "Name and Avatar";
+
+        }
         if (step == 2 && document.querySelector('.prev-2')) {
+            document.getElementsByClassName('form-phase')[0].innerText = "Select Race";
+
             document.querySelector('.prev-2').addEventListener("mousedown", () => document.querySelector('.prev-2').classList.add('click'))
             document.querySelector('.prev-2').addEventListener("mouseup", () => document.querySelector('.prev-2').classList.remove('click'))
             document.querySelector('.next-2').addEventListener("mousedown", () => document.querySelector('.next-2').classList.add('click'))
@@ -57,6 +63,8 @@ const AthleteForm = () => {
         }
 
         if (step == 3 && document.querySelector('.prev-3')) {
+            document.getElementsByClassName('form-phase')[0].innerText = "Select Class";
+
             document.querySelector('.prev-3').addEventListener("mousedown", () => document.querySelector('.prev-3').classList.add('click'))
             document.querySelector('.prev-3').addEventListener("mouseup", () => document.querySelector('.prev-3').classList.remove('click'))
             document.querySelector('.next-3').addEventListener("mousedown", () => document.querySelector('.next-3').classList.add('click'))
@@ -66,6 +74,10 @@ const AthleteForm = () => {
             document.querySelector('.prev-3').removeEventListener("mouseup", () => document.querySelector('.prev-3').classList.remove('click'))
             document.querySelector('.next-3').removeEventListener("mousedown", () => document.querySelector('.next-3').classList.add('click'))
             document.querySelector('.next-3').removeEventListener("mouseup", () => document.querySelector('.next-3').classList.remove('click'))
+        }
+        if (step == 4) {
+            document.getElementsByClassName('form-phase')[0].innerText = "Misc. Details";
+
         }
 
 
