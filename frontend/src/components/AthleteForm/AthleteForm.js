@@ -155,8 +155,8 @@ const AthleteForm = () => {
 
         } else {
             form.classList.remove('was-validated')
+            setStep(step + 1);
         }
-        setStep(step + 1);
 
     }
     /////////////Bootstrap validation
@@ -196,6 +196,7 @@ const AthleteForm = () => {
                     <Part2 receivePart2={receivePart2} step={step} />
                     <Part3 receivePart3={receivePart3} step={step} race={race ? race : undefined} />
                     <Part4 receivePart4={receivePart4} step={step} />
+
                 </div>
                 {/* {errors && ( */}
 
@@ -213,6 +214,45 @@ const AthleteForm = () => {
                     <button className="btn btn-primary" type="submit" style={{ display: step < 4 ? "block" : "none" }} onClick={next}>Next</button>
                     <button className="btn btn-primary" type='submit' style={{ display: step === 4 ? "block" : "none" }} onClick={bootSubmit} >Submit Athlete</button>
                 </div>
+
+                {(step == 1 || step == 4) && (<div className="preview">
+                    {(
+                        <div id='profile-card' className='profile test-avatar'>
+                            <h2>Preview:</h2>
+                            <div className='card'>
+
+                                <div className="card-front">
+                                    <img className="card-img" src={avatar ? avatar : "avatar"} />
+                                    <div className="front-info">
+                                        <div id='basic-info'>
+                                            <p className="name">{name ? name : "<name>"}</p>
+                                            <p className="sports">{sports ? sports : "<class name>"}</p>
+                                        </div>
+                                        <div id='about'>
+                                            <p className="team">{team ? team : "<team>"}</p>
+                                            <p className="location">{location ? location : "<location>"}</p>
+                                        </div>
+                                    </div >
+                                </div>
+                                <div className="card-back" >
+                                    <div className="back-info">
+                                        <div id='basic-info'>
+                                            <p className="name">Name: {name ? name : "<name>"}</p>
+                                            <p className="sports">Class: {sports ? sports : "<class name>"}</p>
+                                        </div>
+                                        <img className="back-img" src={avatar ? avatar : "avatar"} />
+                                        <div id='about'>
+                                            <p className="team">Faction: {team ? team : "<faction>"}</p>
+                                            <p className="location">Location: {location ? location : "<location>"}</p>
+                                            <>About:<p className="about"> {about ? about : "<about>"}</p></>
+                                        </div>
+                                    </div >
+
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                </div>)}
             </form>
 
         </section>

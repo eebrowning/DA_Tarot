@@ -3,29 +3,12 @@
     width: 90%;
     height: 0rem;
     position: relative;
-    top: 3rem;
     left: 5rem;
 }
 
-.test-avatar h2 {
-    position: relative;
+.part-1 p {
     font-family: "Inquisition";
+    font-size: medium;
     color: white;
-    top: -1rem;
-}
-
-.test-avatar {
-    font-family: "Inquisition";
-
-    position: relative;
-    top: 100px;
-    left: 60vw;
-    object-fit: contain;
-    height: 26rem !;
-    width: 15rem;
-    /* box-sizing: border-box; */
-    /* border-radius: 35px 2px 35px 2px !important; */
-
-    /* background-color: white; */
-
+    text-shadow: 1px 1px 1px black;
 }

@@ -1,7 +1,11 @@
 /* GENDER/RACE */
+#race-and-gender {
+    width: 100vw;
+}
+
 #gender-select {
     border: 1px solid red;
-    width: 40rem;
+    max-width: 30rem;
     font-family: "Inquisition";
     display: flex;
     flex-direction: row;
@@ -10,6 +14,8 @@
     overflow: hidden;
     /* height: 10rem; */
     /* margin: auto; */
+    z-index: 5;
+
     position: relative;
     top: 3rem;
     left: 4rem;
@@ -55,32 +61,28 @@
     justify-content: center;
     /* align-items: center; */
     color: whitesmoke;
-
-
-    padding-bottom: 100px;
+    /* padding-bottom: 100px; */
     overflow: hidden;
-    height: 35rem;
+    height: 33rem;
     margin: auto;
     position: relative;
-    top: 3rem;
+    top: 1rem;
 }
 
 #race-gallery {
     /* todo THIS IS THE PART*/
     position: absolute;
-    top: 0rem;
     /* transition: transform .5s, left .1s, opacity 1s, z-index 0s; */
     transition: ease-in-out;
     opacity: 1;
     border: 1px solid red;
-
+    top: 1rem;
 }
 
 #race-select div {
     position: absolute;
     /* border: 1px solid blue; */
     width: 0rem;
-
 }
 
 
@@ -90,7 +92,7 @@
 
 .race-info-bubble {
     position: relative;
-    top: 22rem;
+    top: 25rem;
     box-sizing: border-box;
     /* border: 5px solid red; */
     height: 10rem;
@@ -115,21 +117,19 @@
     display: flex;
     flex-direction: column;
     background-size: cover;
-    height: 33ch;
-    width: 13rem;
+    height: 35ch;
+    width: 13.25rem;
     scale: 95%;
     margin-left: -1.5rem;
     margin-bottom: -1rem;
 }
 
-
 .part-2 .white-arrow {
     position: relative;
-    top: 10rem;
+    top: 12rem;
     /* right: 25rem; */
     filter: sepia(100%) drop-shadow(4px 1px 3px rgb(255, 143, 3)) drop-shadow(-4.25px -1px 3px rgb(255, 143, 3)) contrast(95%);
 }
-
 
 
 .prev-2 {
@@ -146,9 +146,7 @@
 }
 
 .next-2 {
-    /* position: relative; */
     z-index: 10;
-
 }
 
 
