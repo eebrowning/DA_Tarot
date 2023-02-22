@@ -31,17 +31,10 @@ const AthleteForm = () => {
 
     const user = useSelector((state) => state.session.user)
 
-
-
-
     useEffect(() => {
         bootSubmit();
         labelErrors();
     }, [errors])
-
-
-
-
 
     useEffect(() => {
         if (step == 1) {

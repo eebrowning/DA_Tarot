@@ -5,7 +5,7 @@
 
 export default function moveToSelected(direction) {
     // let $ = document.querySelector(`.${direction}`)
-    // console.log('direction:', direction)
+
     if (direction == "next") {
         var newSelected = document.querySelector(".selected")?.nextSibling;
     } else if (direction == "prev") {
@@ -41,7 +41,6 @@ export default function moveToSelected(direction) {
         prevSecond?.classList.remove('prev')
         prevSecond?.previousSibling?.classList.remove('prevLeftSecond');
         prevSecond?.previousSibling?.classList.add('hideLeft');
-
     } else if (direction == 'prev') {
         //adjust selected to the left
         document.querySelector(".selected").classList.add('next')
@@ -73,20 +72,20 @@ export default function moveToSelected(direction) {
     // if (!next) document.getElementById('next').style.opacity = '0';
     // else if (next) document.getElementById('next').style.opacity = '1';
 
+    // console.log(document.querySelector('.prev-3'), 'preeeeev three');
 
-
-    //TODO replacing moveToSelected with move2 would need to have the following be more flexible than it is right now:
     if (!prev) document.querySelector('.prev-3').style.opacity = '0';
     else if (prev) document.querySelector('.prev-3').style.opacity = '1';
 
+    // if (!next) {
+    //     console.log(document.getElementsByClassName('next-3')[0], 'NOTHING NEXT', next);
+    //     document.getElementsByClassName('next-3')[0].style.opacity = '0'
+    // }
+    // else if (next) {
+    //     console.log(document.querySelector('.next-3').style.opacity, 'NEXT', next);
+    //     document.querySelector('.next-3').style.opacity = '0'
+    // }
+
     if (!next) document.querySelector('.next-3').style.opacity = '0';
     else if (next) document.querySelector('.next-3').style.opacity = '1';
-
-
-    // if (!prev) document.querySelector('.prev-2').style.opacity = '0';
-    // else if (prev) document.querySelector('.prev-2').style.opacity = '1';
-
-    // if (!next) document.querySelector('.next-2').style.opacity = '0';
-    // else if (next) document.querySelector('.next-2').style.opacity = '1';
-
 }

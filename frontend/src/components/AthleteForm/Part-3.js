@@ -4,12 +4,12 @@ import classData from "../../util/classData";
 import raceData from '../../util/raceData'
 import moveToSelected from "../../util/moveToSelected";
 
+
 ////TODO for dragon age app: make radio options for gender, after gender selectedSport, move to class.
 //class radio options appear, after selection, next enabled.
 //this will be the test of the DA:Inquisition-like character detail menu.
 const Part3 = ({ receivePart3, step, race }) => {
 
-    console.log(race, 'race in part3')
     let classValues = Object.values(classData);
     let sportsArr = [];
     classValues.forEach(entry => { sportsArr.push(entry['class']) })
@@ -26,28 +26,26 @@ const Part3 = ({ receivePart3, step, race }) => {
     useEffect(() => {
         let mageCard = document.getElementById('Mage-card');
         let next3 = document.querySelector('.next-3');//
-        let next = document.querySelector('.next');//is the next arrow
-
+        let next = document.querySelector('.next');//is the next card
+        ///////
+        if (sports === 'Mage') {
+            next3.style.opacity = 0
+        } else if (race === 'Dwarf' && sports == 'Warrior') {
+            console.log(sports)
+            next3.style.opacity = 0
+            next3.style.zIndex = -5
+        } else {
+            next3.style.opacity = 1
+            next3.style.zIndex = 5
+        }
+        ///////
         if (race === 'Dwarf' && mageCard) {
+            if (sports === 'Mage') { setSports('Warrior'); moveToSelected('prev') };//shenanigans with moving backwards with 'mage' selected
             mageCard.style.display = 'none'
-            // console.log('Its a dwarf, next is mage card', next.id)
-            if (next.id === "Mage-card") {
-                next3.style.opacity = 0
-                next3.style.zIndex = -5
-            } else {
-                next3.style.opacity = 1
-                next3.style.zIndex = 5
-            }
-            // next3.style.display = 'none';
         }
         else if (race !== 'Dwarf' && mageCard) {
-            console.log('Its not a dwarf')
-            mageCard.style = { display: 'relative' }
-            // next3.style = { display: 'relative' };
-            next3.style.opacity = 1;
-            next3.style = { zIndex: 5 }
+            mageCard.style.display = '';
 
-            // console.log(mageCard)
         }
     }, [race, step, sports])
 
@@ -60,9 +58,8 @@ const Part3 = ({ receivePart3, step, race }) => {
     useEffect(() => {
         setCarouselCards(document.getElementById("sports-select")?.children)
         handleLabels();
-        // setSports(document.querySelector('.sport').firstChild.value)
-
         document.getElementsByClassName('form-phase')[0].innerText = "Select Class";
+        document.querySelector('.prev-3').style.opacity = '0';//cheeky fix
 
     }, [])
 

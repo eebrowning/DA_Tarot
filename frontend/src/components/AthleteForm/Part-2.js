@@ -39,7 +39,7 @@ const Part2_5 = ({ receivePart2, step }) => {
     useEffect(() => {
         // setCarouselCards(document.getElementById("race-select").children)
         handleLabels();
-        document.getElementById('prev').style.opacity = '0';//cheeky fix
+        document.querySelector('.prev-2').style.opacity = '0';//cheeky fix
         document.querySelector(".selectedPart2")?.classList.remove('.selectedPart2')
 
     }, [])
@@ -52,7 +52,6 @@ const Part2_5 = ({ receivePart2, step }) => {
         }
     }
     let handleClickLeft = (e) => {
-
         e.preventDefault();
         moveToSelectedRedux('prev', 'Part2')
         setRace(document.querySelector('.selectedPart2')?.firstChild.id)

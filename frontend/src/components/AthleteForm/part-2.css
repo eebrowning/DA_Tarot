@@ -47,7 +47,6 @@
 
 
 #race-select {
-    border: 1px solid chartreuse;
     /* width: 50rem; */
     width: 100%;
     font-family: "Inquisition";
@@ -56,6 +55,8 @@
     justify-content: center;
     /* align-items: center; */
     color: whitesmoke;
+
+
     padding-bottom: 100px;
     overflow: hidden;
     height: 35rem;
@@ -98,6 +99,7 @@
     position: relative;
     /* top: 23rem; */
     width: 21rem !important;
+    scale: 120%;
 
 }
 
@@ -123,7 +125,7 @@
 
 .part-2 .white-arrow {
     position: relative;
-    top: 14rem;
+    top: 10rem;
     /* right: 25rem; */
     filter: sepia(100%) drop-shadow(4px 1px 3px rgb(255, 143, 3)) drop-shadow(-4.25px -1px 3px rgb(255, 143, 3)) contrast(95%);
 }
@@ -165,7 +167,7 @@ div.hideLeftPart2 {
 
     /* transform: translateY(-105%) translateX(-180%); */
 
-    transform: translateY(-800%) translateX(-4000%);
+    transform: translateY(-800%) translateX(-3750%);
     /* transition: rotate .5s, transform .5s, z-index 0s; */
     rotate: -30deg;
 
@@ -231,7 +233,7 @@ div.nextRightSecondPart2 {
 div.hideRightPart2 {
     opacity: .55;
     z-index: 0;
-    transform: translateY(0%) translateX(3000%);
+    transform: translateY(-750%) translateX(3000%);
     /* transform: translateY(20%) translateX(0%); */
     rotate: 30deg;
 

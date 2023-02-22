@@ -92,22 +92,14 @@ Check this out for radio buttons with image backgrounds:
     z-index: 2;
     transform: translateY(2%) translateX(0%);
     transition: transform .3s, z-index 0s;
-
-
     /* transition-duration: .25s; */
-
 }
 
 #sports-select div.next {
     z-index: 2;
     transform: translateY(9%) translateX(22.5%);
     rotate: 12.5deg;
-
-
     transition: transform .3s, z-index 0s;
-
-
-
 }
 
 
@@ -152,6 +144,7 @@ Check this out for radio buttons with image backgrounds:
     position: relative;
     top: 23rem;
     width: 21rem;
+    scale: 120%;
 }
 
 .sports-info-bubble h2 {
