@@ -5,10 +5,12 @@ import "./form.css"
 import Sports from "./Sports";
 import { useDispatch, useSelector } from "react-redux";
 import { thunkCreateAthlete, thunkGetAllAthletes } from "../../store/athletes";
-import Part1 from "./Part-1";
+// import Part1 from "./Part-1";
 import Part2 from "./Part-2";
 import Part3 from "./Part-3";
 import Part4 from "./Part-4";
+import Part5 from "./Part-5";
+
 
 
 
@@ -37,13 +39,8 @@ const AthleteForm = () => {
     }, [errors])
 
     useEffect(() => {
-        if (step == 1) {
-            document.getElementsByClassName('form-phase')[0].innerText = "Name and Avatar";
-
-        }
         if (step == 2 && document.querySelector('.prev-2')) {
             document.getElementsByClassName('form-phase')[0].innerText = "Select Race";
-
             document.querySelector('.prev-2').addEventListener("mousedown", () => document.querySelector('.prev-2').classList.add('click'))
             document.querySelector('.prev-2').addEventListener("mouseup", () => document.querySelector('.prev-2').classList.remove('click'))
             document.querySelector('.next-2').addEventListener("mousedown", () => document.querySelector('.next-2').classList.add('click'))
@@ -57,7 +54,6 @@ const AthleteForm = () => {
 
         if (step == 3 && document.querySelector('.prev-3')) {
             document.getElementsByClassName('form-phase')[0].innerText = "Select Class";
-
             document.querySelector('.prev-3').addEventListener("mousedown", () => document.querySelector('.prev-3').classList.add('click'))
             document.querySelector('.prev-3').addEventListener("mouseup", () => document.querySelector('.prev-3').classList.remove('click'))
             document.querySelector('.next-3').addEventListener("mousedown", () => document.querySelector('.next-3').classList.add('click'))
@@ -69,8 +65,11 @@ const AthleteForm = () => {
             document.querySelector('.next-3').removeEventListener("mouseup", () => document.querySelector('.next-3').classList.remove('click'))
         }
         if (step == 4) {
-            document.getElementsByClassName('form-phase')[0].innerText = "Misc. Details";
+            document.getElementsByClassName('form-phase')[0].innerText = "Name and Avatar";
 
+        }
+        if (step == 5) {
+            document.getElementsByClassName('form-phase')[0].innerText = "Misc. Details";
         }
 
 
@@ -91,10 +90,10 @@ const AthleteForm = () => {
 
     }
     ///start data receipt/
-    const receivePart1 = async (data) => {
-        await setName(data.name)
-        await setAvatar(data.avatar)
-    }
+    // const receivePart1 = async (data) => {
+    //     await setName(data.name)
+    //     await setAvatar(data.avatar)
+    // }
     const receivePart2 = async (data) => {
         await setGender(data.gender)
         await setRace(data.race)
@@ -104,6 +103,10 @@ const AthleteForm = () => {
         await setBirthdate(data.birthdate)
     }
     const receivePart4 = async (data) => {
+        await setName(data.name)
+        await setAvatar(data.avatar)
+    }
+    const receivePart5 = async (data) => {
         await setLocation(data.location)
         await setAbout(data.about)
         await setTeam(data.team)
@@ -139,7 +142,7 @@ const AthleteForm = () => {
         let good = true;
 
         const form = document.querySelectorAll('.needs-validation')[0];
-        const inputVal = document.querySelectorAll(`.part-${step} .boot-data`)
+        const inputVal = document.querySelectorAll(`.part-${step} .boot-data`);
 
         Array.from(inputVal).forEach(input => {
             if (!input.checkValidity()) {
@@ -192,10 +195,11 @@ const AthleteForm = () => {
                 </div>
 
                 <div id='fields'>
-                    <Part1 receivePart1={receivePart1} step={step} />
+                    {/* <Part1 receivePart1={receivePart1} step={step} /> */}
                     <Part2 receivePart2={receivePart2} step={step} />
                     <Part3 receivePart3={receivePart3} step={step} race={race ? race : undefined} />
                     <Part4 receivePart4={receivePart4} step={step} />
+                    <Part5 receivePart5={receivePart5} step={step} />
 
                 </div>
                 {/* {errors && ( */}
@@ -210,12 +214,12 @@ const AthleteForm = () => {
 
                 {/* )} */}
                 <div id='buttons'>
-                    <button style={{ display: step > 1 ? "block" : "none" }} onClick={prev}>Previous</button>
-                    <button className="btn btn-primary" type="submit" style={{ display: step < 4 ? "block" : "none" }} onClick={next}>Next</button>
-                    <button className="btn btn-primary" type='submit' style={{ display: step === 4 ? "block" : "none" }} onClick={bootSubmit} >Submit Athlete</button>
+                    <button style={{ display: step > 2 ? "block" : "none" }} onClick={prev}>Previous</button>
+                    <button className="btn btn-primary" type="submit" style={{ display: step < 5 ? "block" : "none" }} onClick={next}>Next</button>
+                    <button className="btn btn-primary" type='submit' style={{ display: step === 5 ? "block" : "none" }} onClick={bootSubmit} >Submit Athlete</button>
                 </div>
 
-                {(step == 1 || step == 4) && (<div className="preview">
+                {(step == 4 || step == 5) && (<div className="preview">
                     {(
                         <div id='profile-card' className='profile test-avatar'>
                             <h2>Preview:</h2>

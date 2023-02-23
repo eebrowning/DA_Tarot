@@ -1,6 +1,11 @@
 /* GENDER/RACE */
+body {
+    overflow-x: hidden;
+}
+
 #race-and-gender {
     width: 100vw;
+
 }
 
 #gender-select {
