@@ -221,7 +221,8 @@ Check this out for radio buttons with image backgrounds:
 
     #sports-select {
         width: 100vw;
-        overflow: scroll;
+        overflow: hidden;
+
     }
 
 }
@@ -230,7 +231,7 @@ Check this out for radio buttons with image backgrounds:
 
     #sports-select {
         width: 80cqw;
-        overflow: scroll;
+        overflow: hidden;
     }
 
 }

@@ -12,3 +12,20 @@
     color: white;
     text-shadow: 1px 1px 1px black;
 }
+
+
+#fields-container {
+    display: flex;
+    flex: row;
+    padding-top: 4rem;
+    color: white;
+}
+
+.preview {
+    border: 1px solid chartreuse;
+    height: 33rem;
+    width: 18rem;
+    padding-left: 2rem;
+    padding-top: 4rem;
+
+}
