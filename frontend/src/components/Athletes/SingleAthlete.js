@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import api from "../../api";
 import { thunkDeleteAthlete } from "../../store/athletes";
 import "./athletes.css"
-
+import factionData from '../../util/factionData';
 
 
 function SingleAthlete(profile) {

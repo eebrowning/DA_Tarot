@@ -12,3 +12,35 @@
     color: white;
     text-shadow: 1px 1px 1px black;
 }
+
+#team-input {
+    border: 1px solid red;
+    display: flex;
+    flex-wrap: wrap;
+    height: 150px;
+}
+
+.team input {
+    display: none;
+}
+
+.faction-icon {
+    height: 45px;
+    width: 45px;
+    background-size: cover;
+}
+
+.faction-icon img {
+    height: 45px;
+    width: 45px;
+}
+
+
+#team-input [type=radio]+img {
+    cursor: pointer;
+}
+
+#team-input [type=radio]:checked+img {
+    filter: sepia(100%) drop-shadow(4px 1px 3px rgb(255, 143, 3)) drop-shadow(-4.25px -1px 3px rgb(255, 143, 3)) contrast(95%);
+
+}
