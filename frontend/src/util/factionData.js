@@ -18,5 +18,13 @@ const BenHassrath = {
     name: 'Ben-hassrath',
     url: "https://i.imgur.com/XKxisBq.png"
 }
+const Templars = {
+    name: "Templar Order",
+    url: "https://i.imgur.com/grrv3lc.png"
+}
+const Circle = {
+    name: "Circle of Magi",
+    url: "https://i.imgur.com/OmYJDYv.png"
+}
 
-module.exports = { Inquisition, Wardens, BenHassrath, Venatori, Executors }
+module.exports = { Inquisition, Wardens, Circle, Templars, BenHassrath, Venatori, Executors }

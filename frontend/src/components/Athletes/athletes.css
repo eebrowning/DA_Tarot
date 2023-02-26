@@ -96,6 +96,12 @@
     font-family: "Inquisition";
 }
 
+.side-by-side {
+    display: flex;
+    justify-content: space-evenly;
+    border: 1px solid red;
+}
+
 .front-info .name {
     font-size: 30px;
     font-family: "InquisitionBold" !important;
@@ -106,6 +112,9 @@
     font-size: 15px;
 }
 
+.faction-icon {
+    filter: drop-shadow(0px 1px 2px black);
+}
 
 .back-info {
     position: absolute;
@@ -124,7 +133,7 @@
 }
 
 
-.back-info img {
+.back-img {
     position: absolute;
     right: 0;
 }

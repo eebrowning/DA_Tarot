@@ -11,8 +11,8 @@ import Part3 from "./Part-3";
 import Part4 from "./Part-4";
 import Part5 from "./Part-5";
 
-
-
+import factionData from "../../util/factionData";
+import classData from '../../util/classData'
 
 //todo: sports picking up -select sport- as an option.
 const AthleteForm = () => {
@@ -214,10 +214,13 @@ const AthleteForm = () => {
                                         <div className="front-info">
                                             <div id='basic-info'>
                                                 <p className="name">{name ? name : "<name>"}</p>
-                                                <p className="sports">{sports ? sports : "<class name>"}</p>
+                                                <p className="sports">{sports ? classData[sports]['general_class'] : "<class name>"}</p>
                                             </div>
                                             <div id='about'>
-                                                <p className="team">{team ? team : "<faction>"}</p>
+                                                <div className="side-by-side">
+                                                    <img className="faction-icon" src={team ? factionData[team]['url'] : factionData['Inquisition']['url']} alt='faction emblem' />
+                                                    <p className="team">{team ? factionData[team]['name'] : "<faction>"}</p>
+                                                </div>
                                                 <p className="location">{location ? location : "<location>"}</p>
                                             </div>
                                         </div >
@@ -225,14 +228,17 @@ const AthleteForm = () => {
                                     <div className="card-back" >
                                         <div className="back-info">
                                             <div id='basic-info'>
-                                                <p className="name">Name: {name ? name : "<name>"}</p>
-                                                <p className="sports">Class: {sports ? sports : "<class name>"}</p>
+                                                <p className="name">{name ? name : "<name>"}</p>
+                                                <p className="sports">{sports ? classData[sports]['general_class'] : "<class name>"}</p>
                                             </div>
                                             <img className="back-img" src={avatar ? avatar : "avatar"} />
                                             <div id='about'>
-                                                <p className="team">Faction: {team ? team : "<faction>"}</p>
-                                                <p className="location">Location: {location ? location : "<location>"}</p>
-                                                <>About:<p className="about"> {about ? about : "<about>"}</p></>
+                                                <div className="side-by-side">
+                                                    <p className="team">{team ? factionData[team]['name'] : "<faction>"}</p>
+                                                    <img className="faction-icon" src={team ? factionData[team]['url'] : factionData['Inquisition']['url']} alt='faction emblem' />
+                                                </div>
+                                                <p className="location">{location ? location : "<location>"}</p>
+                                                <p className="about"> {about ? about : "<about>"}</p>
                                             </div>
                                         </div >
 

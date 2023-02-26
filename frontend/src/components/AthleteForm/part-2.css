@@ -31,7 +31,6 @@ body {
 .gender-top {
     width: 20rem;
     box-sizing: border-box;
-
     border-radius: .5rem;
     border: 5px solid white;
     z-index: 2;
@@ -44,13 +43,11 @@ body {
     box-sizing: border-box;
     border-radius: .5rem;
     border: 5px solid white;
-
     z-index: 1;
     position: relative;
     top: -1rem;
     left: 1.5rem;
     opacity: .7;
-    /* left: 13rem; */
     transition: .5s;
     rotate: 8deg;
 }
@@ -58,7 +55,6 @@ body {
 
 
 #race-select {
-    /* width: 50rem; */
     width: 100%;
     font-family: "Inquisition";
     display: flex;

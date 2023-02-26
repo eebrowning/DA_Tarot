@@ -56,6 +56,13 @@
 
 }
 
+.preview .faction-icon {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+
+}
+
 /* grid end */
 
 #athlete-form input {
