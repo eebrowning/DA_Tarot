@@ -13,6 +13,11 @@ import Part5 from "./Part-5";
 
 import factionData from "../../util/factionData";
 import classData from '../../util/classData'
+///image stuff////
+import CropEasy from "./ImageUtils/crop/CropEasy";
+
+
+
 
 //todo: sports picking up -select sport- as an option.
 const AthleteForm = () => {
@@ -185,7 +190,7 @@ const AthleteForm = () => {
 
     return (
         <section id="athlete-form-box">
-
+            <CropEasy />
             <form id="athlete-form" className="needs-validation" onSubmit={handleSubmit} noValidate>
 
                 {/* <h2 id='form-head'>Create a new Athlete:</h2> */}

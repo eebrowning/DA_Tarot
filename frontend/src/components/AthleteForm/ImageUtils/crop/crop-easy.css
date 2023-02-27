@@ -1,0 +1,53 @@
+.crop-cropper {
+    background-color: black;
+    position: relative;
+    width: 100%;
+    height: 500px;
+
+}
+
+.crop-bttn {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    margin: 10px;
+}
+
+
+
+.horizontal-slider {
+
+    width: 400px;
+    max-width: 500px;
+    margin: auto;
+}
+
+.zoom-thumb {
+    overflow: hidden;
+    color: #0095F6;
+    width: 20px;
+    height: 20px;
+    margin-top: 21px;
+    cursor: pointer;
+    position: absolute;
+    z-index: 100;
+    background: #0095F6;
+    border: 5px solid #0095F6;
+    border-radius: 100%;
+    display: block;
+    box-shadow: 0 0 2px 0 rgb(0 0 0 / 44%);
+}
+
+.zoom-track {
+    position: relative;
+    background: #ddd;
+}
+
+.zoom-track.zoom-track-0 {
+    background: rgba(0, 149, 246, .6);
+}
+
+.horizontal-slider .zoom-track {
+    top: 29px;
+    height: 4px;
+}
