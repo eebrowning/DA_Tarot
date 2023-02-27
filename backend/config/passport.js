@@ -7,9 +7,9 @@ const [SECRET] = require('../config/keys');
 const options = {};
 options.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 // options.SECRET = SECRET;
-console.log("xxxx")
-console.log(process.env)
-console.log("xxxx")
+// console.log("xxxx")
+// console.log(process.env)
+// console.log("xxxx")
 options.secretOrKey = SECRET;
 
 // console.log('options', options)
