@@ -190,7 +190,7 @@ const AthleteForm = () => {
 
     return (
         <section id="athlete-form-box">
-            <CropEasy />
+            {/* <CropEasy />  HERE, cropping slider works, add s3 stuff, then fix viewport/display */}
             <form id="athlete-form" className="needs-validation" onSubmit={handleSubmit} noValidate>
 
                 {/* <h2 id='form-head'>Create a new Athlete:</h2> */}
