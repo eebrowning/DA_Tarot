@@ -73,14 +73,17 @@ export const thunkGetAthlete = (athleteId) => async dispatch => {
 export const thunkCreateAthlete = (athlete) => async dispatch => {
 
 
+    // for (var pair of athlete.entries()) {
+    //     console.log(`${pair[0]}: ${pair[1]}`);
+    // }
+
     // try {
     const res = await api.insertProfile(athlete)
 
-
-    // console.log(res, 'thunk create ath')
+    console.log(athlete.files, 'thunk create ath')
     if (res.status >= 200 && res.status < 400) {
         const athlete = await res.data.data;
-        // console.log('Thunk, create Athlete: ', athlete)
+
         dispatch(actionCreateAthlete(athlete))
         return athlete;
     }

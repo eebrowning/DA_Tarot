@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const ProfileSchema = Schema({
-
     //association will be similar to this:
     user: {
         type: Schema.Types.ObjectId,
@@ -45,8 +44,12 @@ const ProfileSchema = Schema({
         type: String,
         required: false,
     },
+    // avatar: {
+    //     type: String,//could setup to AWS buckets given time
+    //     required: true,
+    // },
     avatar: {
-        type: String,//could setup to AWS buckets given time
+        type: Buffer,
         required: true,
     },
 }, { timestamps: true });

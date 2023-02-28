@@ -18,12 +18,12 @@ import CropEasy from "./ImageUtils/crop/CropEasy";
 
 
 
-
 //todo: sports picking up -select sport- as an option.
 const AthleteForm = () => {
     const dispatch = useDispatch();
     const [name, setName] = useState("");
     const [avatar, setAvatar] = useState("");
+    const [avatarFile, setAvatarFile] = useState("");
     const [gender, setGender] = useState("");
     const [race, setRace] = useState('')
     const [sports, setSports] = useState("");
@@ -85,10 +85,36 @@ const AthleteForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const newAthlete = { user: user.id, name, birthdate, location, team, gender, sports, about, interests, avatar }
+        // const newAthlete = { user: user.id, name, birthdate, location, team, gender, sports, about, interests, avatar }
+        const newAthlete = {
+            "user": user.id,
+            "name": name,
+            "birthdate": birthdate,
+            "location": location,
+            "team": team,
+            "gender": gender,
+            "sports": sports,
+            "about": about,
+            "interests": interests,
+            "avatar": avatar
+        }
+        // console.log('newathlete', newAthlete)
+        const athleteData = new FormData();
+        if (avatarFile) { athleteData.append('avatarFile', avatarFile) }
+        ///Idea: on submit, use route for AWS upload, get URL from response and setAvatar(URL), THEN dispatch to thunkCreateAthlete(newAthlete)
         setErrors([]);
         let response = await dispatch(thunkCreateAthlete(newAthlete));
 
+        // for (let data in newAthlete) {
+        //     // console.log('looping through athlete object', data, newAthlete[data])
+        //     athleteData.append(`${data}`, newAthlete[data])
+        // }
+        // let response = await dispatch(thunkCreateAthlete(athleteData));
+        // for (var pair of athleteData.entries()) {
+        //     console.log(`${pair[0]}: ${pair[1]}`);
+        // }
+
+        console.log(response, 'response ')
         if (newAthlete !== response) {
             setErrors(response)
         }

@@ -8,10 +8,13 @@ const asyncHandler = require('express-async-handler');
 ///pad out requirements for user submission->back-end validation should be there.
 createProfile = (req, res) => {
     const body = req.body
+    const files = req.files
 
-    // console.log(req.errors, 'req data in create')
-    // console.log("xxxxxxxxxx")
-    // console.log("xxxxxxxxxx")
+    console.log("xxxxxxxxxx")
+    console.log(body, 'req body in create')
+    console.log(files, 'req files in create')
+
+    console.log("xxxxxxxxxx")
     if (req.errors) {
         return res.status(400).json({
             success: false,

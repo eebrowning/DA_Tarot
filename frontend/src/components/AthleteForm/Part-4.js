@@ -1,19 +1,45 @@
 import { useEffect, useState } from "react";
 import "./part-4.css"
 import "../Athletes/athletes.css"
+import { uploadImage } from "../../api";
+import { useSelector } from "react-redux";
 
 const Part4 = ({ receivePart4, step }) => {
     const [name, setName] = useState(null);
     const [avatar, setAvatar] = useState(null);
     var isLinkRegex = "/^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$";
+    const user = useSelector((state) => state.session.user)
 
 
     useEffect(() => {
         receivePart4({ name, avatar })
+        console.log(avatar, 'avatar')
     }, [name, avatar])
 
 
+    const updateImage = async (e) => {
+        const file = e.target.previousSibling.files[0];
+        const typeError = [];
+        console.log('user', user)
+        let payload = new FormData();
+        payload.append('file', file)
+        payload.append('user', user.id)
+        let res = await uploadImage(payload);
+        console.log(res.data.url, 'res in part-4.js')
+        setAvatar(res.data.url);
 
+        ///need an api point to send to image upload
+
+        // if (!file?.name.includes("jpg") && !file?.name.includes("jpeg") && !file?.name.includes("png")) {
+        //     typeError.push("Invalid filetype: jpg, jpeg, png only.")
+        // }
+        // if (typeError.length) {
+        //     // setErrors(typeError)
+        //     return;
+        // }
+        // setAvatar(file)
+
+    }
     return (
         < div style={{ display: step === 4 ? 'flex' : "none" }} className="part-4 bootPart" >
             <p>Welcome to the Character Card creator!</p>
@@ -44,9 +70,12 @@ const Part4 = ({ receivePart4, step }) => {
                     onChange={e => setAvatar(e.target.value)}
                     required
                 />
-
-
             </label>
+            <div className="xxxxx">
+                <p className="card-text">Choose a file to upload:</p>
+                <input type="file" name="file" />
+                <button for='file' onClick={updateImage}>Upload</button>
+            </div>
 
         </div>)
 

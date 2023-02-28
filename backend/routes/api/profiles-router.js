@@ -37,20 +37,22 @@ const validateProfile = [//pass as middleware with the correct fields
     //     .exists({ checkFalsy: true })
     //     .isLength({ min: 10 })
     //     .withMessage('Interests must be at least 10 characters long.'),
-    check('avatar')
-        .isURL()
-        .withMessage('Please provide an image link(.png or .jpg)')
-        .custom(imageURL => {
-            if (imageURL.includes('.png') || imageURL.includes('.jpg')) {
-                return true;
-            }
-            throw new Error('Please only use a link to a .jpg or .png')
-        }),
+    // check('avatar')
+    //     .isURL()
+    //     .withMessage('Please provide an image link(.png or .jpg)')
+    //     .custom(imageURL => {
+    //         if (imageURL.includes('.png') || imageURL.includes('.jpg')) {
+    //             return true;
+    //         }
+    //         throw new Error('Please only use a link to a .jpg or .png')
+    //     }),
     handleValidationErrors
 ];
 
 
 router.post('/', validateProfile, ProfileCtrl.createProfile)
+// router.post('/', ProfileCtrl.createProfile)
+
 
 router.put('/:id', validateProfile, ProfileCtrl.updateProfile)
 router.get('/:id', ProfileCtrl.getProfileById)
