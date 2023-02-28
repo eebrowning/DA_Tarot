@@ -74,8 +74,8 @@ export default function moveToSelected(direction) {
 
     // console.log(document.querySelector('.prev-3'), 'preeeeev three');
 
-    if (!prev) document.querySelector('.prev-3').style.opacity = '0';
-    else if (prev) document.querySelector('.prev-3').style.opacity = '1';
+    if (!prev && document.querySelector('.prev-3')) document.querySelector('.prev-3').style.opacity = '0';
+    else if (prev && document.querySelector('.prev-3')) document.querySelector('.prev-3').style.opacity = '1';
 
     // if (!next) {
     //     console.log(document.getElementsByClassName('next-3')[0], 'NOTHING NEXT', next);
@@ -86,6 +86,6 @@ export default function moveToSelected(direction) {
     //     document.querySelector('.next-3').style.opacity = '0'
     // }
 
-    if (!next) document.querySelector('.next-3').style.opacity = '0';
-    else if (next) document.querySelector('.next-3').style.opacity = '1';
+    if (!next && document.querySelector('.next-3')) document.querySelector('.next-3').style.opacity = '0';
+    else if (next && document.querySelector('.next-3')) document.querySelector('.next-3').style.opacity = '1';
 }

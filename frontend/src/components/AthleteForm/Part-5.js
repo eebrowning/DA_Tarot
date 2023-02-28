@@ -6,7 +6,7 @@ import factionData from '../../util/factionData';
 const Part5 = ({ receivePart5, step }) => {
     const [location, setLocation] = useState();
     const [about, setAbout] = useState();
-    const [team, setTeam] = useState();
+    const [team, setTeam] = useState("Inquisition");
     const [interests, setInterests] = useState();
 
     let teams = Object.keys(factionData);

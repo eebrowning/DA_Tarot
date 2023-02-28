@@ -41,6 +41,7 @@ function SingleAthlete(profile) {
 
                     <div className="card-front">
                         <img className="card-img" src={avatar} />
+                        {console.log(avatar)}
                         <div className="front-info">
                             <div id='basic-info'>
                                 {/* <p className="name">Name: {name}</p>

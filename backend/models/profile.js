@@ -44,12 +44,8 @@ const ProfileSchema = Schema({
         type: String,
         required: false,
     },
-    // avatar: {
-    //     type: String,//could setup to AWS buckets given time
-    //     required: true,
-    // },
     avatar: {
-        type: Buffer,
+        type: String,//could setup to AWS buckets given time
         required: true,
     },
 }, { timestamps: true });

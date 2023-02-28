@@ -31,7 +31,8 @@
 #fields {
     grid-row: 2;
     /* height: 10rem; */
-    /* border: 1px solid purple; */
+    width: 70%;
+    border: 1px solid purple;
 }
 
 #errors {

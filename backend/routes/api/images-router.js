@@ -30,6 +30,7 @@ const router = express.Router()
 router.use(fileUpload());//AWS
 
 router.post("/upload", validateImage, async (req, res) => {
+    console.log(req.files, 'reqfiles')
     const file = req.files.file;
     console.log('in images post route /upload', req.files, req.body.user)
     const fileName = req.body.user + req.files.file.name;//non-random, if a person uploads the same filename, it will be replaced in the S3 bucket

@@ -192,6 +192,7 @@
 
 
 /* Card animation*/
+/* TODO restore flip */
 .profile:hover .card {
     transform: rotateY(180deg);
 }
