@@ -37,8 +37,6 @@
     position: relative;
     top: -15rem;
     left: 25rem;
-
-
 }
 
 .zoom-thumb {
@@ -69,4 +67,37 @@
 .horizontal-slider .zoom-track {
     top: 29px;
     height: 4px;
+}
+
+
+
+@media screen and (orientation:portrait) {
+
+    .crop-bttn {
+        position: relative;
+        top: 0rem;
+        left: 0rem;
+        margin: 10px;
+    }
+
+    .horizontal-slider {
+        width: 20rem;
+        max-width: 25rem;
+        margin: auto;
+        position: relative;
+        top: 0rem;
+        left: 0rem;
+    }
+
+    .crop-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid red;
+        position: relative;
+        top: 40rem;
+        left: 3rem
+            /* margin: auto; */
+    }
 }

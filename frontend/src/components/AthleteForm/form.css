@@ -54,7 +54,6 @@
     position: relative;
     margin: auto;
     grid-row: 5;
-
 }
 
 .preview .faction-icon {
@@ -110,3 +109,22 @@
     width: 15rem;
 
 }
+
+
+
+@media screen and (orientation:portrait) {
+    #fields-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .preview {
+        /* border: 1px solid red; */
+        position: relative;
+        top: 50rem;
+        margin: auto;
+        /* grid-row: 5; */
+    }
+}
+
+@media mobile and (orientation:landscape) {}

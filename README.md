@@ -1,3 +1,7 @@
+STORY:
+I was building a small app for practice, and had the idea to pivot from baseball-card-styled athlete cards, and got bored with it, as I'm more of a fantasy nerd--SO, it's now a card database for Dragon Age characters!!!!!!
+
+
 GOALS: 
 Currently a single-CRUD MERN app, in the middle of adjusting it to be a card-creator
 themed for the Dragon Age franchise.
