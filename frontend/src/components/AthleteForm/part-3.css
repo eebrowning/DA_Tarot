@@ -34,10 +34,11 @@ Check this out for radio buttons with image backgrounds:
     color: whitesmoke;
     padding-bottom: 100px;
     overflow: hidden;
-    height: 33rem;
+    height: 32rem;
     margin: auto;
     position: relative;
-    top: 50px;
+    top: 5rem;
+    right: -1rem;
 }
 
 #sports-select div {
@@ -181,7 +182,7 @@ Check this out for radio buttons with image backgrounds:
 
 .part-3 .white-arrow {
     position: relative;
-    top: -19rem;
+    top: -17.5rem;
     filter: sepia(100%) drop-shadow(4px 1px 3px rgb(255, 143, 3)) drop-shadow(-4.25px -1px 3px rgb(255, 143, 3)) contrast(95%);
 }
 
@@ -190,11 +191,8 @@ Check this out for radio buttons with image backgrounds:
     scale: 150%;
 }
 
-
-
-
 .prev-3 {
-    left: -6.25rem;
+    left: -5.25rem;
     z-index: 10;
 }
 
@@ -203,7 +201,7 @@ Check this out for radio buttons with image backgrounds:
 } */
 
 .next-3 {
-    right: -5.25rem;
+    right: -6.25rem;
     z-index: 10;
 
 }

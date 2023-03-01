@@ -42,6 +42,7 @@
     margin: auto;
     color: white;
     font-weight: 100;
+    width: 13rem;
 }
 
 #nav-logo:hover {

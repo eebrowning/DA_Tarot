@@ -1,26 +1,18 @@
 
 import { useEffect, useState } from "react";
 import './part-2.css'
-// import classData from "../../util/classData";
 import raceData from '../../util/raceData'
-// import moveToSelected from "../../util/moveToSelected";
 import moveToSelectedRedux from "../../util/move2";
 
-////TODO: carousel for race finished, restrict class for dwarves(cannot be mages)
-const Part2_5 = ({ receivePart2, step }) => {
-    // let classValues = Object.values(classData);
+const Part2 = ({ receivePart2, step }) => {
     let raceValues = Object.values(raceData);
-
     const [gender, setGender] = useState("Male");
     const [race, setRace] = useState('Human')
     //some wiggle room with my carousel: allows me to pick starting point
     const carouselLabels = ["selectedPart2", 'nextPart2', 'nextRightSecondPart2', 'hideRightPart2', 'hideRightPart2'];
 
 
-
     useEffect(() => {
-        console.log('gender?', gender)
-        console.log('race?', race)
         receivePart2({ gender, race })
 
         if (gender === 'Female') {
@@ -64,20 +56,38 @@ const Part2_5 = ({ receivePart2, step }) => {
         setRace(document.querySelector('.selectedPart2')?.firstChild.id)
 
     }
+    const handleSelectGender = (e) => {
+        e.preventDefault();
+        console.log(e.target.id, 'boo')
+        document.getElementById(e.target.id).previousSibling.checked = 'true'
+        setGender(e.target.id)
+    }
+    // (
+    //     <div className={`form-check form-check-inline`} key={"team"}>
+    //         <input defaultChecked onChange={() => setGender("Male")} type='radio' className="form-check-input " name="inlineRadioOptions" value="Male" id={`inlineRadio${1}`} />
+    //         <img id={"team"} className='faction-icon' src={'https://i.imgur.com/JPzJ0nS.png'} onClick={""} />
+    //         <p>Male</p>
+    //     </div>
+    // )
+
 
     return (<div style={{ display: step === 2 ? 'flex' : "none" }} className="part-2 bootPart">
         <div id='race-and-gender' style={{ display: 'block' }}>
             <label htmlFor="gender-select" id='gender-select' className="form-label race-label" style={{ display: 'flex' }}>
                 <div>
-                    Gender Select
+                    Select:
                 </div>
-                <div>
-                    <input defaultChecked onChange={() => setGender("Male")} type='radio' className="form-check-input " name="inlineRadioOptions" value="Male" id={`inlineRadio${1}`} />
-                    Male
+                <div className={`form-check form-check-inline gender-input`} key={"male"}>
+                    <div className="side-by-side">
+                        <input defaultChecked onChange={() => setGender("Male")} type='radio' className="form-check-input " name="inlineRadioOptions" value="Male" id={`inlineRadio${1}`} />
+                        <img id='Male' className='gender-icon' src={'https://i.imgur.com/JPzJ0nS.png'} onClick={handleSelectGender} />
+                        Male</div>
                 </div>
-                <div>
-                    <input onChange={() => setGender("Female")} type='radio' className="form-check-input " name="inlineRadioOptions" value="Female" id={`inlineRadio${1}`} />
-                    Female
+                <div className={`form-check form-check-inline gender-input`} key={"female"}>
+                    <div className="side-by-side">
+                        <input onChange={() => setGender("Female")} type='radio' className="form-check-input " name="inlineRadioOptions" value="Female" id={`inlineRadio${1}`} />
+                        <img id='Female' className='gender-icon' src={'https://i.imgur.com/z7sksQe.png'} onClick={handleSelectGender} />
+                        Female</div>
                 </div>
                 <label id='gender-error' htmlFor="gender-select"></label>
             </label>
@@ -119,4 +129,4 @@ const Part2_5 = ({ receivePart2, step }) => {
         </div >
     </div >)
 }
-export default Part2_5;
+export default Part2;

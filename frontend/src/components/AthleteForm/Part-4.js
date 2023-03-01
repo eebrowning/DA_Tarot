@@ -34,18 +34,13 @@ const Part4 = ({ receivePart4, step }) => {
     }
     return (
         <div className="part-4-outer">
-
             < div style={{ display: step === 4 ? 'flex' : "none" }} className="part-4 bootPart" >
-
-
-                <div className="xxxxx">
-
+                <div className="crop-box">
                     {/* <button htmlFor='file' onClick={updateImage}>Upload</button> */}
                     <div id="CropEasy">
                         <CropEasy avatar={avatar} setAvatar={setAvatar} />
                     </div>
                 </div>
-
 
                 <div>
                     <label htmlFor="name" className="form-label">
@@ -67,13 +62,8 @@ const Part4 = ({ receivePart4, step }) => {
                     <p className="card-text">Choose a file and crop if necessary:
                         <input className="form-control boot-data" type="file" name="file" onChange={updateImage} />
                     </p>
+
                 </div>
-
-            </div>
-            <div >
-
-
-
                 {/* <label htmlFor="avatar" className="form-label">Avatar link
                 <label id='avatar-error' htmlFor="avatar"></label>
                 <input
