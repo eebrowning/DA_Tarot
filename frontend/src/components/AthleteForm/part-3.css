@@ -38,7 +38,7 @@ Check this out for radio buttons with image backgrounds:
     margin: auto;
     position: relative;
     top: 5rem;
-    right: -1rem;
+
 }
 
 #sports-select div {
@@ -141,6 +141,7 @@ Check this out for radio buttons with image backgrounds:
     position: relative;
     top: 23rem;
     width: 21rem;
+    max-width: 100vw;
     scale: 120%;
 }
 

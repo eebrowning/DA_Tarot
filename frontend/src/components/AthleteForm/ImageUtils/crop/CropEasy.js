@@ -5,7 +5,7 @@ import "./crop-easy.css"
 import ReactSlider from 'react-slider';
 import { uploadImage } from '../../../../api';
 
-
+//TODO mobile crop not quite right--> look into overflow, aspect not quite consistent either
 const CropEasy = ({ avatar, setAvatar }) => {
     // const CropEasy = ({ setOpenCreate, photoURL, setOpenCrop, setPhotoURL, setImage }) => {
     const [crop, setCrop] = useState({ x: 0, y: 0 });
