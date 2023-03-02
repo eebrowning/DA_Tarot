@@ -74,7 +74,7 @@ body {
 
 
 #race-select {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     width: 100%;
     font-family: "Inquisition";
     display: flex;

@@ -7,6 +7,13 @@
     align-items: center;
 }
 
+.crop-easy-outer {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+}
+
 .crop-cropper {
     background-color: black;
     position: relative;
@@ -15,19 +22,21 @@
     z-index: 1;
 }
 
-.crop-bttn {
+/* .crop-bttn {
     position: relative;
     top: -12rem;
     left: 25rem;
     margin: 10px;
-}
+} */
 
 .crop-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid red;
+    /* border: 1px solid red; */
+    position: relative;
+
 }
 
 .horizontal-slider {
@@ -74,6 +83,20 @@
 @media screen and (max-width: 875px) and (orientation:portrait) {
     #CropEasy {
         max-height: 12rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        top: 24.5rem;
+        left: 1.5rem;
+    }
+
+    .crop-easy-outer {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        left: -2rem;
     }
 
     .crop-container {
@@ -82,17 +105,18 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        border: 1px solid red;
+        /* border: 1px solid red; */
+
         position: relative;
-        top: 26rem;
-        left: 5rem;
+        top: .25rem;
+        left: 4.75rem;
     }
 
     .crop-bttn {
-        position: relative;
-        top: 20.5rem;
-        left: 5rem;
-
+        position: absolute;
+        top: 20rem;
+        left: 15rem;
+        /* width: 1rem; */
         margin: 10px;
     }
 

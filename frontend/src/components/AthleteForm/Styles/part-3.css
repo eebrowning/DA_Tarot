@@ -25,7 +25,7 @@ Check this out for radio buttons with image backgrounds:
 }
 
 #sports-select {
-    border: 1px solid red;
+    /* border: 1px solid red; */
 
     font-family: "Inquisition";
     display: flex;

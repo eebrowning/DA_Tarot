@@ -53,7 +53,7 @@ const CropEasy = ({ avatar, setAvatar }) => {
 
 
     return (
-        <div>
+        <div className='crop-easy-outer'>
 
             <div className="crop-container">
 
