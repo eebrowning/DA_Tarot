@@ -216,23 +216,18 @@ const AthleteForm = () => {
 
     return (
         <section id="athlete-form-box">
-            {/* <CropEasy />  HERE, cropping slider works, add s3 stuff, then fix viewport/display */}
             <form id="athlete-form" className="needs-validation" onSubmit={handleSubmit} noValidate>
-
-                {/* <h2 id='form-head'>Create a new Athlete:</h2> */}
                 <div id='menu-header'>
                     <img src='https://cdn.dragonagekeep.com/bundles/eabwedahub/images/ui_new/world_states/slot-banner.png' />
                     <h2>Character Creation {">"} <strong className="form-phase">Stage {step}</strong></h2>
                 </div>
+
                 <Part2 receivePart2={receivePart2} step={step} />
                 <Part3 receivePart3={receivePart3} step={step} race={race ? race : undefined} />
                 <div id='fields-container'>
-
                     <div id='fields'>
-                        {/* <Part1 receivePart1={receivePart1} step={step} /> */}
                         <Part4 receivePart4={receivePart4} step={step} />
                         <Part5 receivePart5={receivePart5} step={step} />
-
                     </div>
                     {(step == 4 || step == 5) && (<div className="preview">
                         {(
@@ -278,10 +273,14 @@ const AthleteForm = () => {
                             </div>
                         )}
                     </div>)}
-
+                    {/* <div id='buttons'>
+                        <button style={{ display: step > 2 ? "block" : "none" }} onClick={prev}>Previous</button>
+                        <button className="btn btn-primary" type="submit" style={{ display: step < 5 ? "block" : "none" }} onClick={next}>Next</button>
+                        <button className="btn btn-primary" type='submit' style={{ display: step === 5 ? "block" : "none" }} onClick={bootSubmit} >Submit Athlete</button>
+                    </div>
+ */}
 
                 </div>
-                {/* {errors && ( */}
 
                 <div id='errors' style={{ display: errors.length ? 'flex' : 'none' }}>
                     <ul id='athlete-errors'>
@@ -291,7 +290,6 @@ const AthleteForm = () => {
                     </ul>
                 </div>
 
-                {/* )} */}
                 <div id='buttons'>
                     <button style={{ display: step > 2 ? "block" : "none" }} onClick={prev}>Previous</button>
                     <button className="btn btn-primary" type="submit" style={{ display: step < 5 ? "block" : "none" }} onClick={next}>Next</button>

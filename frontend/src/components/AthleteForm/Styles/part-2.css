@@ -16,9 +16,6 @@ body {
     flex-direction: row;
     justify-content: space-evenly;
     color: whitesmoke;
-    overflow: hidden;
-    /* height: 10rem; */
-    /* margin: auto; */
     z-index: 5;
     position: relative;
     top: 4rem;
@@ -26,15 +23,15 @@ body {
 }
 
 .gender-icon {
-    width: 30px;
-    height: 30px;
-    /* background-size: cover; */
-    object-fit: contain;
+    height: 2rem;
+    width: 2rem;
+    object-fit: scale-down;
+
 }
 
 .gender-input {
-    /* border: 1px solid red; */
     width: 300px;
+
 }
 
 #gender-select [type='radio'] {
@@ -77,6 +74,7 @@ body {
 
 
 #race-select {
+    border: 1px solid red;
     width: 100%;
     font-family: "Inquisition";
     display: flex;
@@ -89,7 +87,7 @@ body {
     height: 34rem;
     margin: auto;
     position: relative;
-    top: 3.5rem;
+    top: 5rem;
 }
 
 #race-gallery {
@@ -264,3 +262,23 @@ div.hideRightPart2 {
 }
 
 /* //////////// */
+@media screen and (orientation:portrait) {
+
+    #race-select {
+        width: 100vw;
+        scale: .9;
+        overflow: hidden;
+        position: relative;
+        top: 0rem;
+    }
+
+}
+
+@media mobile and (orientation:landscape) {
+
+    #sports-select {
+        width: 80cqw;
+        overflow: hidden;
+    }
+
+}

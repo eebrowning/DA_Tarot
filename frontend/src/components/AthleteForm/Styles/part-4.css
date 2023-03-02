@@ -32,6 +32,9 @@
     flex: row;
     padding-top: 4rem;
     color: white;
+    position: absolute;
+    top: 5.5rem;
+    left: 4rem;
 }
 
 

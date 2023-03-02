@@ -32,9 +32,9 @@
 
 #fields {
     /* grid-row: 2; */
-    /* height: 10rem; */
+    /* height: 35rem; */
     width: 70%;
-    border: 1px solid purple;
+    /* border: 1px solid purple; */
 }
 
 #errors {
@@ -43,14 +43,22 @@
     flex-direction: column;
 }
 
-#buttons {
-    /* grid-row: 4; */
+/* #buttons {
     display: flex;
     margin: auto;
-    position: relative;
-    top: 3rem;
+    position: absolute;
+    top: 45rem;
+    left: 50%;
+} */
+#buttons {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 45rem;
+    border: 1px solid red;
+    width: 100vw;
+    left: 0;
 }
-
 
 .preview {
     position: relative;
@@ -128,6 +136,16 @@
         display: flex;
         flex-direction: column;
 
+    }
+
+    #buttons {
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        top: 38rem;
+        border: 1px solid red;
+        width: 100vw;
+        left: 0;
     }
 
     .preview {

@@ -25,26 +25,26 @@ Check this out for radio buttons with image backgrounds:
 }
 
 #sports-select {
-    /* border: 1px solid red; */
+    border: 1px solid red;
 
     font-family: "Inquisition";
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
     color: whitesmoke;
-    padding-bottom: 100px;
-    overflow: hidden;
-    height: 32rem;
+    overflow: visible;
+    height: 34rem;
     margin: auto;
     position: relative;
-    top: 5rem;
+    top: 5.5rem;
+    padding-left: 3rem;
+    padding-top: 1.5rem;
 
 }
 
 #sports-select div {
     /* todo THIS IS THE PART*/
     position: absolute;
-    /* top: 10rem; */
     /* transition: transform .5s, left .1s, opacity 1s, z-index 0s; */
     /* transition: ease-in-out; */
     /* transition: rotate .5s, transform .5s, z-index 0s; */
@@ -139,7 +139,7 @@ Check this out for radio buttons with image backgrounds:
     font-size: .73rem;
     text-shadow: 10px 20px 20px black;
     position: relative;
-    top: 23rem;
+    top: 26rem;
     width: 21rem;
     max-width: 100vw;
     scale: 120%;
@@ -216,8 +216,10 @@ Check this out for radio buttons with image backgrounds:
 
     #sports-select {
         width: 100vw;
+        scale: .9;
         overflow: hidden;
-
+        position: relative;
+        top: 0rem;
     }
 
 }
