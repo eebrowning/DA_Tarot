@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import "./part-5.css"
-import factionData from '../../util/factionData';
+import '../Styles/part-5.css'
+import factionData from '../../../util/factionData';
 
 
 const Part5 = ({ receivePart5, step }) => {

@@ -1,15 +1,15 @@
 import { set, setDriver } from "mongoose";
 import { useEffect, useState } from "react"
 import api from "../../api";
-import "./form.css"
+import "./Styles/form.css"
 import Sports from "./Sports";
 import { useDispatch, useSelector } from "react-redux";
 import { thunkCreateAthlete, thunkGetAllAthletes } from "../../store/athletes";
 // import Part1 from "./Part-1";
-import Part2 from "./Part-2";
-import Part3 from "./Part-3";
-import Part4 from "./Part-4";
-import Part5 from "./Part-5";
+import Part2 from "./Parts/Part-2";
+import Part3 from "./Parts/Part-3";
+import Part4 from "./Parts/Part-4";
+import Part5 from "./Parts/Part-5";
 
 import factionData from "../../util/factionData";
 import classData from '../../util/classData'

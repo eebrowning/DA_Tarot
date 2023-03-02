@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
-import "./part-4.css"
-import "../Athletes/athletes.css"
-import { uploadImage } from "../../api";
+import '../Styles/part-4.css'
+import "../../Athletes/athletes.css"
+
+
+import { uploadImage } from "../../../api";
 import { useSelector } from "react-redux";
-import CropEasy from "./ImageUtils/crop/CropEasy";
+import CropEasy from "../ImageUtils/crop/CropEasy";
 
 
 const Part4 = ({ receivePart4, step }) => {

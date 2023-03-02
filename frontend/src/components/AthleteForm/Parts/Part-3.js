@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import './part-3.css'
-import classData from "../../util/classData";
-import raceData from '../../util/raceData'
-import moveToSelected from "../../util/moveToSelected";
+import '../Styles/part-3.css'
+
+import classData from "../../../util/classData";
+import raceData from '../../../util/raceData'
+import moveToSelected from "../../../util/moveToSelected";
 
 
 ////TODO for dragon age app: make radio options for gender, after gender selectedSport, move to class.

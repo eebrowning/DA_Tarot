@@ -1,8 +1,9 @@
 
 import { useEffect, useState } from "react";
-import './part-2.css'
-import raceData from '../../util/raceData'
-import moveToSelectedRedux from "../../util/move2";
+import '../Styles/part-2.css'
+
+import raceData from '../../../util/raceData'
+import moveToSelectedRedux from "../../../util/move2";
 
 const Part2 = ({ receivePart2, step }) => {
     let raceValues = Object.values(raceData);
