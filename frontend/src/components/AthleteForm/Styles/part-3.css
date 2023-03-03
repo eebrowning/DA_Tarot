@@ -183,7 +183,7 @@ Check this out for radio buttons with image backgrounds:
 
 .part-3 .white-arrow {
     position: relative;
-    top: -17.5rem;
+    top: -21.5rem;
     filter: sepia(100%) drop-shadow(4px 1px 3px rgb(255, 143, 3)) drop-shadow(-4.25px -1px 3px rgb(255, 143, 3)) contrast(95%);
 }
 
@@ -193,7 +193,7 @@ Check this out for radio buttons with image backgrounds:
 }
 
 .prev-3 {
-    left: -5.25rem;
+    left: -4.25rem;
     z-index: 10;
 }
 
@@ -202,7 +202,7 @@ Check this out for radio buttons with image backgrounds:
 } */
 
 .next-3 {
-    right: -6.25rem;
+    right: -6.1rem;
     z-index: 10;
 
 }

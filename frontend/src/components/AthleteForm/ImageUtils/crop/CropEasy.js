@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Cropper from 'react-easy-crop';
 import getCroppedImg from './cropImage';
 import "./crop-easy.css"
@@ -23,9 +23,15 @@ const CropEasy = ({ avatar, setAvatar }) => {
         // document.querySelector('reactEasyCrop_Image').src = testFile
     }, [avatar])
 
+
     const cropComplete = (croppedArea, croppedAreaPixels) => {
         setCroppedAreaPixels(croppedAreaPixels)
     }
+
+    // const cropComplete = useCallback((croppedArea, croppedAreaPixels) => {
+    //     setCroppedAreaPixels(croppedAreaPixels);
+    //     setCrop(croppedArea);
+    // }, []);
 
     const cropImage = async (e) => {
         e.preventDefault();
@@ -35,7 +41,6 @@ const CropEasy = ({ avatar, setAvatar }) => {
         let data = new FormData()
         data.append('file', blobToFile(file))
         let res = await uploadImage(data);
-
         console.log(res.data.url, 'url')
         setAvatar(res.data.url);
 
@@ -51,7 +56,6 @@ const CropEasy = ({ avatar, setAvatar }) => {
     }
 
 
-
     return (
         <div className='crop-easy-outer'>
 
@@ -65,24 +69,28 @@ const CropEasy = ({ avatar, setAvatar }) => {
                         aspect={28 / 45}
                         onZoomChange={setZoom}
                         onCropChange={setCrop}
+                        // onChange={(crop) => setCrop(crop)}
+                        // onZoomChange={(zoom) => setZoom(zoom)}
                         onCropComplete={cropComplete}
+                        minZoom={1}
+                        maxZoom={3}
                     />
                 </div>
-                <div className="crop-slider">
-                    <ReactSlider
-                        value={zoom}
-                        onChange={(val) => {
-                            setZoom(val)
-                        }}
-                        min={1}
-                        max={3}
-                        step={.01}
-                        className="horizontal-slider"
-                        thumbClassName="zoom-thumb"
-                        trackClassName="zoom-track"
-                        renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
-                    />
-                </div>
+            </div>
+            <div className="crop-slider">
+                <ReactSlider
+                    value={zoom}
+                    onChange={(val) => {
+                        setZoom(val)
+                    }}
+                    min={1}
+                    max={3}
+                    step={.01}
+                    className="horizontal-slider"
+                    thumbClassName="zoom-thumb"
+                    trackClassName="zoom-track"
+                    renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
+                />
             </div>
             <div className='crop-bttn'>
                 <button

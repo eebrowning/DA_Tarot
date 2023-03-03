@@ -12,8 +12,10 @@
     flex-direction: column;
     position: relative;
     /* z-index: 0; */
-
+    overflow: visible;
 }
+
+
 
 .crop-cropper {
     background-color: black;
@@ -37,6 +39,7 @@
     align-items: center;
     /* border: 1px solid red; */
     position: relative;
+    /* overflow: visible; */
 
 }
 
@@ -102,15 +105,25 @@
 
     .crop-container {
         display: flex;
-        scale: .55;
+        /* scale: .55; */
+        height: 15rem !important;
+        width: 10rem !important;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        /* border: 1px solid red; */
-
+        border: 1px solid red;
+        overflow-x: hidden;
         position: relative;
         top: .25rem;
-        left: 4.75rem;
+        left: 7rem;
+    }
+
+    .reactEasyCrop_CropArea {
+        /* border: 1px solid red !important; */
+        /* scale: 100% !important;
+         */
+        /* height: 25rem !important;
+        width: 14.5rem !important; */
     }
 
     .crop-bttn {
@@ -122,12 +135,14 @@
     }
 
     .horizontal-slider {
-        width: 20rem;
+        width: 10rem;
         max-width: 25rem;
         margin: auto;
-        position: relative;
-        top: -1rem;
-        left: 0rem;
+        position: absolute;
+        top: 0rem;
+        left: 7rem;
+
+        z-index: 5;
     }
 
 }

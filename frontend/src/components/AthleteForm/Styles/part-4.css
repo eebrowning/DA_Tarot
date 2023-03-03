@@ -63,21 +63,6 @@
         top: -5rem
     }
 
-    .form-control.file-field {
-        font-family: 'Courier New', Courier, monospace;
-        display: block;
-    }
-
-    /* #fields-container {
-        display: flex;
-        flex: row;
-        padding-top: 4rem;
-        color: white;
-        position: absolute;
-        top: 5.5rem;
-        width: 100%;
-
-    } */
 
 }
 

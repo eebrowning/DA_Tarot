@@ -62,7 +62,7 @@ const Part4 = ({ receivePart4, step }) => {
                         </p>
                     </label>
                     <p className="card-text">Choose a file and crop if necessary:
-                        <input className="form-control boot-data file-field" type="file" name="file" onChange={updateImage} />
+                        <input className="form-control boot-data" type="file" name="file" onChange={updateImage} />
 
                     </p>
 

@@ -16,7 +16,7 @@ export function getRadianAngle(degreeValue) {
  */
 export function rotateSize(width, height, rotation) {
     const rotRad = getRadianAngle(rotation)
-
+    console.log(width, height, 'here we are')
     return {
         width:
             Math.abs(Math.cos(rotRad) * width) + Math.abs(Math.sin(rotRad) * height),
