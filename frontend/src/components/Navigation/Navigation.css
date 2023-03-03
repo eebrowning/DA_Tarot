@@ -21,7 +21,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 100vw;
+    width: 100%;
     height: 55px;
     position: fixed;
     list-style: none;
@@ -153,5 +153,5 @@ a {
 }
 
 /* .sans-nav {
-    margin-top: 90px;
+    width: 100vw;
 } */

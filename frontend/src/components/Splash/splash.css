@@ -5,6 +5,14 @@
     margin: auto;
     color: white;
     text-shadow: 1px 1px 1px green;
+    position: relative;
+    top: 10rem;
+}
+
+.sans-nav button {
+    position: relative;
+
+    /* top: 12rem */
 }
 
 .splash h2 {

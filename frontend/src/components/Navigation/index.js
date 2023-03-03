@@ -36,7 +36,7 @@ function Navigation({ isLoaded }) {
     if (sessionUser) {
         sessionLinks = (
             <>
-                <NavLink to='/create'>New Place</NavLink>
+                <NavLink to='/create'>New Card</NavLink>
                 <ProfileButton user={sessionUser} />
             </>
         );
@@ -60,7 +60,7 @@ function Navigation({ isLoaded }) {
                     {/* <img onClick={() => history.push('/')} id='nav-logo' src='https://fontmeme.com/permalink/220703/1ef7f1b8fbea632b7949072dce294a0b.png' /> */}
                     <a href='/' style={{ textDecoration: 'none' }}>
 
-                        <p id='nav-logo'>DA: Tarot</p>
+                        {/* <p id='nav-logo'>DA: Tarot</p> */}
                         {/* <p id='nav-logo'>Dragon Age Tarot</p> */}
 
                     </a>

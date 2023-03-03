@@ -135,15 +135,14 @@
 
 @media screen and (max-width: 875px) and (orientation:portrait) {
 
-  /* .inq-logo {
+  .inq-logo {
     min-height: 1000px;
-    height: 250%;
-    width: 100%;
+    width: 100vw;
     object-fit: cover;
     position: absolute;
     right: 0;
     top: 00px;
     bottom: 0;
     z-index: -2;
-  } */
+  }
 }
