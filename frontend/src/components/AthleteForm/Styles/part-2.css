@@ -5,6 +5,7 @@ body {
 
 #race-and-gender {
     width: 100vw;
+    /* scale: 90%; */
 }
 
 #gender-select {
@@ -18,7 +19,7 @@ body {
     color: whitesmoke;
     z-index: 5;
     position: relative;
-    top: 4rem;
+    top: 3rem;
     left: 4rem;
 }
 
@@ -87,7 +88,7 @@ body {
     height: 34rem;
     margin: auto;
     position: relative;
-    top: 5rem;
+    top: 3rem;
 }
 
 #race-gallery {
@@ -263,6 +264,20 @@ div.hideRightPart2 {
 
 /* //////////// */
 @media screen and (orientation:portrait) {
+    #gender-select {
+        /* border: 1px solid red; */
+        max-width: 30rem;
+        width: 18rem;
+        font-family: "Inquisition";
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        color: whitesmoke;
+        z-index: 5;
+        position: relative;
+        top: 4rem;
+        left: 4rem;
+    }
 
     #race-select {
         width: 100vw;

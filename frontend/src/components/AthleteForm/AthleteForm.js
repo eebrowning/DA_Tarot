@@ -13,8 +13,7 @@ import Part5 from "./Parts/Part-5";
 
 import factionData from "../../util/factionData";
 import classData from '../../util/classData'
-///image stuff////
-import CropEasy from "./ImageUtils/crop/CropEasy";
+
 
 
 
@@ -221,6 +220,13 @@ const AthleteForm = () => {
                     <img src='https://cdn.dragonagekeep.com/bundles/eabwedahub/images/ui_new/world_states/slot-banner.png' />
                     <h2>Character Creation {">"} <strong className="form-phase">Stage {step}</strong></h2>
                 </div>
+                <div id='buttons'>
+                    <div>
+                        <button style={{ display: step > 2 ? "block" : "none" }} onClick={prev}>Previous</button>
+                        <button className="btn btn-primary" type="submit" style={{ display: step < 5 ? "block" : "none" }} onClick={next}>Next</button>
+                        <button className="btn btn-primary" type='submit' style={{ display: step === 5 ? "block" : "none" }} onClick={bootSubmit} >Submit Athlete</button>
+                    </div>
+                </div>
 
                 <Part2 receivePart2={receivePart2} step={step} />
                 <Part3 receivePart3={receivePart3} step={step} race={race ? race : undefined} />
@@ -290,11 +296,6 @@ const AthleteForm = () => {
                     </ul>
                 </div>
 
-                <div id='buttons'>
-                    <button style={{ display: step > 2 ? "block" : "none" }} onClick={prev}>Previous</button>
-                    <button className="btn btn-primary" type="submit" style={{ display: step < 5 ? "block" : "none" }} onClick={next}>Next</button>
-                    <button className="btn btn-primary" type='submit' style={{ display: step === 5 ? "block" : "none" }} onClick={bootSubmit} >Submit Athlete</button>
-                </div>
 
 
             </form>

@@ -43,22 +43,32 @@
     flex-direction: column;
 }
 
-/* #buttons {
+#buttons {
     display: flex;
     margin: auto;
     position: absolute;
-    top: 45rem;
-    left: 50%;
-} */
-#buttons {
+    top: 6rem;
+    width: 100vw;
+    margin: auto;
+    /* left: 45%; */
+    z-index: 5;
+}
+
+#buttons div {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+/* #buttons {
     display: flex;
     justify-content: center;
     position: absolute;
     top: 45rem;
-    /* border: 1px solid red; */
+
     width: 100vw;
     left: 0;
-}
+} */
 
 .preview {
     position: relative;
