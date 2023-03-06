@@ -5,21 +5,20 @@ import "./crop-easy.css"
 import ReactSlider from 'react-slider';
 import { uploadImage } from '../../../../api';
 
-//TODO mobile crop not quite right--> look into overflow, aspect not quite consistent either
+
 const CropEasy = ({ avatar, setAvatar }) => {
     // const CropEasy = ({ setOpenCreate, photoURL, setOpenCrop, setPhotoURL, setImage }) => {
     const [crop, setCrop] = useState({ x: 0, y: 0 });
     const [zoom, setZoom] = useState(1);
     const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
-
-    //TODO: holdout, this stuff will need to be passed from/handled in props, this is just a test of the editor.
     const [photoURL, setPhotoURL] = useState(avatar);
 
     // const [image, setImage] = useState();
 
     useEffect(() => {
+        setZoom(1)
+        setCrop({ x: 0, y: 0 })
         setPhotoURL(avatar)
-
         // document.querySelector('reactEasyCrop_Image').src = testFile
     }, [avatar])
 
@@ -27,11 +26,6 @@ const CropEasy = ({ avatar, setAvatar }) => {
     const cropComplete = (croppedArea, croppedAreaPixels) => {
         setCroppedAreaPixels(croppedAreaPixels)
     }
-
-    // const cropComplete = useCallback((croppedArea, croppedAreaPixels) => {
-    //     setCroppedAreaPixels(croppedAreaPixels);
-    //     setCrop(croppedArea);
-    // }, []);
 
     const cropImage = async (e) => {
         e.preventDefault();
@@ -43,6 +37,7 @@ const CropEasy = ({ avatar, setAvatar }) => {
         let res = await uploadImage(data);
         console.log(res.data.url, 'url')
         setAvatar(res.data.url);
+
 
     };
 

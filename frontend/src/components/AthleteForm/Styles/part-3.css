@@ -43,7 +43,8 @@ Check this out for radio buttons with image backgrounds:
 }
 
 #sports-select div {
-    /* todo THIS IS THE PART*/
+    /* this is the carousel center for the gallery */
+
     position: absolute;
     /* transition: transform .5s, left .1s, opacity 1s, z-index 0s; */
     /* transition: ease-in-out; */
