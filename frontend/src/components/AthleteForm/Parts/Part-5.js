@@ -24,9 +24,9 @@ const Part5 = ({ receivePart5, step }) => {
 
     return (< div style={{ display: step === 5 ? 'flex' : "none" }} className="part-5 bootPart" >
         <div id="team-location">
-            <h2>Faction</h2>
             <label htmlFor="team" id="team-input">
                 <label id='team-error' htmlFor="team" className="form-label"></label>
+                <h2>Faction</h2>
 
                 {factionData && teams.map(team => (
                     <div className={`form-check form-check-inline team`} key={team}>

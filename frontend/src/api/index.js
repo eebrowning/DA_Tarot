@@ -6,7 +6,7 @@ const api = axios.create({
 
 
 export const uploadImage = async payload => {
-    console.log('in upload image ', payload)
+    // console.log('in upload image ', payload)
     try {
         let res = await api.post(`/images/upload`, payload);
         console.log(res, 'res in api index.js')

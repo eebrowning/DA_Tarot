@@ -183,7 +183,7 @@ Check this out for radio buttons with image backgrounds:
 
 .part-3 .white-arrow {
     position: relative;
-    top: -21.5rem;
+    top: -16rem;
     filter: sepia(100%) drop-shadow(4px 1px 3px rgb(255, 143, 3)) drop-shadow(-4.25px -1px 3px rgb(255, 143, 3)) contrast(95%);
 }
 
@@ -192,17 +192,19 @@ Check this out for radio buttons with image backgrounds:
     scale: 150%;
 }
 
+.part-3 .white-arrow {
+    position: relative;
+    top: -16rem;
+    filter: sepia(100%) drop-shadow(4px 1px 3px rgb(255, 143, 3)) drop-shadow(-4.25px -1px 3px rgb(255, 143, 3)) contrast(95%);
+}
+
 .prev-3 {
-    left: -4.25rem;
+    left: -5rem;
     z-index: 10;
 }
 
-/* .form-label .arrow-spacer {
-    width: 50rem;
-} */
-
 .next-3 {
-    right: -6.1rem;
+    right: -7rem;
     z-index: 10;
 
 }
@@ -220,6 +222,26 @@ Check this out for radio buttons with image backgrounds:
         overflow: hidden;
         position: relative;
         top: 0rem;
+    }
+
+
+    .part-3 .white-arrow {
+        position: relative;
+        top: -21rem;
+        filter: sepia(100%) drop-shadow(4px 1px 3px rgb(255, 143, 3)) drop-shadow(-4.25px -1px 3px rgb(255, 143, 3)) contrast(95%);
+    }
+
+    .prev-3 {
+        left: -3.75rem;
+        z-index: 10;
+    }
+
+
+
+    .next-3 {
+        right: -6.6rem;
+        z-index: 10;
+
     }
 
 }
