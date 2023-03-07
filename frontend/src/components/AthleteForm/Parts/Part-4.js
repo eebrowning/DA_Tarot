@@ -28,8 +28,6 @@ const Part4 = ({ receivePart4, step }) => {
         // console.log('user', user)
         let payload = new FormData();
         payload.append('file', file)
-        payload.append('user', user.id)
-
         let res = await uploadImage(payload);
         setAvatar(res.data.url);
 

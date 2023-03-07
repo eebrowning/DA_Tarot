@@ -16,9 +16,10 @@ const CropEasy = ({ avatar, setAvatar }) => {
     // const [image, setImage] = useState();
 
     useEffect(() => {
-        setZoom(1)
-        setCrop({ x: 0, y: 0 })
+
         setPhotoURL(avatar)
+        // setZoom(1)
+        // setCrop({ x: 0, y: 0 })
         // document.querySelector('reactEasyCrop_Image').src = testFile
     }, [avatar])
 
@@ -31,7 +32,9 @@ const CropEasy = ({ avatar, setAvatar }) => {
         e.preventDefault();
         const { file, url } = await getCroppedImg(photoURL, croppedAreaPixels)
         setPhotoURL(url)
-        // console.log(blobToFile(file), 'blobToFile')
+        setCroppedAreaPixels(0)
+        setZoom(1)
+        // let fileName= Date.now()+'-'+avatar;
         let data = new FormData()
         data.append('file', blobToFile(file))
         let res = await uploadImage(data);
@@ -40,7 +43,6 @@ const CropEasy = ({ avatar, setAvatar }) => {
 
 
     };
-
 
     const blobToFile = (blob) => {
         //name should be returned as the same so it replaces resized image
