@@ -10,10 +10,9 @@ import Part2 from "./Parts/Part-2";
 import Part3 from "./Parts/Part-3";
 import Part4 from "./Parts/Part-4";
 import Part5 from "./Parts/Part-5";
-
+import SingleAthlete from './../Athletes/SingleAthlete'
 import factionData from "../../util/factionData";
 import classData from '../../util/classData'
-
 
 
 
@@ -248,7 +247,7 @@ const AthleteForm = () => {
                                                 <p className="name">{name ? name : "<name>"}</p>
                                                 <p className="sports">{sports ? classData[sports]['general_class'] : "<class name>"}</p>
                                             </div>
-                                            <div id='about'>
+                                            <div className='about-box'>
                                                 <div className="side-by-side">
                                                     <img className="faction-icon" src={team ? factionData[team]['url'] : factionData['Inquisition']['url']} alt='faction emblem' />
                                                     <p className="team">{team ? factionData[team]['name'] : "<faction>"}</p>
@@ -264,7 +263,7 @@ const AthleteForm = () => {
                                                 <p className="sports">{sports ? classData[sports]['general_class'] : "<class name>"}</p>
                                             </div>
                                             <img className="back-img" src={avatar ? avatar : "avatar"} />
-                                            <div id='about'>
+                                            <div className='about-box'>
                                                 <div className="side-by-side">
                                                     <p className="team">{team ? factionData[team]['name'] : "<faction>"}</p>
                                                     <img className="faction-icon" src={team ? factionData[team]['url'] : factionData['Inquisition']['url']} alt='faction emblem' />

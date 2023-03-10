@@ -13,7 +13,6 @@ import moveToSelected from "../../util/moveToSelected";
 
 //this is the carousel of profile cards
 function Athletes() {
-    let [profiles, setProfiles] = useState([]);
     let dispatch = useDispatch();
     const athletes = useSelector((state) => Object.values(state.athletes));
     // const carouselLabels = ["selected", "next", "next2", "next3"]
@@ -22,8 +21,8 @@ function Athletes() {
 
     useEffect(() => {
 
-        dispatch(thunkGetAllAthletes());
-        dispatch(getAllUsers());
+        // dispatch(thunkGetAllAthletes());
+        // dispatch(getAllUsers());
         setCarouselCards(document.getElementsByClassName('outer-profile'))
         // console.log(document.querySelector('.selected'), 'balddd')
         // if (!document.querySelector('.selected')) setCarouselCards(document.getElementsByClassName('outer-profile'))
@@ -59,7 +58,7 @@ function Athletes() {
 
                 {athletes.map(profile => (
 
-                    < SingleAthlete key={profile._id} profile={profile} profiles={profiles} />
+                    < SingleAthlete key={profile._id} profile={profile} />
 
 
                 ))}

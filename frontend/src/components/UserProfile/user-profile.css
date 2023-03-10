@@ -1,0 +1,35 @@
+#user-profile {
+    position: relative;
+    top: 3.5rem;
+}
+
+#user-cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border: 1px solid red;
+    justify-content: space-between;
+
+}
+
+#user-cards .spacer {
+    width: calc(33%);
+    /* height: 1rem; */
+}
+
+#user-cards .outer-profile {
+    margin: 2.5rem;
+}
+
+#user-cards .profile {
+    width: 100%;
+    height: 1rem;
+}
+
+
+
+.profile .faction-icon {
+    height: 3rem;
+    width: 3rem;
+    object-fit: cover;
+}

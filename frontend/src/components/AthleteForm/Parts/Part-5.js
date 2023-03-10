@@ -35,15 +35,7 @@ const Part5 = ({ receivePart5, step }) => {
                         <p>{factionData[team]['name']}</p>
                     </div>
                 ))}
-                {/* <input
-                    required
-                    name='team'
-                    className="form-control boot-data"
-                    minLength={4}
 
-                    placeholder="Athlete's Team"
-                    onChange={e => setTeam(e.target.value)}
-                /> */}
             </label>
             <label htmlFor="location" className="form-label">Location
                 <label id='location-error' htmlFor="location"></label>

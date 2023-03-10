@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { thunkGetAllAthletes } from '../../store/athletes';
+import { getAllUsers } from '../../store/session';
 // import ProfileButton from './ProfileButton';
 import './splash.css';
 // import { demoLogin } from '../../store/session';
-
 
 
 
@@ -14,6 +15,13 @@ function Splash() {
     const history = useHistory();
     useEffect(() => {
     }, [dispatch])
+
+    // useEffect(() => {
+
+    //     dispatch(thunkGetAllAthletes());
+    //     dispatch(getAllUsers());
+    // }, [dispatch])
+
 
     const handleClick = (e) => {
         e.preventDefault();

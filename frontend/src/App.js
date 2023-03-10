@@ -8,9 +8,11 @@ import Navigation from './components/Navigation';
 import * as sessionActions from "./store/session";
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
+import UserProfilePage from "./components/UserProfile/UserProfilePage";
 
 import './animations/smoke.css'
 import Splash from "./components/Splash/splashPage";
+import { thunkGetAllAthletes } from "./store/athletes";
 
 function App() {
   const dispatch = useDispatch();
@@ -18,6 +20,12 @@ function App() {
   useEffect(() => {
     // dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
+
+  useEffect(() => {
+
+    dispatch(thunkGetAllAthletes());
+    dispatch(sessionActions.getAllUsers())
+  }, [])
 
   return (
     <div className="App" >
@@ -39,6 +47,7 @@ function App() {
 
             < LoginFormPage path='/login' />
             < SignupFormPage path='/signup' />
+            <UserProfilePage path='/profile' />
             <AthleteForm path='/create' />
             < Athletes path='/cards' />
           </Switch>

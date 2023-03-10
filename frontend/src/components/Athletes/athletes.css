@@ -22,7 +22,6 @@
 }
 
 
-
 .card {
     position: relative;
     width: 100%;
@@ -83,7 +82,6 @@
     color: red;
     /* border: 1px solid red; */
     height: 24rem;
-
     border: 1px solid white;
     outline: 10px solid white;
     border-radius: 35px 2px 35px 2px;
@@ -92,7 +90,6 @@
 
 .front-info {
     font-size: 20px;
-
     font-family: "Inquisition";
 }
 
@@ -138,10 +135,25 @@
     right: 0;
 }
 
-#about {
+.card-back .side-by-side {
+    border: 1px solid blue !important;
+    width: 100%;
+}
+
+.about-box {
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     bottom: 0px;
     width: 100%;
+    height: 5rem;
+    border: 1px solid red;
+}
+
+#athletes .about-box .location {
+    position: relative;
+    top: 2.5rem;
 }
 
 .card-front #basic-info {
@@ -153,8 +165,9 @@
 
 }
 
-.card-back #about {
+.card-back .about-box {
     width: 100%;
+    height: 45%;
 }
 
 
@@ -162,20 +175,14 @@
 .interests {
     word-break: break-all;
     overflow-y: scroll;
-    max-height: 20%;
-
+    /* max-height: 20%; */
+    height: 50%;
+    border: 1px solid gold;
 }
 
 .about::-webkit-scrollbar,
 .interests::-webkit-scrollbar {
     display: none;
-}
-
-.delete-button {
-    z-index: 15;
-    margin: 20px;
-    position: absolute;
-    top: 0;
 }
 
 
