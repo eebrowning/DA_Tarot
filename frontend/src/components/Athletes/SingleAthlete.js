@@ -8,14 +8,23 @@ import classData from '../../util/classData'
 function SingleAthlete(profile) {
     profile = profile.profile;
     let dispatch = useDispatch();
-    const athletes = useSelector((state) => Object.values(state.athletes));
+    // const athletes = useSelector((state) => Object.values(state.athletes));
     let [name, setName] = useState(profile.name);
     let [location, setLocation] = useState(profile.location);
     let [team, setTeam] = useState(profile.team);
     let [sports, setSports] = useState(profile.sports);
     let [about, setAbout] = useState(profile.about);
     let [avatar, setAvatar] = useState(profile.avatar);
-    let [id, setId] = useState(profile._id);
+    // let [id, setId] = useState(profile._id);
+
+    useEffect(() => {
+        setName(profile.name);
+        setLocation(profile.location);
+        setTeam(profile.team);
+        setSports(profile.sports)
+        setAbout(profile.about)
+        setAvatar(profile.avatar)
+    }, [profile])
 
     //if you want a card, have two sections of profile, and a flip animation to transition between the two.
     //front: pic, name, sport, team

@@ -14,6 +14,7 @@ const Part5 = ({ receivePart5, step }) => {
     useEffect(() => {
         receivePart5({ location, about, team, interests })
     }, [location, about, team, interests])
+
     const handleSelectTeam = (e) => {
         e.preventDefault();
         console.log(document.getElementById(e.target.id).previousSibling, 'boo')
@@ -46,7 +47,6 @@ const Part5 = ({ receivePart5, step }) => {
                     name="location"
                     placeholder="Athlete location"
                     type="string"
-                    // value={name}
                     onChange={e => setLocation(e.target.value)}
                 />
             </label>
@@ -65,17 +65,6 @@ const Part5 = ({ receivePart5, step }) => {
                 onChange={e => setAbout(e.target.value)}
             />
         </label>
-
-        {/* <label htmlFor= "interests" className="form-label">Interests
-            <label id='interests-error' htmlFor= "interests"></label>
-            <textarea
-                name='interests'
-                className="form-control"
-                placeholder='interests'
-                onChange={e => setInterests(e.target.value)}
-            />
-        </label> */}
-
 
     </div>)
 }

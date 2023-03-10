@@ -75,6 +75,14 @@ const CropEasy = ({ avatar, setAvatar }) => {
                 </div>
             </div>
             <div className="crop-slider">
+                <div className='crop-bttn-div'>
+                    <div className='crop-bttn-border'></div>
+                    <button
+                        className="crop-bttn"
+                        onClick={cropImage}>
+                        Crop
+                    </button>
+                </div>
                 <ReactSlider
                     value={zoom}
                     onChange={(val) => {
@@ -86,16 +94,10 @@ const CropEasy = ({ avatar, setAvatar }) => {
                     className="horizontal-slider"
                     thumbClassName="zoom-thumb"
                     trackClassName="zoom-track"
-                    renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
+                // renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
                 />
             </div>
-            <div className='crop-bttn'>
-                <button
-                    className=""
-                    onClick={cropImage}>
-                    Crop
-                </button>
-            </div>
+
         </div>
 
     )

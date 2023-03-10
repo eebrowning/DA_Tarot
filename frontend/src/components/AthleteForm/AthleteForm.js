@@ -54,7 +54,6 @@ const AthleteForm = () => {
             document.querySelector('.next-2').removeEventListener("mousedown", () => document.querySelector('.next-2').classList.add('click'))
             document.querySelector('.next-2').removeEventListener("mouseup", () => document.querySelector('.next-2').classList.remove('click'))
         }
-
         if (step == 3 && document.querySelector('.prev-3')) {
             document.getElementsByClassName('form-phase')[0].innerText = "Select Class";
             document.querySelector('.prev-3').addEventListener("mousedown", () => document.querySelector('.prev-3').classList.add('click'))
@@ -74,11 +73,7 @@ const AthleteForm = () => {
         if (step == 5) {
             document.getElementsByClassName('form-phase')[0].innerText = "Misc. Details";
         }
-
-
     }, [step])
-
-
 
 
     const handleSubmit = async (e) => {
@@ -235,55 +230,22 @@ const AthleteForm = () => {
                         <Part5 receivePart5={receivePart5} step={step} />
                     </div>
                     {(step == 4 || step == 5) && (<div className="preview">
-                        {(
-                            <div id='profile-card' className='profile test-avatar'>
-                                <h2>Preview:</h2>
-                                <div className='card'>
+                        <div id='profile-card' className='profile test-avatar'>
+                            <h2>Preview:</h2>
 
-                                    <div className="card-front">
-                                        <img className="card-img" src={avatar ? avatar : "avatar"} />
-                                        <div className="front-info">
-                                            <div id='basic-info'>
-                                                <p className="name">{name ? name : "<name>"}</p>
-                                                <p className="sports">{sports ? classData[sports]['general_class'] : "<class name>"}</p>
-                                            </div>
-                                            <div className='about-box'>
-                                                <div className="side-by-side">
-                                                    <img className="faction-icon" src={team ? factionData[team]['url'] : factionData['Inquisition']['url']} alt='faction emblem' />
-                                                    <p className="team">{team ? factionData[team]['name'] : "<faction>"}</p>
-                                                </div>
-                                                <p className="location">{location ? location : "<location>"}</p>
-                                            </div>
-                                        </div >
-                                    </div>
-                                    <div className="card-back" >
-                                        <div className="back-info">
-                                            <div id='basic-info'>
-                                                <p className="name">{name ? name : "<name>"}</p>
-                                                <p className="sports">{sports ? classData[sports]['general_class'] : "<class name>"}</p>
-                                            </div>
-                                            <img className="back-img" src={avatar ? avatar : "avatar"} />
-                                            <div className='about-box'>
-                                                <div className="side-by-side">
-                                                    <p className="team">{team ? factionData[team]['name'] : "<faction>"}</p>
-                                                    <img className="faction-icon" src={team ? factionData[team]['url'] : factionData['Inquisition']['url']} alt='faction emblem' />
-                                                </div>
-                                                <p className="location">{location ? location : "<location>"}</p>
-                                                <p className="about"> {about ? about : "<about>"}</p>
-                                            </div>
-                                        </div >
+                            <SingleAthlete profile={{
+                                name,
+                                location,
+                                team,
+                                gender,
+                                sports,
+                                about,
+                                avatar
+                            }} />
+                        </div>
 
-                                    </div>
-                                </div>
-                            </div>
-                        )}
                     </div>)}
-                    {/* <div id='buttons'>
-                        <button style={{ display: step > 2 ? "block" : "none" }} onClick={prev}>Previous</button>
-                        <button className="btn btn-primary" type="submit" style={{ display: step < 5 ? "block" : "none" }} onClick={next}>Next</button>
-                        <button className="btn btn-primary" type='submit' style={{ display: step === 5 ? "block" : "none" }} onClick={bootSubmit} >Submit Athlete</button>
-                    </div>
- */}
+
 
                 </div>
 
