@@ -8,22 +8,17 @@ import { demoLogin } from '../../store/session';
 
 function Navigation({ isLoaded }) {
     const sessionUser = useSelector(state => state.session.user);
-
-
+    console.log(sessionUser, 'sesh user')
     const dispatch = useDispatch();
     const history = useHistory()
     let sessionLinks;
 
     useEffect(() => {
 
-
     }, [dispatch])
-
 
     const handleClick = (e) => {
         e.preventDefault();
-
-
 
         return dispatch(demoLogin())
         // .catch(async (res) => {
@@ -31,7 +26,6 @@ function Navigation({ isLoaded }) {
         //     if (data && data.errors) setErrors(data.errors);
         // });
     }
-
 
     if (sessionUser) {
         sessionLinks = (
@@ -45,6 +39,7 @@ function Navigation({ isLoaded }) {
             <>
                 <NavLink to="/login">Log In</NavLink>
                 <NavLink to="/signup">Sign Up</NavLink>
+
                 <button id={'demo-login'} onClick={handleClick}>Demo User</button>
 
             </>
