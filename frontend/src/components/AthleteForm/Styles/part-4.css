@@ -24,27 +24,65 @@
     z-index: 5;
 }
 
-.part-4 p {
+.part-4 .card-text {
     font-family: "Inquisition";
     font-size: medium;
     color: white;
     text-shadow: 1px 1px 1px black;
 }
 
-
-/* #fields-container {
-    display: flex;
-    flex: row;
-    padding-top: 4rem;
+#name {
+    background-color: black;
+    border: none;
+    width: 30vw;
     color: white;
+    height: 2rem;
+}
+
+.name-input-border {
+    transform: skewX(22.5deg);
+    border: 1px solid whitesmoke;
+    height: 2rem;
+    width: 30vw;
     position: absolute;
+    margin: auto;
+    top: 1.5rem;
+
+}
+
+
+
+.form-control.file-input {
+    border: none;
+    height: 1.8rem;
+    max-width: 18rem;
+    position: relative;
+    margin: auto;
+    top: .1rem;
+    left: -.4rem;
+    background-color: black;
+    color: whitesmoke;
+    border-radius: 0;
+
+
+}
+
+.file-input-border {
+    transform: skewX(22.5deg);
+    border: 1px solid whitesmoke;
+    height: 1.98rem;
+    width: 30vw;
+    position: absolute;
+    margin: auto;
     top: 5.5rem;
-    left: 4rem;
-} */
+    background: linear-gradient(to right, #e9ecef 30%, #000000 30%);
+    z-index: -2;
+}
 
 
 
-@media screen and (max-width: 875px) and (orientation:portrait) {
+
+@media screen and (max-width: 750px) {
 
     .part-4-outer {
         display: flex;
@@ -66,6 +104,73 @@
         top: -5rem
     }
 
+
+
+
+    /* .form-control.file-input {
+        width: 30vw;
+        top: .25rem;
+    }
+
+    .file-input-border {
+        position: absolute;
+        width: 33vw;
+        top: 8rem;
+        left: 5.5rem;
+    } */
+
+
+
+    .outer-file-input {
+        position: relative;
+        left: 2rem;
+        width: 55vw;
+    }
+
+    .file-input {
+        position: relative;
+        z-index: 1;
+        width: 70%;
+        left: 1rem;
+
+    }
+
+    .file-input-border {
+        position: absolute;
+        top: 0;
+        left: -1rem;
+        z-index: -2;
+        width: 110%;
+        height: 2rem;
+        border: 2px solid whitesmoke;
+        box-sizing: border-box;
+    }
+
+    .outer-name-input {
+        position: relative;
+        /* left: 2rem; */
+        width: 55vw;
+    }
+
+    #name {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: 1.75rem;
+        left: -0.5rem;
+        border: none;
+    }
+
+    .name-input-border {
+        position: absolute;
+        top: -0.1rem;
+        left: -1rem;
+        z-index: -2;
+        width: 110%;
+        height: 2.2rem;
+        border: 2px solid whitesmoke;
+        box-sizing: border-box;
+    }
 
 }
 

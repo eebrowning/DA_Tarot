@@ -197,7 +197,9 @@ Check this out for radio buttons with image backgrounds:
 
 
 /* gonna need a lot of query work to make this mobile-friendly! */
-@media screen and (orientation:portrait) {
+/* @media screen and (orientation:portrait) { */
+@media screen and (max-width: 750px) {
+
 
     #sports-select {
         width: 100vw;

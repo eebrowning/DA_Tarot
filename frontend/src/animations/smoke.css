@@ -133,7 +133,7 @@
 
 }
 
-@media screen and (max-width: 875px) and (orientation:portrait) {
+@media screen and (max-width: 750px) {
 
   .inq-logo {
     min-height: 1000px;

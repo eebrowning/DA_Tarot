@@ -263,7 +263,9 @@ div.hideRightPart2 {
 }
 
 /* //////////// */
-@media screen and (orientation:portrait) {
+/* @media screen and (orientation:portrait) { */
+@media screen and (max-width: 750px) {
+
     #gender-select {
         /* border: 1px solid red; */
         max-width: 30rem;

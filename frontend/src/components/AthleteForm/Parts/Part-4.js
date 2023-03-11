@@ -32,6 +32,14 @@ const Part4 = ({ receivePart4, step }) => {
         setAvatar(res.data.url);
 
     }
+    // <div className='crop-bttn-div'>
+    //     <div className='crop-bttn-border'></div>
+    //     <button
+    //         className="crop-bttn"
+    //         onClick={cropImage}>
+    //         Crop
+    //     </button>
+    // </div>
     return (
         <div className="part-4-outer">
             < div style={{ display: step === 4 ? 'flex' : "none" }} className="part-4 bootPart" >
@@ -44,25 +52,32 @@ const Part4 = ({ receivePart4, step }) => {
 
                 <div className='part-4-input-fields'>
                     <label htmlFor="name" className="form-label">
-                        <p>
+                        <div className="card-text">
                             Character name:
                             <label id='name-error' htmlFor="name"></label>
-                            <input
-                                required
-                                name="name"
-                                id="name"
-                                minLength={4}
-                                className="form-control boot-data"
-                                placeholder="Character name"
-                                type="text"
-                                onChange={e => setName(e.target.value)}
-                            />
-                        </p>
-                    </label>
-                    <p className="card-text">Choose a file and crop if necessary:
-                        <input className="form-control boot-data" type="file" name="file" onChange={updateImage} required />
+                            <div className="outer-name-input">
 
-                    </p>
+                                <input
+                                    required
+                                    name="name"
+                                    id="name"
+                                    minLength={4}
+                                    className="form-control boot-data"
+                                    placeholder="Character name"
+                                    type="text"
+                                    onChange={e => setName(e.target.value)}
+                                />
+                                <div className='name-input-border'></div>
+
+                            </div>
+                        </div>
+                    </label>
+                    <div className="card-text">Choose a file and crop if necessary:
+                        <div className="outer-file-input">
+                            <input className="form-control boot-data file-input" type="file" name="file" onChange={updateImage} required />
+                            <div className="file-input-border"></div>
+                        </div>
+                    </div>
 
                 </div>
                 {/* <label htmlFor="avatar" className="form-label">Avatar link
