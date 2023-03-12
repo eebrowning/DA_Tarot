@@ -11,7 +11,9 @@ const Part5 = ({ receivePart5, step }) => {
     const [team, setTeam] = useState("Inquisition");
     const [interests, setInterests] = useState();
     let teams = Object.keys(factionData);
-
+    const options = {
+        scrollSpeed: .02, // Change this value to adjust the scroll speed
+    };
 
     useEffect(() => {
         receivePart5({ location, about, team, interests })
@@ -29,10 +31,8 @@ const Part5 = ({ receivePart5, step }) => {
         <div id="team-location  ">
             <h2>Faction</h2>
             <PerfectScrollbar id="team-input"
-                options={{ alwaysShowScrollbar: true }}
+                options={options}
                 className='horizontal-scroll'
-                value={100 * (teams.length / 4)}
-                scale={teams.length / 4}
             >
                 {factionData && teams.map(team => (
                     <div className={`form-check form-check-inline team`} key={team} >
