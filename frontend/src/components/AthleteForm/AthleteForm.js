@@ -32,7 +32,7 @@ const AthleteForm = () => {
     const [interests, setInterests] = useState("");
     const [errors, setErrors] = useState([]);
     // const [step, setStep] = useState(2)
-    const [step, setStep] = useState(4); //todo temporary while styling
+    const [step, setStep] = useState(5); //todo temporary while styling
 
     const user = useSelector((state) => state.session.user)
 
@@ -209,6 +209,7 @@ const AthleteForm = () => {
 
     return (
         <section id="athlete-form-box">
+
             <form id="athlete-form" className="needs-validation" onSubmit={handleSubmit} noValidate>
                 <div id='menu-header'>
                     <img src='https://cdn.dragonagekeep.com/bundles/eabwedahub/images/ui_new/world_states/slot-banner.png' />

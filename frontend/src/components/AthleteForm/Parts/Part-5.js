@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import '../Styles/part-5.css'
 import factionData from '../../../util/factionData';
+import PerfectScrollbar from 'react-perfect-scrollbar'
+import 'react-perfect-scrollbar/dist/css/styles.css'
 
 
 const Part5 = ({ receivePart5, step }) => {
@@ -8,8 +10,8 @@ const Part5 = ({ receivePart5, step }) => {
     const [about, setAbout] = useState();
     const [team, setTeam] = useState("Inquisition");
     const [interests, setInterests] = useState();
-
     let teams = Object.keys(factionData);
+
 
     useEffect(() => {
         receivePart5({ location, about, team, interests })
@@ -24,20 +26,23 @@ const Part5 = ({ receivePart5, step }) => {
 
 
     return (< div style={{ display: step === 5 ? 'flex' : "none" }} className="part-5 bootPart" >
-        <div id="team-location">
+        <div id="team-location  ">
             <h2>Faction</h2>
-            <label htmlFor="team" id="team-input">
-                <label id='team-error' htmlFor="team" className="form-label"></label>
-
+            <PerfectScrollbar id="team-input"
+                options={{ alwaysShowScrollbar: true }}
+                className='horizontal-scroll'
+                value={100 * (teams.length / 4)}
+                scale={teams.length / 4}
+            >
                 {factionData && teams.map(team => (
-                    <div className={`form-check form-check-inline team`} key={team}>
+                    <div className={`form-check form-check-inline team`} key={team} >
                         <input type='radio' className="form-check-input" name="faction" value={factionData[team]['name']} />
                         <img id={team} className='faction-icon' src={factionData[team]['url']} onClick={handleSelectTeam} />
                         <p>{factionData[team]['name']}</p>
                     </div>
                 ))}
-
-            </label>
+            </ PerfectScrollbar >
+            <label id='team-error' htmlFor="team" className="form-label"></label>
             <label htmlFor="location" className="form-label">Location
                 <label id='location-error' htmlFor="location"></label>
                 <input
@@ -66,7 +71,7 @@ const Part5 = ({ receivePart5, step }) => {
             />
         </label>
 
-    </div>)
+    </div >)
 }
 
 export default Part5;
