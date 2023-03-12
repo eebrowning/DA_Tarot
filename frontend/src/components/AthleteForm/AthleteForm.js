@@ -231,7 +231,7 @@ const AthleteForm = () => {
                     </div>
                     {(step == 4 || step == 5) && (<div className="preview">
                         <div id='profile-card' className='profile test-avatar'>
-                            <h2>Preview:</h2>
+                            {/* <h2>Preview:</h2> */}
 
                             <SingleAthlete profile={{
                                 name,

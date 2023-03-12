@@ -20,9 +20,10 @@ function Athletes() {
     const [carouselCards, setCarouselCards] = useState([])
 
     useEffect(() => {
-
-        // dispatch(thunkGetAllAthletes());
-        // dispatch(getAllUsers());
+        // let els = [...document.getElementsByClassName('outer-profile')];
+        // els.forEach(el => {
+        //     el.classList.remove(...carouselLabels)
+        // })
         setCarouselCards(document.getElementsByClassName('outer-profile'))
         // console.log(document.querySelector('.selected'), 'balddd')
         // if (!document.querySelector('.selected')) setCarouselCards(document.getElementsByClassName('outer-profile'))
@@ -31,6 +32,10 @@ function Athletes() {
 
 
     let handleLabels = () => {
+        let els = [...document.getElementsByClassName('outer-profile')];
+        els.forEach(el => {
+            el.classList.remove(...carouselLabels, "hideLeft", "hideRight")
+        })
         for (let i = 0; i < carouselLabels.length; i++) {
             document.getElementsByClassName('outer-profile')[i]?.classList.remove('hideRight')
             document.getElementsByClassName('outer-profile')[i]?.classList.add(carouselLabels[i])

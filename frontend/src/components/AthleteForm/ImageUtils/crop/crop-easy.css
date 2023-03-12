@@ -53,6 +53,7 @@
     left: 29vw;
     top: 9rem;
     width: 30vw;
+    max-width: 20rem;
     margin: auto;
 }
 
