@@ -12,7 +12,10 @@ const Part5 = ({ receivePart5, step }) => {
     const [interests, setInterests] = useState();
     let teams = Object.keys(factionData);
     const options = {
-        scrollSpeed: .02, // Change this value to adjust the scroll speed
+        scrollSpeed: 2, // Change this value to adjust the scroll speed
+        // minScrollbarLength: 100,
+        maxScrollbarLength: 100,
+
     };
 
     useEffect(() => {

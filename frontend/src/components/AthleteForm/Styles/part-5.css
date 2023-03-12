@@ -20,7 +20,7 @@
     flex-direction: row;
     /* overflow-x: scroll; */
     height: 10rem;
-    width: 40rem;
+    max-width: 40rem;
 }
 
 .team input {
@@ -104,19 +104,17 @@
 @media screen and (max-width: 750px) {
     .part-5 {
         border: 1px solid azure;
-        /* width: 100%; */
+
         height: 0rem;
         position: relative;
-        top: -5rem;
+        top: -4rem;
         left: .75rem;
     }
 
     #team-input {
-        position: absolute;
+        /* position: absolute; */
         top: 0;
-        left: 95%;
-        height: 28rem;
-        overflow-y: scroll;
+        max-width: 90vw
     }
 
 
