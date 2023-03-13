@@ -70,21 +70,7 @@
     left: 0;
 } */
 
-.preview {
-    position: relative;
-    /* border: 1px solid chartreuse; */
-    height: 32rem;
-    width: 18rem;
-    padding-left: 2rem;
-    padding-top: 4rem;
-}
 
-.preview .faction-icon {
-    height: 50px;
-    width: 50px;
-    object-fit: cover;
-
-}
 
 /* grid end */
 
@@ -113,25 +99,6 @@
 
 
 
-.test-avatar h2 {
-    position: relative;
-    font-family: "Inquisition";
-    color: white;
-    top: -1rem;
-}
-
-
-.test-avatar {
-    font-family: "Inquisition";
-
-    position: relative;
-    /* top: 100px; */
-    /* left: 60vw; */
-    object-fit: contain;
-    height: 26rem !;
-    width: 15rem;
-
-}
 
 #fields-container {
     display: flex;
@@ -164,21 +131,7 @@
         top: 4rem;
     }
 
-    .preview {
-        position: relative;
-        /* border: 1px solid chartreuse; */
-        height: 27rem;
-        width: 18rem;
-        padding-left: 2rem;
-        padding-top: 0rem;
-        /* border: 1px solid red; */
-        position: relative;
-        top: 7rem;
-        left: -5rem;
-        scale: .55;
-        margin: auto;
-        /* grid-row: 5; */
-    }
+
 }
 
 @media mobile and (orientation:landscape) {}

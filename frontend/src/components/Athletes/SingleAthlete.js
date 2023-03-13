@@ -19,7 +19,11 @@ function SingleAthlete(profile) {
     let [about, setAbout] = useState(profile.about);
     let [avatar, setAvatar] = useState(profile.avatar);
     // let [id, setId] = useState(profile._id);
-
+    const options = {
+        scrollSpeed: 2,
+        // minScrollbarLength: 100,
+        maxScrollbarLength: 100,
+    };
     useEffect(() => {
         setName(profile.name);
         setLocation(profile.location);
@@ -68,11 +72,14 @@ function SingleAthlete(profile) {
                                     <img className="faction-icon" src={team ? factionData[team]['url'] : factionData['Inquisition']['url']} alt='faction emblem' />
                                 </div>
                                 <p className="location">{location ? location : "<location>"}</p>
-                                <PerfectScrollbar id="about-scroll"
-                                    className='vertical-scroll'
-                                >
-                                    <p className="about"> {about ? about : "<about>"}</p>
-                                </PerfectScrollbar>
+                                <p className="about">
+                                    <PerfectScrollbar id="about-scroll"
+                                        options={options}
+                                        className='vertical-scroll'
+                                    >
+                                        {about ? about : "<about>"}
+                                    </PerfectScrollbar>
+                                </p>
                             </div>
                         </div >
 

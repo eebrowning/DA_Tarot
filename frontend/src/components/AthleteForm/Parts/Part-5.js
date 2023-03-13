@@ -52,6 +52,7 @@ const Part5 = ({ receivePart5, step }) => {
                     required
                     className="form-control boot-data"
                     minLength={4}
+                    maxLength={30}
                     name="location"
                     placeholder="Athlete location"
                     type="string"

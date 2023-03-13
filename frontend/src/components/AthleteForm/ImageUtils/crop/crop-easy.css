@@ -37,7 +37,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* border: 1px solid red; */
     position: relative;
     /* overflow: visible; */
 
@@ -48,7 +47,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* border: 1px solid red; */
     position: absolute;
     left: 29vw;
     top: 9rem;
@@ -82,16 +80,9 @@
     color: white;
     background-color: transparent;
     border: none;
-    /* box-shadow: -1px -.25px 5px rgb(whitesmoke); */
 
 }
 
-.crop-bttn-div:hover {
-    /* border: 1px solid red; */
-    /* height: min-content; */
-    /* scale: 110%; */
-
-}
 
 .crop-bttn:hover {
     position: relative;
@@ -107,8 +98,6 @@
     max-width: 25rem;
     margin: auto;
     position: relative;
-    /* top: -19.5rem;
-    left: 24rem; */
     height: 1.8rem;
     background-color: black;
     transform: skewX(22.5deg);

@@ -4,18 +4,12 @@
     height: 24rem;
     width: 15rem;
     box-sizing: border-box;
-    /* border: 1px solid red; */
-    /* border-radius: 35px 2px 35px 2px;
-     */
 
 }
 
 .profile {
     width: 100%;
     /*card animation stuff*/
-    /* background-color: transparent; */
-
-
     border-radius: 3px;
     perspective: 1000px;
 
@@ -27,7 +21,6 @@
     width: 100%;
     text-align: center;
     /*card animation stuff*/
-    /* border-radius: 35px 2px 35px 2px; */
     transition: transform 0.8s;
     transform-style: preserve-3d;
 
@@ -80,7 +73,6 @@
     flex-direction: column;
     justify-content: space-between;
     color: red;
-    /* border: 1px solid red; */
     height: 24rem;
     border: 1px solid white;
     outline: 10px solid white;
@@ -96,7 +88,6 @@
 .side-by-side {
     display: flex;
     justify-content: space-evenly;
-    /* border: 1px solid red; */
 }
 
 .front-info .name {
@@ -136,7 +127,6 @@
 }
 
 .card-back .side-by-side {
-    border: 1px solid blue !important;
     width: 100%;
 }
 
@@ -144,16 +134,32 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+
     bottom: 0px;
     width: 100%;
+}
+
+#about-scroll {
+    position: relative;
+    bottom: 0.25rem;
+    right: 0;
+    padding-left: .25rem;
+    text-align: left;
+    height: 4.5rem;
+    /* border: 1px solid gold; */
+    width: 98%;
+    overflow-x: none;
+    overflow-y: scroll;
     height: 5rem;
-    border: 1px solid red;
+}
+
+#about-scroll .ps__rail-x {
+    display: none;
 }
 
 #athletes .about-box .location {
     position: relative;
-    top: 2.5rem;
+    top: 3rem;
 }
 
 .card-front #basic-info {
@@ -168,22 +174,12 @@
 .card-back .about-box {
     width: 100%;
     height: 45%;
+
 }
 
-
-.about,
-.interests {
-    word-break: break-all;
-    overflow-y: scroll;
-    /* max-height: 20%; */
-    height: 50%;
-    border: 1px solid gold;
-}
-
-/* .about::-webkit-scrollbar,
-.interests::-webkit-scrollbar {
+.about::-webkit-scrollbar {
     display: none;
-} */
+}
 
 
 /* Carousel */
@@ -200,13 +196,13 @@
 
 /* Card animation*/
 /* TODO restore flip */
-.profile:hover .card {
-    transform: rotateY(180deg);
-}
-
-/* .profile .card {
+/* .profile:hover .card {
     transform: rotateY(180deg);
 } */
+
+.profile .card {
+    transform: rotateY(180deg);
+}
 
 .card-front,
 .card-back {
@@ -226,4 +222,132 @@
 .card-back {
     color: white;
     transform: rotateY(180deg);
+
+}
+
+
+.vertical-scroll .ps {
+    overflow-y: scroll;
+}
+
+/* About scroll */
+
+.vertical-scroll .ps__rail-y {
+    width: .25rem !important;
+    scale: 90%;
+    background-color: black !important;
+    border: 1px solid rgba(225, 183, 0, .85) !important;
+    box-shadow: 0px 0px 5px rgb(225, 183, 0);
+    position: absolute;
+    right: .25rem !important;
+    opacity: 1 !important;
+    filter: sepia(100%) drop-shadow(4px 1px 3px rgb(255, 143, 3)) drop-shadow(-4.25px -1px 3px rgb(255, 143, 3)) contrast(95%);
+}
+
+
+.vertical-scroll .ps__thumb-y:hover {
+    cursor: pointer;
+}
+
+.vertical-scroll .ps__thumb-y {
+    background-color: transparent !important;
+    height: 1.5rem !important;
+    width: 2.5rem !important;
+    position: absolute;
+    right: -1.7rem;
+    background-image: url("https://i.imgur.com/nPzw47f.png");
+    scale: 70%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: black;
+    border-radius: 4px;
+    opacity: 1 !important;
+    z-index: 1;
+    /* filter: 0px 0px 100px rgb(225, 183, 0); */
+
+    filter: sepia(100%) drop-shadow(4px 1px 3px rgb(255, 143, 3)) drop-shadow(-4.25px -1px 3px rgb(255, 143, 3)) contrast(95%);
+
+}
+
+.vertical-scroll .ps__rail-y::before {
+    content: '';
+    background-image: url('https://i.imgur.com/oTediJN.png');
+    transform: rotate(90deg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: -.5rem;
+    left: -.45rem;
+    width: 1rem;
+    height: 1rem;
+    filter: invert() sepia(100%) drop-shadow(4px 1px 3px rgb(255, 143, 3)) drop-shadow(-4.25px -1px 3px rgb(255, 143, 3)) contrast(95%);
+}
+
+.vertical-scroll .ps__rail-y::after {
+    content: '';
+    background-image: url("https://i.imgur.com/UpFYkCd.png");
+    transform: rotate(90deg);
+
+    filter: invert() sepia(100%) drop-shadow(4px 1px 3px rgb(255, 143, 3)) drop-shadow(-4.25px -1px 3px rgb(255, 143, 3)) contrast(95%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 4.4rem;
+    left: -.45rem;
+    width: 1rem;
+    height: 1rem;
+}
+
+
+
+
+/* preview-related stuff for form */
+.preview {
+    position: relative;
+    height: 32rem;
+    width: 18rem;
+    padding-left: 2rem;
+    padding-top: 4rem;
+}
+
+.preview .faction-icon {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+
+}
+
+.profile h2,
+.test-avatar h2 {
+    position: relative;
+    font-family: "Inquisition";
+    color: white;
+    top: -1rem;
+}
+
+
+.profile,
+.test-avatar {
+    font-family: "Inquisition";
+    position: relative;
+    object-fit: contain;
+    height: 26rem !;
+    width: 15rem;
+
+}
+
+@media screen and (max-width: 750px) {
+
+    .preview {
+        position: relative;
+        height: 27rem;
+        width: 18rem;
+        padding-left: 2rem;
+        padding-top: 0rem;
+        position: relative;
+        top: 7rem;
+        left: -5rem;
+        scale: .55;
+        margin: auto;
+    }
 }
