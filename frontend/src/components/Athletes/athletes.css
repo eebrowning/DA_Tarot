@@ -196,13 +196,13 @@
 
 /* Card animation*/
 /* TODO restore flip */
-/* .profile:hover .card {
-    transform: rotateY(180deg);
-} */
-
-.profile .card {
+.profile:hover .card {
     transform: rotateY(180deg);
 }
+
+/* .profile .card {
+    transform: rotateY(180deg);
+} */
 
 .card-front,
 .card-back {
