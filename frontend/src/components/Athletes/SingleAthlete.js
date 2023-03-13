@@ -4,6 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import "./athletes.css"
 import factionData from '../../util/factionData';
 import classData from '../../util/classData'
+import PerfectScrollbar from 'react-perfect-scrollbar'
+import 'react-perfect-scrollbar/dist/css/styles.css'
+
 
 function SingleAthlete(profile) {
     profile = profile.profile;
@@ -65,7 +68,11 @@ function SingleAthlete(profile) {
                                     <img className="faction-icon" src={team ? factionData[team]['url'] : factionData['Inquisition']['url']} alt='faction emblem' />
                                 </div>
                                 <p className="location">{location ? location : "<location>"}</p>
-                                <p className="about"> {about ? about : "<about>"}</p>
+                                <PerfectScrollbar id="about-scroll"
+                                    className='vertical-scroll'
+                                >
+                                    <p className="about"> {about ? about : "<about>"}</p>
+                                </PerfectScrollbar>
                             </div>
                         </div >
 

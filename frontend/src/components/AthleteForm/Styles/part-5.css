@@ -1,5 +1,5 @@
 .part-5 {
-    border: 1px solid chartreuse;
+    /* border: 1px solid chartreuse; */
     /* width: 100%; */
     height: 0rem;
     position: relative;
@@ -18,14 +18,24 @@
     border: 1px solid chartreuse;
     display: flex;
     flex-direction: row;
-    /* overflow-x: scroll; */
+    margin: auto;
     height: 10rem;
-    max-width: 40rem;
+    max-width: 60rem;
+}
+
+.team {
+    min-width: 10rem;
+    padding: none;
+    margin: none;
+
+}
+
+.team-name {
+    margin: auto;
 }
 
 .team input {
     display: none;
-
 }
 
 .team .faction-icon {
@@ -49,13 +59,19 @@
 
 }
 
+/* Custom scrollbar  */
 #team-input::-webkit-scrollbar {
     display: none;
 }
 
+/* #outer-perfect {
+    display: flex;
+    flex-direction: row;
+} */
+
 
 .horizontal-scroll .ps__rail-x {
-    height: .4rem !important;
+    height: .25rem !important;
     width: 100%;
     background-color: black !important;
     border: 1px solid rgba(225, 183, 0, .85) !important;
@@ -67,8 +83,44 @@
     /* background-color: transparent !important; */
     filter: sepia(100%) drop-shadow(4px 1px 3px rgb(255, 143, 3)) drop-shadow(-4.25px -1px 3px rgb(255, 143, 3)) contrast(95%);
 
+    /* filter: sepia(100%) drop-shadow(4px 1px 3px rgb(255, 143, 3)) drop-shadow(-4.25px -1px 3px rgb(255, 143, 3)) contrast(95%); */
 }
 
+
+.horizontal-scroll .ps__rail-x::before {
+    content: '';
+    background-image: url('https://i.imgur.com/oTediJN.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: -.95rem;
+    left: -1rem;
+    width: 2rem;
+    height: 2rem;
+    /* background: #ccc; */
+    /* border-radius: 50%; */
+    filter: invert() sepia(100%) drop-shadow(4px 1px 3px rgb(255, 143, 3)) drop-shadow(-4.25px -1px 3px rgb(255, 143, 3)) contrast(95%);
+
+    z-index: 1;
+
+}
+
+.horizontal-scroll .ps__rail-x::after {
+    content: '';
+    background-image: url("https://i.imgur.com/UpFYkCd.png");
+    filter: invert() sepia(100%) drop-shadow(4px 1px 3px rgb(255, 143, 3)) drop-shadow(-4.25px -1px 3px rgb(255, 143, 3)) contrast(95%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: -.95rem;
+    left: 98%;
+    width: 2rem;
+    height: 2rem;
+    /* background: #ccc; */
+    /* border-radius: 50%; */
+    z-index: 1;
+
+}
 
 
 .horizontal-scroll .ps__rail-x:hover {
@@ -85,11 +137,11 @@
     height: 2.5rem !important;
     width: 3.5rem !important;
     position: absolute;
-    bottom: -1.1rem !important;
+    bottom: -1.2rem !important;
     /* display: flex; */
     background-image: url("https://i.imgur.com/lJmP1jX.png");
     /* border: 1px solid black; */
-    scale: 80%;
+    scale: 70%;
     background-size: contain;
     background-repeat: no-repeat;
     background-color: black;
@@ -97,25 +149,68 @@
     opacity: 1 !important;
     z-index: 1;
     /* filter: 0px 0px 100px rgb(225, 183, 0); */
-    /* filter: sepia(100%) drop-shadow(4px 1px 3px rgb(255, 143, 3)) drop-shadow(-4.25px -1px 3px rgb(255, 143, 3)) contrast(95%); */
 
+    filter: sepia(100%) drop-shadow(4px 1px 3px rgb(255, 143, 3)) drop-shadow(-4.25px -1px 3px rgb(255, 143, 3)) contrast(95%);
+
+}
+
+
+
+.form-location,
+.form-about {
+    color: white;
+    font-family: "Inquisition";
+}
+
+.form-location input,
+.form-about textarea {
+    background-color: black;
+    color: white
 }
 
 @media screen and (max-width: 750px) {
     .part-5 {
         border: 1px solid azure;
-
         height: 0rem;
         position: relative;
-        top: -4rem;
+        top: -1.5rem;
         left: .75rem;
     }
 
-    #team-input {
-        /* position: absolute; */
-        top: 0;
-        max-width: 90vw
+    .faction-label {
+        position: relative;
+        top: -4rem;
+        left: 40vw;
     }
 
+    #team-input {
+        position: absolute;
+        top: 0;
+        max-width: 90vw;
+    }
 
+    .form-location,
+    .form-about {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        top: 10rem;
+        /* border: 1px solid blue; */
+        /* margin: auto; */
+    }
+
+    .form-location {
+        max-width: 10rem !important;
+
+        left: 28vw
+    }
+
+    .form-about {
+        max-width: 10rem !important;
+        left: 48vw
+    }
+
+    .horizontal-scroll {
+        touch-action: none;
+    }
 }
