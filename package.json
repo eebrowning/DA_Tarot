@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/eebrowning/DA_Tarot/issues"
   },
-  "homepage": "https://github.com/eebrowning/DA_Tarot#readme"
+  "homepage": "https://github.com/eebrowning/DA_Tarot#readme",
+  "devDependencies": {
+    "dotenv": "^16.0.3"
+  }
 }
