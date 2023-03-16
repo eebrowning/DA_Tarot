@@ -1,8 +1,16 @@
 import axios from 'axios'
 
+let baseURL;
+
+if (window.location.hostname === 'localhost') {
+  baseURL = 'http://localhost:8000/api';
+} else {
+  baseURL = '/api';
+}
+
 const api = axios.create({
-    baseURL: 'http://localhost:8000/api',
-})
+  baseURL: baseURL
+});
 
 
 export const uploadImage = async payload => {
