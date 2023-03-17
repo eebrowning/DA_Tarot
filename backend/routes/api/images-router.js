@@ -40,7 +40,7 @@ router.post("/upload", validateImage, async (req, res) => {
     }
     const file = req.files.file;
     // const fileName = req.body.user + req.files.file.name;//non-random, if a person uploads the same filename, it will be replaced in the S3 bucket
-    const fileName = Date.now() + req.files.file.name;//random, but bucket can fill with duplicates
+    const fileName = `${Date.now() + req.files.file.name}`;// non random, but bucket can fill with duplicates
 
     const bucketParams = {
         Bucket: process.env.BUCKET_NAME,
