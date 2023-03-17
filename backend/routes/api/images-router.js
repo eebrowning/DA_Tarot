@@ -44,7 +44,7 @@ router.post("/upload", validateImage, async (req, res) => {
 
     const bucketParams = {
         Bucket: process.env.BUCKET_NAME,
-        Key: fileName,
+        Key: `${fileName}`,
         Body: file.data,
         ContentType: file.mimetype,
         ACL: 'public-read'
