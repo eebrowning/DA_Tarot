@@ -2,14 +2,14 @@ import axios from 'axios'
 
 let baseURL;
 
-if (window.location.hostname === 'localhost') {
-  baseURL = 'http://localhost:8000/api';
-} else {
-  baseURL = '/api';
-}
+// if (window.location.hostname === 'localhost') {
+//   baseURL = 'http://localhost:8000/api';
+// } else {
+//   baseURL = '/api';
+// }
 
 const api = axios.create({
-  baseURL: baseURL
+    baseURL: 'http://localhost:8000/api'
 });
 
 
