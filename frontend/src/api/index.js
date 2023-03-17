@@ -2,14 +2,17 @@ import axios from 'axios'
 
 let baseURL;
 
-// if (window.location.hostname === 'localhost') {
-//   baseURL = 'http://localhost:8000/api';
-// } else {
-//   baseURL = '/api';
-// }
+if (window.location.hostname === 'ec2-52-53-252-167.us-west-1.compute.amazonaws.com') {
+    baseURL = 'http://ec2-52-53-252-167.us-west-1.compute.amazonaws.com/api';
+
+} if (window.location.hostname === 'localhost') {
+    baseURL = 'http://localhost:8000/api';
+} else {
+    baseURL = '/api';
+}
 
 const api = axios.create({
-    baseURL: 'http://localhost:8000/api'
+    baseURL: baseURL
 });
 
 
