@@ -25,9 +25,10 @@ const Part4 = ({ receivePart4, step }) => {
     const updateImage = async (e) => {
         const file = e.target.files[0];
         const typeError = [];
-        // console.log('user', user)
+        console.log('users file', file)
         let payload = new FormData();
         payload.append('file', file)
+        console.log(payload, 'payload')
         let res = await uploadImage(payload);
         setAvatar(res.data.url);
 
