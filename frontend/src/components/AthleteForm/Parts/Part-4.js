@@ -28,6 +28,9 @@ const Part4 = ({ receivePart4, step }) => {
         console.log('users file', file)
         let payload = new FormData();
         payload.append('file', file)
+        const modifiedName = file.name.replace(/ /g, "_");
+        // payload['safeName'] = modifiedName;
+        payload.append('safeName', modifiedName)
         console.log(payload, 'payload')
         let res = await uploadImage(payload);
         setAvatar(res.data.url);
