@@ -30,8 +30,8 @@ const router = express.Router()
 router.use(fileUpload());//AWS
 
 router.post("/upload", validateImage, async (req, res) => {
-    // console.log(req.files, 'reqfiles')
-    // console.log(req.body.safeName, 'reqfiles')
+    console.log(req.files, 'reqfiles')
+    console.log(req.body.safeName, 'reqfiles')
 
 
     if (!req.files) {
@@ -42,7 +42,7 @@ router.post("/upload", validateImage, async (req, res) => {
     // console.log(file, ' file from reqfiles')
 
     // const fileName = req.body.user + req.files.file.name;//non-random, if a person uploads the same filename, it will be replaced in the S3 bucket
-    const fileName = `${Date.now() + req.body.safeName}`;// non random, but bucket can fill with duplicates
+    const fileName = `${Date.now()}${req.body.safeName}`;// non random, but bucket can fill with duplicates
 
     const bucketParams = {
         Bucket: process.env.BUCKET_NAME,
