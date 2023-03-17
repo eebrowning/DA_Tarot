@@ -116,7 +116,9 @@ getUser = async (req, res) => {
 
 getAllUsers = async (req, res) => {
 
-    let users = await User.find({});
+    // let users = await User.find({});
+
+    let users = await User.find({}, '_id username');
 
     try {
         res.status(200).json({

@@ -100,7 +100,7 @@ export const logout = () => async (dispatch) => {
 };
 export const getAllUsers = () => async (dispatch) => {
     let users = await api.getAllUsers()
-    // console.log(users, 'users in getall users')
+    // console.log(users, 'users in getall users');
 
     dispatch(getUsers(users.data.data))
     return users;
