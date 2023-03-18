@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { thunkGetAllAthletes } from '../../store/athletes';
@@ -25,7 +25,7 @@ function Splash() {
 
     const handleClick = (e) => {
         e.preventDefault();
-
+        console.log('butts')
         history.push(`/cards`);
         // dispatch(thunkUpdatePlace(place)); NO! dispatch will go on submit of edit form!
     }
@@ -37,6 +37,7 @@ function Splash() {
                 <p>Stretch goals include user interactivity and maybe a rock-paper-scissors system</p>
             </div>
             <button onClick={handleClick}>Show All Cards</button>
+
         </>
     );
 }

@@ -33,9 +33,9 @@ function Athletes() {
 
     let handleLabels = () => {
         let els = [...document.getElementsByClassName('outer-profile')];
-        els.forEach(el => {
-            el.classList.remove(...carouselLabels, "hideLeft", "hideRight")
-        })
+        // els.forEach(el => {
+        //     el.classList.remove(...carouselLabels, "hideLeft", "hideRight")
+        // })
         for (let i = 0; i < carouselLabels.length; i++) {
             document.getElementsByClassName('outer-profile')[i]?.classList.remove('hideRight')
             document.getElementsByClassName('outer-profile')[i]?.classList.add(carouselLabels[i])
@@ -43,17 +43,17 @@ function Athletes() {
     }
     let handleClickLeft = (e) => {
         e.preventDefault();
-        moveToSelected('prev')
+        if (document.querySelector(".prev")) moveToSelected('prev')
     }
     let handleClickRight = (e) => {
         e.preventDefault();
-        moveToSelected('next')
+        if (document.querySelector(".next")) moveToSelected('next')
     }
 
     /////////////////
     //////////
     return (
-        <div >
+        <div id='all-athletes'>
             <h2>All Profiles</h2>
             <div className="buttons"></div>
             <img className={'white-arrow'} onClick={handleClickLeft} id="prev" src='https://i.imgur.com/oTediJN.png' />

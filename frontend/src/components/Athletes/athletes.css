@@ -97,7 +97,7 @@
 }
 
 .front-info .sports {
-    font-size: 15px;
+    /* font-size: 15px; */
 }
 
 .faction-icon {
@@ -135,7 +135,7 @@
     display: flex;
     flex-direction: column;
 
-    bottom: 0px;
+    bottom: 3rem;
     width: 100%;
 }
 

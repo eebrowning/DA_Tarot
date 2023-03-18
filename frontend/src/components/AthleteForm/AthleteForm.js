@@ -16,6 +16,7 @@ import classData from '../../util/classData'
 
 
 
+
 //todo: sports picking up -select sport- as an option.
 const AthleteForm = () => {
     const dispatch = useDispatch();
@@ -75,7 +76,6 @@ const AthleteForm = () => {
         }
     }, [step])
 
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         // const newAthlete = { user: user.id, name, birthdate, location, team, gender, sports, about, interests, avatar }
@@ -98,14 +98,6 @@ const AthleteForm = () => {
         setErrors([]);
         let response = await dispatch(thunkCreateAthlete(newAthlete));
 
-        // for (let data in newAthlete) {
-        //     // console.log('looping through athlete object', data, newAthlete[data])
-        //     athleteData.append(`${data}`, newAthlete[data])
-        // }
-        // let response = await dispatch(thunkCreateAthlete(athleteData));
-        // for (var pair of athleteData.entries()) {
-        //     console.log(`${pair[0]}: ${pair[1]}`);
-        // }
 
         console.log(response, 'response ')
         if (newAthlete !== response) {
