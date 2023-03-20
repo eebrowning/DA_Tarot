@@ -13,7 +13,10 @@
 
 #splash-buttons {
     position: relative;
-    top: 10rem;
+    top: 5rem;
+    font-family: "Inquisition";
+    color: white;
+
 }
 
 .sans-nav button {

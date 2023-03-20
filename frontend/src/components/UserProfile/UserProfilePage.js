@@ -13,7 +13,11 @@ function UserProfilePage() {
     const user = useSelector((state) => state.session.user);
     const [userObjects, setUserObjects] = useState([]);
     const dispatch = useDispatch();
-
+    const scrollOptions = {
+        scrollSpeed: 2,
+        minScrollbarLength: 20,
+        maxScrollbarLength: 70,
+    };
 
     useEffect(() => {
         // dispatch(thunkGetAllAthletes)
@@ -48,9 +52,10 @@ function UserProfilePage() {
             {/* <div className='side-by-side'> */}
 
             <div id='user-gallery'>
-                <div id='user-cards'>
-                    <PerfectScrollbar id='user-gal' className='vertical-scroll'>
-
+                <PerfectScrollbar id='user-gal'
+                    options={scrollOptions}
+                    className='vertical-scroll'>
+                    <div id='user-cards'>
                         {userObjects.map((profile) => (
                             <div className='spacer' key={profile._id} >
                                 <SingleAthlete profile={profile} />
@@ -61,8 +66,8 @@ function UserProfilePage() {
                                 <button className="delete-button" id={profile._id} onClick={handleDelete} >Delete Athlete </button>
                             </div>
                         ))}
-                    </PerfectScrollbar>
-                </div>
+                    </div>
+                </PerfectScrollbar>
             </div>
             {/* This will be the block where details show */}
             <div id='user-cards-preview'>

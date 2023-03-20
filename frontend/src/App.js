@@ -15,15 +15,14 @@ import { thunkGetAllAthletes } from "./store/athletes";
 import PerfectScrollbar from 'react-perfect-scrollbar'
 
 
-
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
-  const options = {
-    scrollSpeed: 2,
-    // minScrollbarLength: 100,
-    maxScrollbarLength: 80,
-  };
+  // const options = {
+  //   scrollSpeed: 2,
+  //   // minScrollbarLength: 100,
+  //   maxScrollbarLength: 80,
+  // };
   useEffect(() => {
     // dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
