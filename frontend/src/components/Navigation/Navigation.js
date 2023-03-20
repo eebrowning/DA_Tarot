@@ -30,6 +30,7 @@ function Navigation({ isLoaded }) {
     if (sessionUser) {
         sessionLinks = (
             <>
+                <NavLink exact to="/profile">Your cards</NavLink>
                 <NavLink to='/create'>New Card</NavLink>
                 <ProfileButton user={sessionUser} />
             </>
@@ -50,12 +51,9 @@ function Navigation({ isLoaded }) {
         <>
             <ul id={'nav-bar-ul'}>
                 <li>
-                    {/* <img onClick={() => history.push('/')} id='nav-logo' src='https://fontmeme.com/permalink/220702/01a4e3f2e2dfca0efb0d85c9a5590637.png' /> */}
-
-                    {/* <img onClick={() => history.push('/')} id='nav-logo' src='https://fontmeme.com/permalink/220703/1ef7f1b8fbea632b7949072dce294a0b.png' /> */}
                     <a href='/' style={{ textDecoration: 'none' }}>
 
-                        {/* <p id='nav-logo'>DA: Tarot</p> */}
+                        <p id='nav-logo'>DA:T</p>
                         {/* <p id='nav-logo'>Dragon Age Tarot</p> */}
 
                     </a>
@@ -65,7 +63,8 @@ function Navigation({ isLoaded }) {
                 </li>
 
                 <li id={'right-nav-box'}>
-                    <NavLink exact to="/cards">Show cards</NavLink>
+                    <NavLink exact to="/cards">All cards</NavLink>
+
                     {isLoaded && sessionLinks}
                     {sessionLinks}
                 </li>

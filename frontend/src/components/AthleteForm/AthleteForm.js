@@ -13,6 +13,7 @@ import Part5 from "./Parts/Part-5";
 import SingleAthlete from './../Athletes/SingleAthlete'
 import factionData from "../../util/factionData";
 import classData from '../../util/classData'
+import { useHistory } from "react-router-dom";
 
 
 
@@ -34,7 +35,7 @@ const AthleteForm = () => {
     const [errors, setErrors] = useState([]);
     const [step, setStep] = useState(2)
     // const [step, setStep] = useState(5); //todo temporary while styling
-
+    const history = useHistory();
     const user = useSelector((state) => state.session.user)
 
     useEffect(() => {
@@ -97,11 +98,14 @@ const AthleteForm = () => {
         ///Idea: on submit, use route for AWS upload, get URL from response and setAvatar(URL), THEN dispatch to thunkCreateAthlete(newAthlete)
         setErrors([]);
         let response = await dispatch(thunkCreateAthlete(newAthlete));
+        if (response.user) history.push(`/profile`);
 
 
         console.log(response, 'response ')
         if (newAthlete !== response) {
             setErrors(response)
+        } else {
+
         }
 
     }

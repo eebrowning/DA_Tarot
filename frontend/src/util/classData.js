@@ -7,6 +7,7 @@ const Warrior = {
     attack: 'melee',
     defense: 'ranged',
     general_class: 'Warrior: Weapon & Shield',
+    base_class: 'Warrior',
     description: "Warriors are frontline combatants, able to withstand incredible punishment in heavy armor. They are proficient in the use of two-handed weapons like mauls and greatswords, but may combine a smaller weapon with a shield for added defense."
 
 }
@@ -17,6 +18,7 @@ const Warrior2H = {
     attack: 'melee',
     defense: 'melee',
     general_class: 'Warrior: Two Handed',
+    base_class: 'Warrior',
     description: "Warriors are frontline combatants, able to withstand incredible punishment in heavy armor. They are proficient in the use of two-handed weapons like mauls and greatswords, but may combine a smaller weapon with a shield for added defense."
 
 }
@@ -28,6 +30,7 @@ const Mage = {
     attack: 'ranged',
     defense: 'ranged',
     general_class: 'Mage',
+    base_class: 'Mage',
     description: "Mages channel magical power into spells capable of a wide range of effects, from debiliatating opponents, protecting allies, or unleashing devastating elemental energy. Those who wield magic are widely feared for their abilities and their rebellion against chantry control has left the land in chaos."
 
 }
@@ -39,6 +42,7 @@ const Rogue = {
     attack: 'melee',
     defense: 'ranged',
     general_class: 'Rogue: Dual Wield',
+    base_class: 'Rogue',
     description: "Rogues are fighters who rely on speed and agility rather than heavy armor, using skill and an advantageous position on the battlefield to deal incredible damage. They may get up close and personal with daggers or strike from a distance with arrows."
 
 
@@ -50,6 +54,7 @@ const RogueBow = {
     attack: 'ranged',
     defense: 'melee',
     general_class: 'Rogue: Archer',
+    base_class: 'Rogue',
     description: "Rogues are fighters who rely on speed and agility rather than heavy armor, using skill and an advantageous position on the battlefield to deal incredible damage. They may get up close and personal with daggers or strike from a distance with arrows."
 
 }

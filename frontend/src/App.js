@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux"
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Athletes from './components/Athletes/Athletes';
 import AthleteForm from './components/AthleteForm/AthleteForm';
-import Navigation from './components/Navigation';
+import Navigation from './components/Navigation/Navigation';
 import * as sessionActions from "./store/session";
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
