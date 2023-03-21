@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react"
-import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
 import "./athletes.css"
 import factionData from '../../util/factionData';
 import classData from '../../util/classData'
@@ -10,7 +10,7 @@ import 'react-perfect-scrollbar/dist/css/styles.css'
 
 function SingleAthlete(profile) {
     profile = profile.profile;
-    let dispatch = useDispatch();
+    // let dispatch = useDispatch();
     // const athletes = useSelector((state) => Object.values(state.athletes));
     let [name, setName] = useState(profile.name);
     let [location, setLocation] = useState(profile.location);
@@ -72,14 +72,14 @@ function SingleAthlete(profile) {
                                     <img className="faction-icon" src={team ? factionData[team]['url'] : factionData['Inquisition']['url']} alt='faction emblem' />
                                 </div>
                                 <p className="location">{location ? location : "<location>"}</p>
-                                <p className="about">
+                                <div className="about">
                                     <PerfectScrollbar id="about-scroll"
                                         options={options}
                                         className='vertical-scroll'
                                     >
                                         {about ? about : "<about>"}
                                     </PerfectScrollbar>
-                                </p>
+                                </div>
                             </div>
                         </div >
 

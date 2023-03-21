@@ -81,13 +81,13 @@ const Part2 = ({ receivePart2, step }) => {
                 <div className={`form-check form-check-inline gender-input`} key={"male"}>
                     <div className="side-by-side">
                         <input defaultChecked onChange={() => setGender("Male")} type='radio' className="form-check-input " name="inlineRadioOptions" value="Male" id={`inlineRadio${1}`} />
-                        <img id='Male' className='gender-icon' src={'https://i.imgur.com/JPzJ0nS.png'} onClick={handleSelectGender} />
+                        <img id='Male' alt="male gender icon" className='gender-icon' src={'https://i.imgur.com/JPzJ0nS.png'} onClick={handleSelectGender} />
                         Male</div>
                 </div>
                 <div className={`form-check form-check-inline gender-input`} key={"female"}>
                     <div className="side-by-side">
                         <input onChange={() => setGender("Female")} type='radio' className="form-check-input " name="inlineRadioOptions" value="Female" id={`inlineRadio${1}`} />
-                        <img id='Female' className='gender-icon' src={'https://i.imgur.com/z7sksQe.png'} onClick={handleSelectGender} />
+                        <img id='Female' alt="female gender icon" className='gender-icon' src={'https://i.imgur.com/z7sksQe.png'} onClick={handleSelectGender} />
                         Female</div>
                 </div>
                 <label id='gender-error' htmlFor="gender-select"></label>
@@ -119,8 +119,8 @@ const Part2 = ({ receivePart2, step }) => {
 
 
                     <div className='arrow-spacer'>
-                        <img className={'white-arrow prev-2'} onClick={handleClickLeft} id="prev" src='https://i.imgur.com/oTediJN.png' />
-                        <img className={'white-arrow next-2'} onClick={handleClickRight} id="next" src='https://i.imgur.com/UpFYkCd.png' />
+                        <img alt="previous-option arrow" className={'white-arrow prev-2'} onClick={handleClickLeft} id="prev" src='https://i.imgur.com/oTediJN.png' />
+                        <img alt="next-option arrow" className={'white-arrow next-2'} onClick={handleClickRight} id="next" src='https://i.imgur.com/UpFYkCd.png' />
                     </div>
                 </div>
 

@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { thunkDeleteAthlete, thunkGetAllAthletes } from '../../store/athletes';
+import { thunkDeleteAthlete } from '../../store/athletes';
 import SingleAthlete from '../Athletes/SingleAthlete';
 import "./user-profile.css"
-import classData from "../../util/classData";
 import PerfectScrollbar from 'react-perfect-scrollbar'
 
 function UserProfilePage() {
@@ -20,16 +19,15 @@ function UserProfilePage() {
     };
 
     useEffect(() => {
-        // dispatch(thunkGetAllAthletes)
         const userAthletes = athletes.filter(athlete => {
-            if (athlete.user === user.id) { return athlete }
+            if (athlete.user === user.id) { return athlete } else { return null }
         })
         setUserObjects(userAthletes);
-    }, [dispatch, athletes]);
+    }, [dispatch, athletes, user.id, athletes.length]);
 
     const handleDelete = async (e) => {
         e.preventDefault();
-        // console.log(e.target.id, 'should be ath id')
+
         dispatch(thunkDeleteAthlete(e.target.id))
         //consider putting delete option on profile page only, will remove need for dynamic delete for your carousel
     }
@@ -38,7 +36,7 @@ function UserProfilePage() {
         <div id='user-profile' >
             <div id='user-banner'>
                 <div id='user-header'>
-                    <img src='https://cdn.dragonagekeep.com/bundles/eabwedahub/images/ui_new/world_states/slot-banner.png' />
+                    <img alt='banner to draw attention to header' src='https://cdn.dragonagekeep.com/bundles/eabwedahub/images/ui_new/world_states/slot-banner.png' />
                     <h2>Browse Characters</h2>
                 </div>
                 <div id='user-info'>

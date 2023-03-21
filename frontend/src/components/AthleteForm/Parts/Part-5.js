@@ -39,7 +39,7 @@ const Part5 = ({ receivePart5, step }) => {
                 {factionData && teams.map(team => (
                     <div className={`form-check form-check-inline team`} key={team} >
                         <input type='radio' className="form-check-input" name="faction" value={factionData[team]['name']} />
-                        <img id={team} className='faction-icon' src={factionData[team]['url']} onClick={handleSelectTeam} />
+                        <img alt={`${team} faction icon`} id={team} className='faction-icon' src={factionData[team]['url']} onClick={handleSelectTeam} />
                         <p className="team-name">{factionData[team]['name']}</p>
                     </div>
                 ))}

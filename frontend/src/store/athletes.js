@@ -48,7 +48,7 @@ export const thunkGetAllAthletes = () => async dispatch => {
 
     // console.log('THUNK, GET ALL ATHLETES: ')
     // console.log(res, 'res test')
-    if (res.status = 200) {
+    if (res.status === 200) {
         let athletes = await res.data.data;
         // athletes = JSON.stringify(athletes)
         // console.log(athletes, 'athletes in thunk')
@@ -59,15 +59,15 @@ export const thunkGetAllAthletes = () => async dispatch => {
 
 //todo
 export const thunkGetAthlete = (athleteId) => async dispatch => {
-    // console.log('athlete in thunkGetAthlete')
+    console.log('athlete in thunkGetAthlete')
 
-    // const res = await fetch(`/api/athletes/${athleteId}`)
-    // // console.log(athleteId, `THUNK, GET ATHLETE(): `)
-    // if (res.ok) {
-    //     const athlete = await res.json();
-    //     dispatch(actionGetAthlete(athlete))
-    //     return athlete;
-    // }
+    const res = await fetch(`/api/athletes/${athleteId}`)
+    // console.log(athleteId, `THUNK, GET ATHLETE(): `)
+    if (res.ok) {
+        const athlete = await res.json();
+        dispatch(actionGetAthlete(athlete))
+        return athlete;
+    }
 }
 //good
 export const thunkCreateAthlete = (athlete) => async dispatch => {
@@ -96,29 +96,29 @@ export const thunkCreateAthlete = (athlete) => async dispatch => {
 }
 //todo
 export const thunkUpdateAthlete = athlete => async dispatch => {
-    // console.log(athlete, '\n\n\n', 'in thunkUpdateAthlete');
+    console.log(athlete, '\n\n\n', 'in thunkUpdateAthlete');
 
-    // const res = await fetch(`/api/athletes/${athlete.id}`, {
-    //     method: 'put',
-    //     headers: { 'Content-Type': 'application/json' },
-    //     body: JSON.stringify(athlete)
-    // })
-    // if (res.ok) {
-    //     const updatedAthlete = await res.json();
-    //     dispatch(actionUpdateAthlete(updatedAthlete))
-    //     return updatedAthlete;
-    // }
+    const res = await fetch(`/api/athletes/${athlete.id}`, {
+        method: 'put',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(athlete)
+    })
+    if (res.ok) {
+        const updatedAthlete = await res.json();
+        dispatch(actionUpdateAthlete(updatedAthlete))
+        return updatedAthlete;
+    }
 }
 
 //good
 export const thunkDeleteAthlete = (athleteId) => async dispatch => {
 
     let res = await api.deleteProfileById(athleteId)
-    // console.log(res.data, 'in thunkDeleteAthlete')
-    if (res.success = true) {
+    console.log(res.data, 'in thunkDeleteAthlete')
+    if (res.data) {
 
         const newId = await res.data.data._id;
-        // console.log('Thunk, delete Athlete: ', newId, 'should be newID')
+        console.log('Thunk, delete Athlete: ', newId, 'should be newID')
         dispatch(actionDeleteAthlete(newId))
     }
 }
@@ -129,7 +129,7 @@ const athletesReducer = (state = iState, action) => {
     let newState;
     switch (action.type) {
         case CREATE_ATHLETE:
-            newState = { ...state, [action.athlete.id]: action.athlete };
+            newState = { ...state, [action.athlete._id]: action.athlete };
             // console.log(action, state, "...CREATE_ATHLETE... in athletesReducer")
             return newState;
         case GET_ATHLETES:

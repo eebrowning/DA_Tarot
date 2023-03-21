@@ -1,12 +1,8 @@
 
-import axios from "axios";
-import api from "../../api";
 import { useEffect, useState } from "react"
 import "./athletes.css"
 import SingleAthlete from "./SingleAthlete";
 import { useDispatch, useSelector } from "react-redux";
-import { thunkGetAllAthletes } from "../../store/athletes";
-import { getAllUsers } from "../../store/session";
 import "./carousel.css"
 import moveToSelected from "../../util/moveToSelected";
 
@@ -15,7 +11,6 @@ import moveToSelected from "../../util/moveToSelected";
 function Athletes() {
     let dispatch = useDispatch();
     const athletes = useSelector((state) => Object.values(state.athletes));
-    // const carouselLabels = ["selected", "next", "next2", "next3"]
     const carouselLabels = ["prevLeftSecond", "prev", "selected", "next", "nextRightSecond"]
     const [carouselCards, setCarouselCards] = useState([])
 
@@ -25,14 +20,12 @@ function Athletes() {
         //     el.classList.remove(...carouselLabels)
         // })
         setCarouselCards(document.getElementsByClassName('outer-profile'))
-        // console.log(document.querySelector('.selected'), 'balddd')
-        // if (!document.querySelector('.selected')) setCarouselCards(document.getElementsByClassName('outer-profile'))
     }, [dispatch, athletes.length])
     /////////////////
 
 
     let handleLabels = () => {
-        let els = [...document.getElementsByClassName('outer-profile')];
+        // let els = [...document.getElementsByClassName('outer-profile')];
         // els.forEach(el => {
         //     el.classList.remove(...carouselLabels, "hideLeft", "hideRight")
         // })

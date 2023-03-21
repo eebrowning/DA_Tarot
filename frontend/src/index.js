@@ -15,7 +15,7 @@ import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
 
 // We have not created this action yet, but will do so in the next step
-import { thunkLogout } from './actions/session_actions';
+import { thunkLogout } from './store/actions/session_actions';
 
 
 

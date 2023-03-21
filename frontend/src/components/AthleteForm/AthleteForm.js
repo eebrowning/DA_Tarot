@@ -1,18 +1,14 @@
-import { set, setDriver } from "mongoose";
 import { useEffect, useState } from "react"
-import api from "../../api";
 import "./Styles/form.css"
-import Sports from "./Sports";
 import { useDispatch, useSelector } from "react-redux";
-import { thunkCreateAthlete, thunkGetAllAthletes } from "../../store/athletes";
-// import Part1 from "./Part-1";
+import { thunkCreateAthlete } from "../../store/athletes";
 import Part2 from "./Parts/Part-2";
 import Part3 from "./Parts/Part-3";
 import Part4 from "./Parts/Part-4";
 import Part5 from "./Parts/Part-5";
 import SingleAthlete from './../Athletes/SingleAthlete'
-import factionData from "../../util/factionData";
-import classData from '../../util/classData'
+// import factionData from "../../util/factionData";
+// import classData from '../../util/classData'
 import { useHistory } from "react-router-dom";
 
 
@@ -23,7 +19,6 @@ const AthleteForm = () => {
     const dispatch = useDispatch();
     const [name, setName] = useState("");
     const [avatar, setAvatar] = useState("");
-    const [avatarFile, setAvatarFile] = useState("");
     const [gender, setGender] = useState("");
     const [race, setRace] = useState('')
     const [sports, setSports] = useState("");
@@ -44,7 +39,7 @@ const AthleteForm = () => {
     }, [errors])
 
     useEffect(() => {
-        if (step == 2 && document.querySelector('.prev-2')) {
+        if (step === 2 && document.querySelector('.prev-2')) {
             document.getElementsByClassName('form-phase')[0].innerText = "Select Race";
             document.querySelector('.prev-2').addEventListener("mousedown", () => document.querySelector('.prev-2').classList.add('click'))
             document.querySelector('.prev-2').addEventListener("mouseup", () => document.querySelector('.prev-2').classList.remove('click'))
@@ -56,7 +51,7 @@ const AthleteForm = () => {
             document.querySelector('.next-2').removeEventListener("mousedown", () => document.querySelector('.next-2').classList.add('click'))
             document.querySelector('.next-2').removeEventListener("mouseup", () => document.querySelector('.next-2').classList.remove('click'))
         }
-        if (step == 3 && document.querySelector('.prev-3')) {
+        if (step === 3 && document.querySelector('.prev-3')) {
             document.getElementsByClassName('form-phase')[0].innerText = "Select Class";
             document.querySelector('.prev-3').addEventListener("mousedown", () => document.querySelector('.prev-3').classList.add('click'))
             document.querySelector('.prev-3').addEventListener("mouseup", () => document.querySelector('.prev-3').classList.remove('click'))
@@ -68,11 +63,11 @@ const AthleteForm = () => {
             document.querySelector('.next-3').removeEventListener("mousedown", () => document.querySelector('.next-3').classList.add('click'))
             document.querySelector('.next-3').removeEventListener("mouseup", () => document.querySelector('.next-3').classList.remove('click'))
         }
-        if (step == 4) {
+        if (step === 4) {
             document.getElementsByClassName('form-phase')[0].innerText = "Name and Avatar";
 
         }
-        if (step == 5) {
+        if (step === 5) {
             document.getElementsByClassName('form-phase')[0].innerText = "Misc. Details";
         }
     }, [step])
@@ -94,7 +89,6 @@ const AthleteForm = () => {
         }
         // console.log('newathlete', newAthlete)
         const athleteData = new FormData();
-        if (avatarFile) { athleteData.append('avatarFile', avatarFile) }
         ///Idea: on submit, use route for AWS upload, get URL from response and setAvatar(URL), THEN dispatch to thunkCreateAthlete(newAthlete)
         setErrors([]);
         let response = await dispatch(thunkCreateAthlete(newAthlete));
@@ -184,7 +178,7 @@ const AthleteForm = () => {
     }
     /////////////Bootstrap validation
     let bootSubmit = () => {
-        'use strict'
+        // 'use strict'
         // Fetch all the forms we want to apply custom Bootstrap validation styles to
         const forms = document.querySelectorAll('.needs-validation')
         // Loop over them and prevent submission
@@ -208,7 +202,7 @@ const AthleteForm = () => {
 
             <form id="athlete-form" className="needs-validation" onSubmit={handleSubmit} noValidate>
                 <div id='menu-header'>
-                    <img src='https://cdn.dragonagekeep.com/bundles/eabwedahub/images/ui_new/world_states/slot-banner.png' />
+                    <img alt='a decorative banner to draw attention to the menu header' src='https://cdn.dragonagekeep.com/bundles/eabwedahub/images/ui_new/world_states/slot-banner.png' />
                     <h2>Character Creation {">"} <strong className="form-phase">Stage {step}</strong></h2>
                 </div>
                 <div id='buttons'>
@@ -226,7 +220,7 @@ const AthleteForm = () => {
                         <Part4 receivePart4={receivePart4} step={step} />
                         <Part5 receivePart5={receivePart5} step={step} />
                     </div>
-                    {(step == 4 || step == 5) && (<div className="preview">
+                    {(step === 4 || step === 5) && (<div className="preview">
                         <div id='profile-card' className='profile test-avatar'>
                             {/* <h2>Preview:</h2> */}
 

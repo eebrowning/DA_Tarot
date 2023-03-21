@@ -111,7 +111,6 @@ const Part3 = ({ receivePart3, step, race }) => {
                         ))
                     }
                 </div>
-                {/* {!document.getElementsByClassName('selectedSport') && document.getElementById('sports-select')?.firstChild.classList.add('selectedSport')} */}
                 {sports && (<div className="sports-info-bubble">
                     <h2>{classData[sports]['general_class']}</h2>
                     <p>{classData[sports]['description']}</p>
@@ -119,81 +118,10 @@ const Part3 = ({ receivePart3, step, race }) => {
 
             </div>
 
-            <img className={'white-arrow prev-3'} onClick={handleClickLeft} id="prev" src='https://i.imgur.com/oTediJN.png' />
-            <img className={'white-arrow next-3'} onClick={handleClickRight} id="next" src='https://i.imgur.com/UpFYkCd.png' />
+            <img alt="previous-option arrow" className={'white-arrow prev-3'} onClick={handleClickLeft} id="prev" src='https://i.imgur.com/oTediJN.png' />
+            <img alt="next-option arrow" className={'white-arrow next-3'} onClick={handleClickRight} id="next" src='https://i.imgur.com/UpFYkCd.png' />
             <div className='arrow-spacer'></div>
         </label >
-
-
-
-        {/* <div id='race-and-gender' style={{ display: 'block' }}>
-
-            <label htmlFor="gender-select" id='gender-select' className="form-label race-label" style={{ display: 'flex' }}>
-                <div>
-                    Gender Select
-                </div>
-                <div>
-                    <input onChange={() => setGender("Male")} type='radio' className="form-check-input " name="inlineRadioOptions" value="Male" id={`inlineRadio${1}`} />
-                    Male
-                </div>
-                <div>
-                    <input onChange={() => setGender("Female")} type='radio' className="form-check-input " name="inlineRadioOptions" value="Female" id={`inlineRadio${1}`} />
-                    Female
-                </div>
-                <label id='gender-error' htmlFor="gender-select"></label>
-            </label>
-
-            <label htmlFor="race-select" id='race-select' className="form-label" style={{ display: 'flex' }}>
-                <div className={`form-check form-check-inline race`} id={`${1}-card`} key={`${1}`}>
-
-
-                    <label onClick={handleClickPicture} id={'male-gender'} className="form-check-label gender-top" htmlFor={`inlineRadio${1}`} style={{ backgroundImage: `URL(${'https://i.imgur.com/2dtacUM.png'})` }}>
-                        <input type='radio' className="form-check-input" name="inlineRadioOptions" value="Male" id={`inlineRadio${1}`} />
-                    </label>
-
-
-                    <label onClick={handleClickPicture} id={'female-gender'} className="form-check-label gender-bottom" htmlFor={`inlineRadio${1}`} style={{ backgroundImage: `URL(${'https://i.imgur.com/IMv2C07.jpg'})` }}>
-                        <input type='radio' className="form-check-input" name="inlineRadioOptions" value="Female" id={`inlineRadio${1}`} />
-                    </label>
-
-                </div>
-                <img className={'white-arrow'} onClick={handleClickLeft} id="prev" src='https://i.imgur.com/oTediJN.png' />
-                <img className={'white-arrow'} onClick={handleClickRight} id="next" src='https://i.imgur.com/UpFYkCd.png' />
-                <div className='arrow-spacer'></div>
-                <label id='gender-error' htmlFor="gender-select"></label>
-                <button>Select Race and Gender</button>
-
-            </label>
-
-        </div> */}
-
-
-        {/* 
-            KEEP, former form structure
-            <select  name='sports' id='sports-select' className="form-control boot-data" onChange={e => setSports(e.target.value)} required>
-                <option>{null}</option>
-                {
-                    sportsArr.map(sport => (
-                        <option key={sport}>{sport}</option>
-                    ))
-                }
-            </select> 
-            */}
-
-        {/* temp disable  */}
-        {/* <label htmlFor="birthdate" className="form-label">Birthdate
-            <label id='birthdate-error' htmlFor="birthdate"></label>
-            <input
-                required
-                name='birthdate'
-                placeholder="Athlete's birthdate"
-                type='date'
-                className="form-control boot-data"
-
-                onChange={e => setBirthdate(e.target.value)}
-            />
-        </label> */}
-
 
     </div >)
 }
