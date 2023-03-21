@@ -134,13 +134,13 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-
-    bottom: 3rem;
+    /* border: 1px solid red; */
+    bottom: .25rem;
     width: 100%;
 }
 
 #about-scroll {
-    position: relative;
+    position: relative !important;
     bottom: 0.25rem;
     right: 0;
     padding-left: .25rem;
@@ -159,7 +159,7 @@
 
 #athletes .about-box .location {
     position: relative;
-    top: 3rem;
+    /* top: 3rem; */
 }
 
 .card-front #basic-info {
@@ -232,7 +232,7 @@
 
 /* About scroll */
 
-.vertical-scroll .ps__rail-y {
+#about-scroll.vertical-scroll .ps__rail-y {
     width: .25rem !important;
     scale: 90%;
     background-color: black !important;
@@ -245,11 +245,11 @@
 }
 
 
-.vertical-scroll .ps__thumb-y:hover {
+#about-scroll.vertical-scroll .ps__thumb-y:hover {
     cursor: pointer;
 }
 
-.vertical-scroll .ps__thumb-y {
+#about-scroll.vertical-scroll .ps__thumb-y {
     background-color: transparent !important;
     height: 1.5rem !important;
     width: 2.5rem !important;
@@ -269,7 +269,7 @@
 
 }
 
-.vertical-scroll .ps__rail-y::before {
+#about-scroll.vertical-scroll .ps__rail-y::before {
     content: '';
     background-image: url('https://i.imgur.com/oTediJN.png');
     transform: rotate(90deg);
@@ -283,7 +283,7 @@
     filter: invert() sepia(100%) drop-shadow(4px 1px 3px rgb(255, 143, 3)) drop-shadow(-4.25px -1px 3px rgb(255, 143, 3)) contrast(95%);
 }
 
-.vertical-scroll .ps__rail-y::after {
+#about-scroll.vertical-scroll .ps__rail-y::after {
     content: '';
     background-image: url("https://i.imgur.com/UpFYkCd.png");
     transform: rotate(90deg);

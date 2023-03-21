@@ -9,7 +9,7 @@
     margin: auto;
 }
 
-#athletes div {
+#athletes>div {
     /* todo THIS IS THE PART*/
     position: absolute;
     transition: transform 1s, left 1s, opacity 1s, z-index 0s;

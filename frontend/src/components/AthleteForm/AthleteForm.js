@@ -32,6 +32,7 @@ const AthleteForm = () => {
     // const [step, setStep] = useState(5); //todo temporary while styling
     const history = useHistory();
     const user = useSelector((state) => state.session.user)
+    const [isDisabled, setIsDisabled] = useState(false);
 
     useEffect(() => {
         bootSubmit();
@@ -74,6 +75,7 @@ const AthleteForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsDisabled(true);
         // const newAthlete = { user: user.id, name, birthdate, location, team, gender, sports, about, interests, avatar }
         const newAthlete = {
             "user": user.id,
@@ -92,12 +94,18 @@ const AthleteForm = () => {
         ///Idea: on submit, use route for AWS upload, get URL from response and setAvatar(URL), THEN dispatch to thunkCreateAthlete(newAthlete)
         setErrors([]);
         let response = await dispatch(thunkCreateAthlete(newAthlete));
-        if (response.user) history.push(`/profile`);
+        if (response.user) {
+            setIsDisabled(false);
+
+            history.push(`/profile`)
+        };
 
 
         console.log(response, 'response ')
         if (newAthlete !== response) {
-            setErrors(response)
+            setErrors(response);
+            setIsDisabled(false);
+
         } else {
 
         }
@@ -209,7 +217,7 @@ const AthleteForm = () => {
                     <div>
                         <button style={{ display: step > 2 ? "block" : "none" }} onClick={prev}>Previous</button>
                         <button className="btn btn-primary" type="submit" style={{ display: step < 5 ? "block" : "none" }} onClick={next}>Next</button>
-                        <button className="btn btn-primary" type='submit' style={{ display: step === 5 ? "block" : "none" }} onClick={bootSubmit} >Submit Athlete</button>
+                        <button className="btn btn-primary" type='submit' style={{ display: step === 5 ? "block" : "none" }} onClick={bootSubmit} disabled={isDisabled}>Submit Athlete</button>
                     </div>
                 </div>
 
