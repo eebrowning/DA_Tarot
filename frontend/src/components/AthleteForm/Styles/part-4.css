@@ -60,27 +60,31 @@
     top: 1.5rem;
     background-color: black;
     z-index: -1;
+
 }
 
 
 .outer-file-input {
-    width: fit-content;
-    max-width: 30rem;
-
+    /* width: fit-content; */
+    /* max-width: 30rem; */
 }
 
 .form-control.file-input {
     border: none;
     height: 1.9rem;
-    max-width: 80%;
+    /* max-width: 80%; */
+    width: 80%;
     position: relative;
     margin: auto;
     top: .05rem;
-    /* left: 2rem; */
+    left: 0rem;
     background-color: black;
     color: whitesmoke;
     border-radius: 0;
+    overflow: visible;
+
 }
+
 
 .form-control.file-input:focus {
     background-color: black;
@@ -94,8 +98,9 @@
     border: 1px solid whitesmoke;
     height: 1.98rem;
     width: 30vw;
-    max-width: 30rem;
+    /* max-width: 30rem; */
     position: absolute;
+
     margin: auto;
     top: 5.5rem;
     background: linear-gradient(to right, #e9ecef 30%, #000000 30%);
