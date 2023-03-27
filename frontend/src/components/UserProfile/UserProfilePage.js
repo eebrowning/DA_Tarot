@@ -61,7 +61,7 @@ function UserProfilePage() {
                             <p>{classData[profile.sports]['base_class']}</p>
                             <p>{profile.name}</p>
                         </div> */}
-                                <button className="delete-button" id={profile._id} onClick={handleDelete} >Delete Athlete </button>
+                                <button className="delete-button" id={profile._id} onClick={handleDelete} >Delete Character </button>
                             </div>
                         ))}
                     </div>
