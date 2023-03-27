@@ -36,6 +36,7 @@
     top: -7rem;
     left: 4.25rem;
     width: 20rem;
+    height: 5rem;
     color: black;
     background-color: #84817c;
     border: none;
@@ -47,7 +48,8 @@
     position: absolute;
     top: 0;
     left: 10rem;
-    width: 100%;
+    width: 20rem;
+    /* max-width: 20rem; */
     height: 100%;
     border: inherit;
     border-left: none;
