@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.a36d657f.css",
+    "main.js": "/static/js/main.fb7b1038.js",
+    "static/js/787.143d4fb5.chunk.js": "/static/js/787.143d4fb5.chunk.js",
+    "static/media/Inquisition.ttf": "/static/media/Inquisition.3a87d283bc741a6f5cb2.ttf",
+    "static/media/InquisitionThin.ttf": "/static/media/InquisitionThin.2957a22cde05c297e593.ttf",
+    "index.html": "/index.html",
+    "main.a36d657f.css.map": "/static/css/main.a36d657f.css.map",
+    "main.fb7b1038.js.map": "/static/js/main.fb7b1038.js.map",
+    "787.143d4fb5.chunk.js.map": "/static/js/787.143d4fb5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a36d657f.css",
+    "static/js/main.fb7b1038.js"
+  ]
+}
