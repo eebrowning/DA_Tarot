@@ -4,10 +4,10 @@ I was building a small app for practice, and had the idea to pivot from baseball
 
 TODO: a better README
 
-Tech Stack Overview
+# Tech Stack Overview
 This web application is built using a modern tech stack that includes both backend and frontend technologies. Here's a breakdown of the various technologies used:
 
-Backend
+## Backend
 Node.js / Express.js: Node.js is a powerful and efficient server-side JavaScript runtime that is used to build scalable and high-performance applications. Express.js is a popular web framework for Node.js that provides a simple and intuitive API for building web applications.
 
 AWS S3 uploads: Amazon S3 is a cloud-based storage service that provides a reliable and scalable way to store and retrieve data. In this application, S3 is used to upload and manage files such as images and other media.
@@ -16,7 +16,7 @@ Passport for auth: Passport is a popular authentication middleware for Node.js t
 
 MongoDB: MongoDB is a popular NoSQL database that is used to store and manage data in this application. It provides a flexible and scalable way to store and query data, and is widely used in modern web applications.
 
-Frontend
+## Frontend
 React.js: React is a popular frontend JavaScript library that is used to build dynamic and interactive user interfaces. It provides a component-based architecture that makes it easy to build and maintain complex UIs.
 
 Redux: Redux is a popular state management library for React that provides a predictable and centralized way to manage application state. It makes it easy to share data between different components and to handle complex data flows.
