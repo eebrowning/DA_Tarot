@@ -28,7 +28,7 @@ Overall, this tech stack provides a solid foundation for building modern and sca
 
 
 
-###Stretch Goals: Gamification
+### Stretch Goals: Gamification
 user interactivity, messages, friends, etc
 Rock-Paper-Scissors (Warrior-Mage-Rogue, Tarot-sham-bo?) w/ situational bonuses based on race or faction
 accounts can store experience for each of their cards/heroes.
