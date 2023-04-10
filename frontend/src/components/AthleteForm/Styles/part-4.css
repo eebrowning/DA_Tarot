@@ -53,7 +53,7 @@
     transform: skewX(22.5deg);
     border: 1px solid whitesmoke;
     height: 2rem;
-    width: 30vw;
+    width: 30cqw;
     max-width: 30rem;
     position: absolute;
     margin: auto;
@@ -72,17 +72,16 @@
 .form-control.file-input {
     border: none;
     height: 1.9rem;
-    /* max-width: 80%; */
-    width: 80%;
+    max-width: 25cqw;
+    /* width: 70%; */
     position: relative;
     margin: auto;
     top: .05rem;
-    left: 0rem;
+    left: -0.5rem;
     background-color: black;
     color: whitesmoke;
     border-radius: 0;
     overflow: visible;
-
 }
 
 
@@ -98,9 +97,9 @@
     border: 1px solid whitesmoke;
     height: 1.98rem;
     width: 30vw;
-    /* max-width: 30rem; */
+    max-width: 30rem;
     position: absolute;
-
+    left: 34cqw;
     margin: auto;
     top: 5.5rem;
     background: linear-gradient(to right, #e9ecef 30%, #000000 30%);
@@ -159,11 +158,13 @@
     }
 
     .form-control.file-input {
+
         position: relative;
         z-index: 1;
+        max-width: 50vw;
         width: 50vw;
-        top: .125rem;
-        left: 1rem;
+        top: .11rem;
+        left: .45rem;
         height: 1.8rem;
         border: none;
 
@@ -177,6 +178,7 @@
         width: 110%;
         height: 2rem;
         border: 2px solid whitesmoke;
+
         box-sizing: border-box;
     }
 
