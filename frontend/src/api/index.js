@@ -37,8 +37,8 @@ export const uploadImage = async payload => {
 }
 export const insertProfile = async payload => {
     try {
-        let res = await api.post(`/profiles`, payload)
         console.log(payload, 'balaaaaaah')
+        let res = await api.post(`/profiles`, payload)
         return res;
     }
     catch (error) {
@@ -62,8 +62,9 @@ export const deleteProfileById = id => api.delete(`profiles/${id}`)
 export const getAllUsers = () => api.get(`/users/`)
 
 export const login = async (payload) => {
+
+    console.log(payload, 'balaaaaaah')
     let res = await api.post(`/users/login`, payload)
-    // console.log(res, payload, 'balaaaaaah')
     return res;
     // api.post('/users/login', payload)
 }
