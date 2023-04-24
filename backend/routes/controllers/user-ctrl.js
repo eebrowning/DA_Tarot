@@ -11,7 +11,10 @@ loginUser = (req, res) => {
     User.findOne({ email })
         .then(user => {
             if (!user) {
-                return res.status(404).json({ email: 'This user does not exist' });
+                return res.json({
+                    error: 'Unregistered Email',
+                    status: 404
+                });
             }
             bcrypt.compare(password, user.password)
                 .then(isMatch => {
@@ -32,7 +35,17 @@ loginUser = (req, res) => {
                                 });
                             });
                     } else {
-                        return res.status(400).json({ password: 'Incorrect password' });
+                        // return res.status(400).json({ password: 'Incorrect password' });
+                        res.status = 400;
+                        // res.errors = {
+                        //     field: 'password',
+                        //     error: 'Incorrect password'
+                        // }
+                        return res.json({
+                            error: 'Incorrect password',
+                            status: 400
+                        });
+
                     }
                 })
 

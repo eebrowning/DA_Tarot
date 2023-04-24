@@ -16,21 +16,37 @@ function LoginFormPage() {
         <Redirect to="/" />
     );
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setErrors([]);
-        return dispatch(sessionActions.login({ credential, password }))
-            .catch(async (res) => {
-                const data = await res.json();
-                if (data && data.errors) setErrors(data.errors);
-            });
+        let res = await dispatch(sessionActions.login({ credential, password }))
+        // .catch(async (res) => {
+        //     const data = await res.json();
+        //     if (data && data.errors) setErrors(data.errors);
+        //     console.log(data, errors, 'blah')
+        // });
+
+        console.log(res)
+        if (!res.token) {
+            setErrors([res.error])
+            console.log(errors, 'errs in form')
+        }
+        else return res;
+
+        // return dispatch(sessionActions.login({ credential, password }))
+        //     .catch(async (res) => {
+        //         const data = await res.json();
+        //         if (data && data.errors) setErrors(data.errors);
+        //         console.log(data, errors, 'blah')
+        //     });
     }
 
     return (
         <span id={'login-box'}>
 
             <form id={'login-form'} onSubmit={handleSubmit}>
-                <ul>
+                <ul id='login-errors'>
+                    {console.log(errors, 'errors rendering')}
                     {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                 </ul>
                 <label>

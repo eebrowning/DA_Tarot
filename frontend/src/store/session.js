@@ -33,19 +33,23 @@ const getUsers = (users) => {
 
 //login thunk
 export const login = (user) => async (dispatch) => {
-    console.log('login thunk', user, ' signed in')
     const { credential, password } = user;
 
     let payload = { email: credential, password: password }
-    const response = await api.demo(payload)
-
+    const response = await api.login(payload)
     const data = await response.data;
-    // api.setAuthToken(data.token)
 
-    setAuthToken(data.token)
-    localStorage.setItem('jwtToken', data.token);
-    dispatch(setUser(data.user));
-    return response;
+    if (!data.status) {
+        setAuthToken(data.token)
+        localStorage.setItem('jwtToken', data.token);
+        dispatch(setUser(data.user));
+        return response;
+    } else {
+        console.log(response, 'err in login')
+        // return response.data
+        return data
+    }
+
 };
 
 export const demoLogin = () => async (dispatch) => {

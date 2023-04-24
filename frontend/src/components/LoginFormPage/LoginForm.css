@@ -27,3 +27,8 @@
     border: 1px solid grey;
     padding-bottom: 20px;
 }
+
+#login-errors {
+    color: red;
+    list-style: none;
+}

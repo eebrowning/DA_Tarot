@@ -24,6 +24,17 @@ const validateUser = [//pass as middleware with the correct fields
         .withMessage('Enter a valid password, min 6 characters'),
     handleValidationErrors
 ];
+const validateLogin = [//pass as middleware with the correct fields
+    check('email')
+        .exists({ checkFalsy: true })
+        .isEmail()
+        .withMessage('Please provide a valid email.'),
+    check('password')
+        .exists({ checkFalsy: true })
+        .isLength({ min: 6 })
+        .withMessage('Enter a valid password'),
+    handleValidationErrors
+];
 
 router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
     res.json({
@@ -35,7 +46,7 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
 })
 // router.get('/current', passport.authenticate('jwt', { session: false }), UserCtrl.currentUser);
 
-router.post('/login', UserCtrl.loginUser)
+router.post('/login', validateLogin, UserCtrl.loginUser)
 router.post('/register', validateUser, UserCtrl.createUser)
 router.get('/:id', UserCtrl.getUser);
 router.get('/', UserCtrl.getAllUsers);
